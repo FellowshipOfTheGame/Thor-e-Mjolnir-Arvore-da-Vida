@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ThorGame.Player
+namespace ThorGame.Player.HammerControls
 {
     public class PhysicsHammerController : MonoBehaviour
     {
