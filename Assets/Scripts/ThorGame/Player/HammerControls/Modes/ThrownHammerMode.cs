@@ -5,7 +5,9 @@ namespace ThorGame.Player.HammerControls.Modes
     [CreateAssetMenu(menuName = "HammerModes/Thrown", fileName = "ThrownHammerMode", order = 0)]
     public class ThrownHammerMode : HammerMode
     {
-        public override void Begin(Hammer hammer)
+        public override Hammer.Attachment AttachmentMode => Hammer.Attachment.Free;
+        
+        protected override void OnBegin(Hammer hammer)
         {
         }
 

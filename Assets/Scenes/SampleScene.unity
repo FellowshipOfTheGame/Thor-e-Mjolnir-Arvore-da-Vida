@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 20078607}
   - component: {fileID: 20078606}
   - component: {fileID: 20078608}
-  - component: {fileID: 20078605}
+  - component: {fileID: 20078610}
   - component: {fileID: 20078609}
   m_Layer: 0
   m_Name: HammerPole
@@ -160,30 +160,6 @@ Transform:
   m_Father: {fileID: 2119945530}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!233 &20078605
-HingeJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20078603}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1325027036}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 1.57}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 1
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 0
 --- !u!50 &20078606
 Rigidbody2D:
   serializedVersion: 4
@@ -270,10 +246,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strap: {fileID: 1325027033}
-  hammerStrapJoint: {fileID: 20078605}
+  hammerStrapJoint: {fileID: 20078610}
   hammerFixedJoint: {fileID: 20078609}
   _strapMode: {fileID: 11400000, guid: b6868797fd8f325499ac2531f41b82c7, type: 2}
   _straplessMode: {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
+  _thrownMode: {fileID: 11400000, guid: 300c9483b376b6a44bfe613175103416, type: 2}
 --- !u!255 &20078609
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -290,6 +267,24 @@ FixedJoint2D:
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 2.5, y: 0.15}
+  m_DampingRatio: 0
+  m_Frequency: 0
+--- !u!255 &20078610
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20078603}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 1325027036}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 1.57}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &434426607
@@ -555,7 +550,6 @@ GameObject:
   - component: {fileID: 692026385}
   - component: {fileID: 692026389}
   - component: {fileID: 692026388}
-  - component: {fileID: 692026387}
   - component: {fileID: 692026386}
   m_Layer: 0
   m_Name: HammerHead
@@ -597,25 +591,6 @@ FixedJoint2D:
   m_ConnectedAnchor: {x: 0, y: 0.99999994}
   m_DampingRatio: 0
   m_Frequency: 0
---- !u!232 &692026387
-DistanceJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692026384}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 20078606}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 1}
-  m_AutoConfigureDistance: 1
-  m_Distance: 0.005
-  m_MaxDistanceOnly: 0
 --- !u!50 &692026388
 Rigidbody2D:
   serializedVersion: 4
@@ -628,10 +603,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -886,11 +861,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2119945534}
-  hinge: {fileID: 2124760671}
-  rb: {fileID: 2124760672}
-  throwKey: 116
   clampOrigin: {fileID: 1020029453}
-  maxRange: 7
+  maxRange: 6
 --- !u!1 &1634476156
 GameObject:
   m_ObjectHideFlags: 0

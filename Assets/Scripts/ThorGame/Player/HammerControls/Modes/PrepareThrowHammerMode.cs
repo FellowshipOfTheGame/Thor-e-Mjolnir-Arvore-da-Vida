@@ -5,14 +5,14 @@ namespace ThorGame.Player.HammerControls.Modes
     [CreateAssetMenu(menuName = "HammerModes/PrepareThrow", fileName = "PrepareThrowHammerMode", order = 0)]
     public class PrepareThrowHammerMode : HammerMode
     {
-        public override void Begin(Hammer hammer)
+        public override Hammer.Attachment AttachmentMode => Hammer.Attachment.Strap;
+        
+        protected override void OnBegin(Hammer hammer)
         {
-            hammer.SetStrap(true);
         }
 
         public override void End(Hammer hammer)
         {
-            hammer.SetStrap(false);
         }
 
         public override void Tick(Hammer hammer)

@@ -1,24 +1,81 @@
-﻿using ThorGame.Player.HammerControls.Modes;
+﻿using System;
+using ThorGame.Player.HammerControls.Modes;
 using UnityEngine;
 
 namespace ThorGame.Player.HammerControls
 {
     public class Hammer : MonoBehaviour
     {
+        public enum Attachment
+        {
+            Held,
+            Strap,
+            Free            
+        }
+        
         [SerializeField] private GameObject strap;
         [SerializeField] private AnchoredJoint2D hammerStrapJoint;
         [SerializeField] private AnchoredJoint2D hammerFixedJoint;
         
         [SerializeField]
-        private HammerMode _strapMode, _straplessMode;
+        private HammerMode _strapMode, _straplessMode, _thrownMode;
         private HammerMode _currentMode;
         
         public Rigidbody2D Rigidbody { get; private set; }
 
+        private Attachment _attachment;
+        public Attachment AttachmentMode
+        {
+            get => _attachment;
+            set
+            {
+                _attachment = value;
+                switch (_attachment)
+                {
+                    case Attachment.Held:
+                    {
+                        strap.SetActive(false);
+                        hammerStrapJoint.enabled = false;
+                        hammerFixedJoint.enabled = true;
+                        
+                        Transform strapTransform = hammerStrapJoint.transform;
+                        Transform forearm = transform.parent;
+                        Vector2 strapPos = strapTransform.position;
+                        transform.position = strapPos;
+                        transform.up = forearm.up;
+                        break;
+                    }
+                    case Attachment.Strap:
+                    {
+                        strap.SetActive(true);
+                        hammerStrapJoint.enabled = true;
+                        hammerFixedJoint.enabled = false;
+                        
+                        Transform strapTransform = hammerStrapJoint.transform;
+                        Vector2 strapPos = strapTransform.position;
+                        Vector2 strapDir = strapTransform.up;
+                        Vector2 strapEnd = strapPos + strapDir * strapTransform.localScale.y;
+                        transform.position = strapEnd;
+                        transform.up = strapDir;
+                        break;
+                    }
+                    case Attachment.Free:
+                    {
+                        strap.SetActive(false);
+                        hammerStrapJoint.enabled = false;
+                        hammerFixedJoint.enabled = false;
+                        break;
+                    }
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
         private void Awake()
         {
             Rigidbody = GetComponent<Rigidbody2D>();
-            SetStrap(false);
+            AttachmentMode = Attachment.Held;
             
             //_hammerMode = Instantiate(_hammerMode);
             _strapMode = Instantiate(_strapMode);
@@ -39,6 +96,10 @@ namespace ThorGame.Player.HammerControls
             {
                 StartMode(_currentMode == _strapMode ? _straplessMode : _strapMode);
             }
+            else if (Input.GetKeyDown(KeyCode.T))
+            {
+                StartMode(_thrownMode);
+            }
         }
 
         private void StartMode(HammerMode mode)
@@ -47,31 +108,13 @@ namespace ThorGame.Player.HammerControls
             _currentMode = mode;
             mode.Begin(this);
         }
-        public void SetStrap(bool active)
+
+        private void OnTriggerEnter2D(Collider2D col)
         {
-            strap.SetActive(active);
-            
-            var strapTransform = hammerStrapJoint.transform;
-            if (active)
+            if (col.TryGetComponent(out IHittable hittable))
             {
-                Vector2 strapPos = strapTransform.position;
-                Vector2 strapDir = strapTransform.up;
-                Vector2 strapEnd = strapPos + strapDir * strapTransform.localScale.y;
-                //hammerStrapJoint.connectedAnchor = strapEnd - strapPos;
-                transform.position = strapEnd;
-                transform.up = strapDir;
+                _currentMode.OnCollide(this, hittable);
             }
-            else
-            {
-                Transform forearm = transform.parent;
-                Vector2 strapPos = strapTransform.position;
-                //hammerFixedJoint.connectedAnchor  = strapPos - (Vector2)forearm.position;
-                transform.position = strapPos;
-                transform.up = forearm.up;
-            }
-            
-            hammerStrapJoint.enabled = active;
-            hammerFixedJoint.enabled = !active;
         }
     }
 }

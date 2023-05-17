@@ -5,9 +5,6 @@ namespace ThorGame.Player.HammerControls
     public class PhysicsHammerController : MonoBehaviour
     {
         [SerializeField] private TargetJoint2D target;
-        [SerializeField] private Joint2D hinge;
-        [SerializeField] private Rigidbody2D rb;
-        [SerializeField] private KeyCode throwKey;
 
         [Header("Range")] 
         [SerializeField] private Transform clampOrigin;
@@ -30,15 +27,7 @@ namespace ThorGame.Player.HammerControls
         
         private void Update()
         {
-            if (!hinge.enabled) return;
-
             target.target = CalcTargetPos();
-            if (Input.GetKeyDown(throwKey))
-            {
-                hinge.enabled = false;
-                target.enabled = false;
-                rb.transform.parent = null;
-            }
         }
     }
 }
