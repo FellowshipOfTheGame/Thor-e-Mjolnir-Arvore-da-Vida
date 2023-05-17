@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 20078607}
   - component: {fileID: 20078606}
   - component: {fileID: 20078608}
+  - component: {fileID: 20078611}
   - component: {fileID: 20078610}
   - component: {fileID: 20078609}
   m_Layer: 0
@@ -245,12 +246,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d3fde8d8f24e1f88cccff50c510e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ModeSetTree>k__BackingField: {fileID: 0}
+  unlockedModes:
+  - {fileID: 11400000, guid: b6868797fd8f325499ac2531f41b82c7, type: 2}
+  - {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
+  - {fileID: 11400000, guid: 300c9483b376b6a44bfe613175103416, type: 2}
   strap: {fileID: 1325027033}
   hammerStrapJoint: {fileID: 20078610}
   hammerFixedJoint: {fileID: 20078609}
-  _strapMode: {fileID: 11400000, guid: b6868797fd8f325499ac2531f41b82c7, type: 2}
-  _straplessMode: {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
-  _thrownMode: {fileID: 11400000, guid: 300c9483b376b6a44bfe613175103416, type: 2}
 --- !u!255 &20078609
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -287,6 +290,23 @@ FixedJoint2D:
   m_ConnectedAnchor: {x: 0, y: 1.57}
   m_DampingRatio: 0
   m_Frequency: 0
+--- !u!114 &20078611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20078603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3c78ab42b841b6aac5dece8eec3d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 0}
+  data: {fileID: 20078608}
+  slam: {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
+  prepare: {fileID: 11400000, guid: b6868797fd8f325499ac2531f41b82c7, type: 2}
+  thrown: {fileID: 11400000, guid: 300c9483b376b6a44bfe613175103416, type: 2}
 --- !u!1 &434426607
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +827,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1486567149}
-  - component: {fileID: 1486567148}
   - component: {fileID: 1486567150}
   m_Layer: 0
   m_Name: HammerController
@@ -816,23 +835,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1486567148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486567147}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d440319ea1e0408e8b0e21585c581465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  torqueAccumulation: 10
-  torqueLoss: 4
-  torqueMax: 5
-  mouseXAxis: Mouse X
-  mouseYAxis: Mouse Y
 --- !u!4 &1486567149
 Transform:
   m_ObjectHideFlags: 0

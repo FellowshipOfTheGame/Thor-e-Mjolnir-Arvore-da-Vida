@@ -12,7 +12,6 @@ namespace ThorGame.Player.HammerControls.Modes
             OnBegin(hammer);
         }
         protected abstract void OnBegin(Hammer hammer);
-        
         public abstract void End(Hammer hammer);
         public abstract void Tick(Hammer hammer);
         

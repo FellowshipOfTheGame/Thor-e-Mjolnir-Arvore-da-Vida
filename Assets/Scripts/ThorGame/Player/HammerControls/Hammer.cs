@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using ThorGame.Player.HammerControls.Modes;
+using ThorGame.Player.HammerControls.ModeSet;
 using UnityEngine;
 
 namespace ThorGame.Player.HammerControls
@@ -13,13 +15,12 @@ namespace ThorGame.Player.HammerControls
             Free            
         }
         
+        [SerializeField] private HammerMode[] unlockedModes;
+        public bool IsUnlocked(HammerMode mode) => unlockedModes.Contains(mode);
+        
         [SerializeField] private GameObject strap;
         [SerializeField] private AnchoredJoint2D hammerStrapJoint;
         [SerializeField] private AnchoredJoint2D hammerFixedJoint;
-        
-        [SerializeField]
-        private HammerMode _strapMode, _straplessMode, _thrownMode;
-        private HammerMode _currentMode;
         
         public Rigidbody2D Rigidbody { get; private set; }
 
@@ -76,44 +77,18 @@ namespace ThorGame.Player.HammerControls
         {
             Rigidbody = GetComponent<Rigidbody2D>();
             AttachmentMode = Attachment.Held;
-            
-            //_hammerMode = Instantiate(_hammerMode);
-            _strapMode = Instantiate(_strapMode);
-            _straplessMode = Instantiate(_straplessMode);
-            
-            //_hammerMode.Begin(this);
-            StartMode(_straplessMode);
         }
 
         private void Update()
         {
-            if (_currentMode)
-            {
-                _currentMode.Tick(this);
-            }
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                StartMode(_currentMode == _strapMode ? _straplessMode : _strapMode);
-            }
-            else if (Input.GetKeyDown(KeyCode.T))
-            {
-                StartMode(_thrownMode);
-            }
-        }
-
-        private void StartMode(HammerMode mode)
-        {
-            if (_currentMode) _currentMode.End(this);
-            _currentMode = mode;
-            mode.Begin(this);
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.TryGetComponent(out IHittable hittable))
             {
-                _currentMode.OnCollide(this, hittable);
+                //ModeSetTree.
+                //_currentMode.OnCollide(this, hittable);
             }
         }
     }
