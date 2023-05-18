@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ThorGame.Player.HammerControls.ModeSet
 {
-    public class HammerModeSetTreeRunner : TreeRunner<HammerModeSetTree, Hammer, HammerModeNode>
+    public class HammerModeSetTreeRunner : TreeRunner<HammerModeSetTree, Hammer, HammerModeNode, HammerModeNode>
     {
         [SerializeField] private SlamHammerMode slam;
         [SerializeField] private PrepareThrowHammerMode prepare;

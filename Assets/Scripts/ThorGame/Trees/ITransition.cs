@@ -1,21 +1,19 @@
 ﻿namespace ThorGame.Trees
 {
-    public interface ITransition<in TData, out TReturn>
+    public interface ITransition
     {
-        INode<TData, TReturn> From { get; }
-        INode<TData, TReturn> To { get; }
-
-        bool Condition(TData data);
+        INode From { get; }
+        INode To { get; }
     }
 
-    public interface ITypedTransition<in TData, out TReturn, out TFrom, out TTo> : ITransition<TData, TReturn> 
-        where TFrom: INode<TData, TReturn>
-        where TTo: INode<TData, TReturn>
+    public interface ITypedTransition<in TData, out TReturn, out TFrom, out TTo> : ITransition 
+        where TFrom: ITypedNode<TData, TReturn, TFrom>
+        where TTo: ITypedNode<TData, TReturn, TTo>
     {
         new TFrom From { get; }
-        INode<TData, TReturn> ITransition<TData, TReturn>.From => From;
+        INode ITransition.From => From;
         
         new TTo To { get; }
-        INode<TData, TReturn> ITransition<TData, TReturn>.To => To;
+        INode ITransition.To => To;
     }
 }

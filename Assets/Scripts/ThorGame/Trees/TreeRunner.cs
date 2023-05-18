@@ -2,7 +2,9 @@
 
 namespace ThorGame.Trees
 {
-    public abstract class TreeRunner<TTree, TData, TReturn> : MonoBehaviour where TTree: ITree<TData, TReturn>
+    public abstract class TreeRunner<TTree, TData, TReturn, TNode> : MonoBehaviour 
+        where TTree: ITypedTree<TNode, TData, TReturn>
+        where TNode: ITypedNode<TData, TReturn, TNode>
     {
         [SerializeField] protected TTree tree;
         [SerializeField] protected TData data;

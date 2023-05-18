@@ -2,21 +2,24 @@
 
 namespace ThorGame.Trees
 {
-    public interface ITree<in TData, out TReturn>
+    public interface ITree
     {
-        INode<TData, TReturn> Root { get; }
-        IEnumerable<INode<TData, TReturn>> AllNodes { get; }
+        INode Root { get; }
+        IEnumerable<INode> AllNodes { get; }
 
-        void Tick(TData data) => Root.Tick(data);
+        void Tick(object data);
     }
     
-    public interface ITypedTree<out TNode, in TData, out TReturn> : ITree<TData, TReturn> 
-        where TNode: INode<TData, TReturn>
+    public interface ITypedTree<out TNode, in TData, out TReturn> : ITree 
+        where TNode: INode
     {
         new TNode Root { get; }
-        INode<TData, TReturn> ITree<TData, TReturn>.Root => Root;
+        INode ITree.Root => Root;
         
         new IEnumerable<TNode> AllNodes { get; }
-        IEnumerable<INode<TData, TReturn>> ITree<TData, TReturn>.AllNodes => (IEnumerable<INode<TData, TReturn>>)AllNodes;
+        IEnumerable<INode> ITree.AllNodes => (IEnumerable<INode>)AllNodes;
+
+        void Tick(TData data);
+        void ITree.Tick(object data) => Tick((TData)data);
     }
 }
