@@ -246,7 +246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d3fde8d8f24e1f88cccff50c510e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ModeSetTree>k__BackingField: {fileID: 0}
   unlockedModes:
   - {fileID: 11400000, guid: b6868797fd8f325499ac2531f41b82c7, type: 2}
   - {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
@@ -303,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tree: {fileID: 0}
-  data: {fileID: 20078608}
+  hammer: {fileID: 20078608}
   slam: {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
   prepare: {fileID: 11400000, guid: b6868797fd8f325499ac2531f41b82c7, type: 2}
   thrown: {fileID: 11400000, guid: 300c9483b376b6a44bfe613175103416, type: 2}

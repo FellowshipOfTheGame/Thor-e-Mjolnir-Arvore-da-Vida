@@ -1,18 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ThorGame.Player.HammerControls.Modes;
+using ThorGame.Player.HammerControls.ModeSet.Transitions;
 using ThorGame.Trees;
 using UnityEngine;
 
 namespace ThorGame.Player.HammerControls.ModeSet
 {
-    public class HammerModeNode : ScriptableObject, ITypedNode<Hammer, HammerModeNode, HammerModeNode>, ICloneable<HammerModeNode>
+    public class HammerModeNode : TypedNode<HammerModeNode, HammerModeNodeTransition>
     {
         [SerializeField] private List<HammerMode> modes = new();
-        [SerializeField] private List<HammerModeNodeTransition> transitions = new();
 
-        public IEnumerable<ITypedTransition<Hammer, HammerModeNode, HammerModeNode, HammerModeNode>> Transitions =>
-            (IEnumerable<ITypedTransition<Hammer, HammerModeNode, HammerModeNode, HammerModeNode>>)transitions;
+        public override HammerModeNode Clone()
+        {
+            var clone = base.Clone();
+            clone.modes = new List<HammerMode>(modes);
+            return clone;
+        }
 
         public HammerMode ApplicableMode(Hammer data) => modes.FirstOrDefault(data.IsUnlocked);
 
@@ -25,7 +29,7 @@ namespace ThorGame.Player.HammerControls.ModeSet
         
         public HammerModeNode Tick(Hammer data)
         {
-            foreach (var transition in transitions)
+            foreach (var transition in Connections)
             {
                 if (transition.Condition(data))
                 {
@@ -43,11 +47,6 @@ namespace ThorGame.Player.HammerControls.ModeSet
             _currentMode = null;
         }
 
-        public HammerModeNode Clone()
-        {
-            return Instantiate(this);
-        }
-        
         //TODO DEBUG ERA ARRAY PASSEI PRA LISTA
         public static HammerModeNode DEBUG_GETINSTANCE(HammerMode mode)
         {
@@ -57,7 +56,10 @@ namespace ThorGame.Player.HammerControls.ModeSet
         }
         public void DEBUG_ADDTRANS(HammerModeNodeTransition trans)
         {
-            transitions.Add(trans);
+            connections.Add(trans);
         }
+
+        public override ConnectionCount InputConnection => ConnectionCount.Multi;
+        public override ConnectionCount OutputConnection => ConnectionCount.Multi;
     }
 }

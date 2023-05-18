@@ -1,19 +1,29 @@
 ﻿using ThorGame.Player.HammerControls.Modes;
-using ThorGame.Trees;
 using UnityEngine;
 
 namespace ThorGame.Player.HammerControls.ModeSet
 {
-    public class HammerModeSetTreeRunner : TreeRunner<HammerModeSetTree, Hammer, HammerModeNode, HammerModeNode>
+    public class HammerModeSetTreeRunner : MonoBehaviour
     {
+        [SerializeField] private HammerModeSetTree tree;
+        [SerializeField] private Hammer hammer;
+        
+        //TODO DEBUG
         [SerializeField] private SlamHammerMode slam;
         [SerializeField] private PrepareThrowHammerMode prepare;
         [SerializeField] private ThrownHammerMode thrown;
         
-        protected override void Awake()
+        private void Awake()
         {
+            //TODO DEBUG
             tree = HammerModeSetTree.DEBUG_INSTANCE(slam, prepare, thrown);
-            base.Awake();
+
+            tree = tree.Clone();
+        }
+
+        private void Update()
+        {
+            tree.Tick(hammer);
         }
     }
 }

@@ -1,26 +1,20 @@
-﻿using System.Collections.Generic;
-using ThorGame.Player.HammerControls.Modes;
+﻿using ThorGame.Player.HammerControls.Modes;
+using ThorGame.Player.HammerControls.ModeSet.Transitions;
 using ThorGame.Trees;
 using UnityEngine;
 
 namespace ThorGame.Player.HammerControls.ModeSet
 {
     [CreateAssetMenu(fileName = "HammerModeSetTree", menuName = "HammerModes/Set", order = 0)]
-    public class HammerModeSetTree : ScriptableObject, ICloneable<HammerModeSetTree>, ITypedTree<HammerModeNode, Hammer, HammerModeNode>
+    public class HammerModeSetTree : TypedTree<HammerModeSetTree, HammerModeNode, HammerModeNodeTransition>
     {
-        [HideInInspector] [SerializeField] private HammerModeNode rootNode;
-        [SerializeField] private List<HammerModeNode> allNodes = new();
-        
-        public HammerModeNode Root => rootNode;
-        public IEnumerable<HammerModeNode> AllNodes => allNodes;
-
         [SerializeField]
         private HammerModeNode _currentNode;
         public void Tick(Hammer data)
         {
             if (!_currentNode)
             {
-                StartNode(data, rootNode);
+                StartNode(data, root);
             }
             
             var newNode = _currentNode.Tick(data);
@@ -34,14 +28,6 @@ namespace ThorGame.Player.HammerControls.ModeSet
             _currentNode.Begin(data);
         }
 
-        public HammerModeSetTree Clone()
-        {
-            var clone = Instantiate(this);
-            clone.allNodes = allNodes.ConvertAll(n => n.Clone());
-            clone.rootNode = rootNode ? clone.allNodes[allNodes.IndexOf(rootNode)] : null;
-            return clone;
-        }
-        
         //TODO DEBUG
         public static HammerModeSetTree DEBUG_INSTANCE(SlamHammerMode slam, PrepareThrowHammerMode prepare, ThrownHammerMode thrown)
         {
@@ -50,7 +36,7 @@ namespace ThorGame.Player.HammerControls.ModeSet
             var heldNode = HammerModeNode.DEBUG_GETINSTANCE(slam);
             var prepNode = HammerModeNode.DEBUG_GETINSTANCE(prepare);
             var throNode = HammerModeNode.DEBUG_GETINSTANCE(thrown);
-            
+
             heldNode.DEBUG_ADDTRANS(HammerModeKeyTransition.DEBUG_INSTANCE(heldNode, prepNode, KeyCode.R));
             heldNode.DEBUG_ADDTRANS(HammerModeKeyTransition.DEBUG_INSTANCE(heldNode, throNode, KeyCode.T));
             
@@ -61,7 +47,7 @@ namespace ThorGame.Player.HammerControls.ModeSet
             {
                 heldNode, prepNode, throNode
             });
-            instance.rootNode = heldNode;
+            instance.root = heldNode;
 
             return instance;
         }
