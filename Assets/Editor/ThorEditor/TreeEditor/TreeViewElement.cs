@@ -192,10 +192,19 @@ namespace ThorEditor.TreeEditor
         {
             NodeView nodeView = new NodeView(node);
             AddElement(nodeView);
-            nodeView.OnNodeSelected += OnNodeSelected; 
+            nodeView.OnNodeSelected += OnNodeSelected;
+            nodeView.MakeRoot += MakeRoot;
             return nodeView;
         }
 
+        private void MakeRoot(INode node)
+        {
+            var previousRoot = tree.GetRoot();
+            tree.MakeRoot(node);
+            OnObjectEdited((Object)previousRoot);
+            OnObjectEdited((Object)node);
+        }
+        
         public void OnObjectEdited(Object obj)
         {
             if (obj is INode node)

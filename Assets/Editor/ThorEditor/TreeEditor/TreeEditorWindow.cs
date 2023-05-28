@@ -88,7 +88,8 @@ namespace ThorEditor.TreeEditor
 
         private void OnConnectionSelectionChange(IEnumerable<IConnection> connections)
         {
-            _inspectorView.SetSelection(connections.OfType<Object>());
+            if (connections == null) _inspectorView.ClearSelection();
+            else _inspectorView.SetSelection(connections.OfType<Object>());
         }
     }
 }
