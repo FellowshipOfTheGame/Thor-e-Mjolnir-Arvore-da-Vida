@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using ThorGame.Trees;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
@@ -9,7 +10,7 @@ using UnityEngine.UIElements;
 
 namespace ThorEditor.TreeEditor
 {
-    /*public class TreeViewElement : GraphView
+    public class TreeViewElement : GraphView
     {
         public new class UxmlFactory : UxmlFactory<TreeViewElement, UxmlTraits>{}
 
@@ -25,7 +26,7 @@ namespace ThorEditor.TreeEditor
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
             
-            var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/TreeEditorWindow.uss");
+            var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/UI/TreeEditorWindow.uss");
             styleSheets.Add(styleSheet);
         }
 
@@ -44,16 +45,16 @@ namespace ThorEditor.TreeEditor
                 return;
             }
             
-            TreeEditorUtility.EnsureTreeHasRoot(tree);
+            //TreeEditorUtility.EnsureTreeHasRoot(tree);
             foreach (var node in tree.AllNodes)
             {
                 CreateNodeView(node);
             }
-            //After creating all nodes, we can create edges
+            //Cria as conexões apenas depois de criar todos os nós
             foreach (var node in tree.AllNodes)
             {
                 NodeView parentView = FindNodeView(node);
-                foreach (var child in TreeEditorUtility.GetChildren(node))
+                foreach (var child in node.GetChildren())
                 {
                     NodeView childView = FindNodeView(child);
                     Edge edge = parentView.output.ConnectTo(childView.input);
@@ -85,7 +86,7 @@ namespace ThorEditor.TreeEditor
                     {
                         if (edge.output.node is NodeView parentView && edge.input.node is NodeView childView)
                         {
-                            TreeEditorUtility.RemoveChild(parentView.node, childView.node);
+                            //parentView.node.RemoveChild(childView.node);
                         }
                     }
                 }
@@ -97,7 +98,7 @@ namespace ThorEditor.TreeEditor
                 {
                     if (edge.output.node is NodeView parentView && edge.input.node is NodeView childView)
                     {
-                        BehaviorTreeEditorUtility.AddChild(parentView.node, childView.node);    
+                        //parentView.node.AddChild(childView.node);    
                     }
                 }
             }
@@ -105,27 +106,73 @@ namespace ThorEditor.TreeEditor
             return graphViewChange;
         }
 
+
+        
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
-            Vector2 position = viewTransform.matrix.inverse.MultiplyPoint(evt.localMousePosition);
-            void AppendActionsForBaseType(Type baseType)
+            var baseType = tree.NodeType();
+            var types = TypeCache.GetTypesDerivedFrom(baseType);
+            void RecursiveTypeIteration(Type type, Action<Type> preProcess, Action<Type> postProcess)
             {
-                evt.menu.AppendSeparator();
-                var types = TypeCache.GetTypesDerivedFrom(baseType).Where(t => !t.IsAbstract);
-                foreach (var type in types)
+                preProcess(type);
+                foreach (var child in types.Where(t => t.BaseType == type))
                 {
-                    evt.menu.AppendAction($"[{baseType.Name}] {type.Name}", 
-                        a =>
-                        {
-                            var nodeView = CreateNode(type);
-                            nodeView.style.left = position.x;
-                            nodeView.style.top = position.y;
-                        });
+                    RecursiveTypeIteration(child, preProcess, postProcess);
                 }
+                postProcess(type);
             }
-            AppendActionsForBaseType(typeof(CompositeNode));
-            AppendActionsForBaseType(typeof(DecoratorNode));
-            AppendActionsForBaseType(typeof(LeafNode));
+            
+            Vector2 position = viewTransform.matrix.inverse.MultiplyPoint(evt.localMousePosition);
+            
+            StringBuilder subPath = new();
+            RecursiveTypeIteration(baseType,
+                preProcess: type =>
+                {
+                    if (type.IsAbstract)
+                    {
+                        subPath.Append(type.Name + '/');
+                        evt.menu.AppendSeparator(subPath.ToString());
+                    }
+                    else
+                    {
+                        evt.menu.AppendAction($"{type.Name}",
+                            a =>
+                            {
+                                var nodeView = CreateNode(type);
+                                nodeView.style.left = position.x;
+                                nodeView.style.top = position.y;
+                                if (tree.GetRoot() == null) tree.MakeRoot(nodeView.node);
+                            });
+                    }
+                },
+                postProcess: type =>
+                {
+                    if (type.IsAbstract)
+                    {
+                        int length = type.Name.Length + 1;
+                        subPath.Remove(subPath.Length - length, length);
+                    }
+                }
+            );
+
+            /*string subPath = "";
+            StringBuilder sb = new();
+            foreach (var type in types)
+            {
+                if (type.IsAbstract)
+                {
+                    subPath += type.Name + '/';
+                    evt.menu.AppendSeparator(subPath);
+                }
+                
+                evt.menu.AppendAction($"[{baseType.Name}] {type.Name}", 
+                    a =>
+                    {
+                        var nodeView = CreateNode(type);
+                        nodeView.style.left = position.x;
+                        nodeView.style.top = position.y;
+                    });
+            }*/
         }
 
         private NodeView CreateNode(System.Type type)
@@ -141,5 +188,5 @@ namespace ThorEditor.TreeEditor
             nodeView.OnNodeSelected = OnNodeSelected; 
             return nodeView;
         }
-    }*/
+    }
 }

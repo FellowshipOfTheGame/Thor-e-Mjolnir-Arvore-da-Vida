@@ -1,5 +1,6 @@
-﻿using ThorEditor.UIElements;
-using ThorGame.Player.HammerControls.ModeSet;
+﻿using System.Collections.Generic;
+using System.Linq;
+using ThorEditor.UIElements;
 using ThorGame.Trees;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -8,31 +9,23 @@ using UnityEngine.UIElements;
 
 namespace ThorEditor.TreeEditor
 {
-    public class TreeEditorWindowWrapper : EditorWindow
+    public class TreeEditorWindow : EditorWindow
     {
-        
-    }
-    
-    public class TreeEditorWindow<TTree, TNode, TConnection> : EditorWindow
-        where TTree : TypedTree<TTree, TNode, TConnection>
-        where TNode : TypedNode<TNode, TConnection>
-        where TConnection : TypedConnection<TNode, TConnection> 
-    {
-        /*[MenuItem("Window/Hammer Mode Set")]
+        [MenuItem("Window/Tree Editor")]
         private static void ShowWindow()
         {
             CreateWindow();
         }
-        private static TreeEditorWindow<TTree, TNode, TConnection> CreateWindow()
+        private static TreeEditorWindow CreateWindow()
         {
-            var window = GetWindow<TreeEditorWindow<TTree, TNode, TConnection>>();
-            window.titleContent = new GUIContent("Hammer Mode Set Editor");
+            var window = GetWindow<TreeEditorWindow>();
+            window.titleContent = new GUIContent("Tree Editor");
             window.Show();
             return window;
         }
 
         private TreeViewElement _treeView;
-        private InspectorView _inspectorView;
+        private ObjectInspectorView _inspectorView;
         private ObjectField _treeSelector;
         public void CreateGUI()
         {
@@ -40,29 +33,29 @@ namespace ThorEditor.TreeEditor
             VisualElement root = rootVisualElement;
             
             // Import UXML
-            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editor/TreeEditorWindow.uxml");
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editor/UI/TreeEditorWindow.uxml");
             visualTree.CloneTree(root);
 
             // A stylesheet can be added to a VisualElement.
             // The style will be applied to the VisualElement and all of its children.
-            var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/TreeEditorWindow.uss");
+            var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/UI/TreeEditorWindow.uss");
             root.styleSheets.Add(styleSheet);
 
             _treeView = root.Q<TreeViewElement>();
-            _inspectorView = root.Q<InspectorView>();
+            _inspectorView = root.Q<ObjectInspectorView>();
 
             _treeSelector = root.Q<ObjectField>();
-            _treeSelector.objectType = typeof(Tree);
-            _treeSelector.RegisterValueChangedCallback(e => SelectTree(e.newValue as Tree));
+            _treeSelector.objectType = typeof(ITree);
+            _treeSelector.RegisterValueChangedCallback(e => SelectTree(e.newValue as ITree));
 
             _treeView.OnNodeSelected += OnNodeSelectionChange;
         }
 
-        private void SelectTree(Tree tree)
+        private void SelectTree(ITree tree)
         {
-            if (_treeSelector.value != tree)
+            if (_treeSelector.value != (Object)tree)
             {
-                _treeSelector.SetValueWithoutNotify(tree);
+                _treeSelector.SetValueWithoutNotify((Object)tree);
             }
             _treeView.PopulateView(tree);
         }
@@ -71,7 +64,7 @@ namespace ThorEditor.TreeEditor
         [UnityEditor.Callbacks.OnOpenAsset]
         private static bool OpenEditorWindow(int instanceID, int line)
         {
-            if (EditorUtility.InstanceIDToObject(instanceID) is not Tree tree)
+            if (EditorUtility.InstanceIDToObject(instanceID) is not ITree tree)
             {
                 return false;
             }
@@ -80,9 +73,14 @@ namespace ThorEditor.TreeEditor
             return true;
         }
 
-        private void OnNodeSelectionChange(TypedNode node)
+        private void OnNodeSelectionChange(INode node)
         {
-            _inspectorView.UpdateSelection(node as Object);
-        }*/
+            _inspectorView.SetSelection(node as Object);
+        }
+
+        private void OnConnectionSelectionChange(IEnumerable<IConnection> connections)
+        {
+            _inspectorView.SetSelection(connections.OfType<Object>());
+        }
     }
 }

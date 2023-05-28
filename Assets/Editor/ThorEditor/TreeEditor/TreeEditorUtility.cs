@@ -1,87 +1,132 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
-using ThorGame.Player.HammerControls.Modes;
-using ThorGame.Player.HammerControls.ModeSet;
 using ThorGame.Trees;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Assertions;
 using Object = UnityEngine.Object;
 
 namespace ThorEditor.TreeEditor
 {
     public static class TreeEditorUtility
     {
-        /// <summary>Asserts childType inherits from baseType.</summary>
-        private static void AssertInheritance(Type baseType, Type childType, string methodName, string variableName)
-        {
-            Assert.IsTrue(baseType.IsAssignableFrom(childType),
-                $"{methodName} expects {variableName} which inherits from {baseType}, but it is {childType}.");            
-        }
-
-        /// <summary>Asserts childType inherits from a baseType which is a generic type without defined parameters.</summary>
-        private static void AssertGenericInheritance(Type baseType, Type childType, string methodName,
-            string variableName)
-        {
-            while (childType != null)
-            {
-                if (childType.IsGenericType && childType.GetGenericTypeDefinition() == baseType) return;
-                childType = childType.BaseType;
-            }
-            Assert.IsTrue(true,
-                $"{methodName} expects {variableName} which inherits from {baseType}, but it is {childType}.");            
-        }
-
-        private static readonly Type TreeType = typeof(TypedTree<,,>);
-        private static readonly Type NodeType = typeof(TypedNode<,>);
-        private static readonly FieldInfo RootFieldInfo = TreeType.GetField("root", BindingFlags.NonPublic | BindingFlags.Instance);
-        private static readonly FieldInfo AllNodesFieldInfo = TreeType.GetField("allNodes", BindingFlags.NonPublic | BindingFlags.Instance);
-        private static readonly MethodInfo ListAddMethodInfo = typeof(List<>).GetMethod("Add, ")
+        private static readonly Type GenericTreeType = typeof(TypedTree<,,>);
+        private static readonly Type GenericNodeType = typeof(TypedNode<,>);
+        private static readonly Type GenericConnectionType = typeof(TypedConnection<,>);
         
-        public static INode CreateNode(this ITree tree, Type type)
+        private static FieldInfo RootFieldInfo(Type treeType) => treeType.GetField("root", BindingFlags.NonPublic | BindingFlags.Instance);
+        private static FieldInfo AllNodesFieldInfo(Type treeType) => treeType.GetField("allNodes", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        private static FieldInfo NodeIsRootFieldInfo(Type nodeType) => nodeType.GetField("isRoot", BindingFlags.NonPublic | BindingFlags.Instance);
+        private static FieldInfo NodeConnectionsFieldInfo(Type nodeType) => nodeType.GetField("connections", BindingFlags.NonPublic | BindingFlags.Instance);
+        
+        private static MethodInfo ListAddMethodInfo(Type itemType) => typeof(List<>).MakeGenericType(itemType).GetMethod("Add", new []{itemType});
+        private static MethodInfo ListRemoveMethodInfo(Type itemType) => typeof(List<>).MakeGenericType(itemType).GetMethod("Remove", new []{itemType});
+
+        public static Type ConnectionType(this ITree tree) => ReflectionUtility.GetBaseTypeWithGenericDef(GenericTreeType, tree.GetType()).GetGenericArguments()[2];
+        public static Type ConnectionType(this INode node) => ReflectionUtility.GetBaseTypeWithGenericDef(GenericNodeType, node.GetType()).GetGenericArguments()[1];
+        public static Type NodeType(this ITree tree) => ReflectionUtility.GetBaseTypeWithGenericDef(GenericTreeType, tree.GetType()).GetGenericArguments()[1];
+        
+        
+        public static INode CreateNode(this ITree tree, Type nodeType)
         {
-            AssertGenericInheritance(TreeType, tree.GetType(), nameof(CreateNode), nameof(tree));
-            AssertGenericInheritance(NodeType, type, nameof(CreateNode), nameof(tree));
+            Type treeInstanceType = tree.GetType();
+            ReflectionUtility.AssertGenericInheritance(GenericTreeType, treeInstanceType, nameof(CreateNode), nameof(tree));
+            ReflectionUtility.AssertGenericInheritance(GenericNodeType, nodeType, nameof(CreateNode), nameof(nodeType));
             
-            var obj = ScriptableObject.CreateInstance(type);
+            var obj = ScriptableObject.CreateInstance(nodeType);
             var node = (INode)obj;
-            obj.name = type.Name;
+            obj.name = nodeType.Name;
             node.TreeGuid = GUID.Generate().ToString();
 
-            var list = AllNodesFieldInfo.GetValue(tree);
-            list.Add(node);
+            var addMethod = ListAddMethodInfo(tree.NodeType());
+            var list = AllNodesFieldInfo(treeInstanceType).GetValue(tree);
+            addMethod.Invoke(list, new [] {(object)node});
             
-            AssetDatabase.AddObjectToAsset(node, tree);
+            AssetDatabase.AddObjectToAsset(node as Object, tree as Object);
             AssetDatabase.SaveAssets();
             return node;
         }
 
-        public static void DeleteNode<TTree, TNode, TData, TReturn>(this TTree tree, TNode node)
-            where TTree: ScriptableObject, ITypedTree<TNode, TData, TReturn>
-            where TNode: ScriptableObject, ITypedNode<TData, TReturn, TNode>
+        public static void DeleteNode(this ITree tree, INode node)
         {
-            if (tree.AllNodes is not List<TNode> list)
-            {
-                Debug.LogError("DeleteNode só funciona se AllNodes da árvore for uma lista!");
-                return;
-            }
+            Type treeInstanceType = tree.GetType();
+            ReflectionUtility.AssertGenericInheritance(GenericTreeType, treeInstanceType, nameof(CreateNode), nameof(tree));
+            ReflectionUtility.AssertGenericInheritance(GenericNodeType, node.GetType(), nameof(CreateNode), nameof(tree));
             
-            list.Remove(node);
-            AssetDatabase.RemoveObjectFromAsset(node);
+            var removeMethod = ListRemoveMethodInfo(tree.NodeType());
+            var list = AllNodesFieldInfo(treeInstanceType).GetValue(tree);
+            removeMethod.Invoke(list, new [] {(object)node});
+
+            AssetDatabase.RemoveObjectFromAsset(node as Object);
             AssetDatabase.SaveAssets();
         }
-        
-        public static void EnsureTreeHasRoot<TTree, TNode, TData, TReturn>(TTree tree)
-            where TTree: ScriptableObject, ITypedTree<TNode, TData, TReturn>
-            where TNode: ScriptableObject, ITypedNode<TData, TReturn, TNode>
+
+        public static IEnumerable<INode> GetChildren(this INode node)
         {
-            if (tree.Root == null)
+            Type nodeInstanceType = node.GetType();
+            ReflectionUtility.AssertGenericInheritance(GenericNodeType, nodeInstanceType, nameof(CreateNode), nameof(node));
+
+            var connections = NodeConnectionsFieldInfo(nodeInstanceType).GetValue(node);
+            foreach (object c in (IEnumerable)connections)
             {
-                var node = tree.CreateNode<TTree, TNode, TData, TReturn>(typeof(TNode));
-                tree.Root = node;
-                AssetDatabase.SaveAssets();
+                yield return ((IConnection)c).To;
             }
+        }
+
+        public static INode GetRoot(this ITree tree)
+        {
+            Type treeInstanceType = tree.GetType();
+            ReflectionUtility.AssertGenericInheritance(GenericTreeType, treeInstanceType, nameof(CreateNode), nameof(tree));
+
+            var root = RootFieldInfo(treeInstanceType).GetValue(tree) as INode;
+            return root;
+        }
+
+        public static void MakeRoot(this ITree tree, INode node)
+        {
+            Type treeInstanceType = tree.GetType();
+            ReflectionUtility.AssertGenericInheritance(GenericTreeType, treeInstanceType, nameof(CreateNode), nameof(tree));
+            if (node != null) ReflectionUtility.AssertGenericInheritance(GenericNodeType, node.GetType(), nameof(CreateNode), nameof(tree));
+
+            //Update current root
+            var curRoot = RootFieldInfo(treeInstanceType).GetValue(tree);
+            if (curRoot != null)
+            {
+                NodeIsRootFieldInfo(curRoot.GetType()).SetValue(curRoot, false);
+            }
+            
+            //Set new root
+            RootFieldInfo(treeInstanceType).SetValue(tree, node);
+            if (node != null)
+            {
+                NodeIsRootFieldInfo(node.GetType()).SetValue(node, true);
+            }
+        }
+        
+        public static void AddChild(this INode parent, IConnection child)
+        {
+            Type parentType = parent.GetType();
+            Type childType = child.GetType();
+            ReflectionUtility.AssertGenericInheritance(GenericNodeType, parentType, nameof(CreateNode), nameof(parent));
+            ReflectionUtility.AssertGenericInheritance(GenericConnectionType, childType, nameof(CreateNode), nameof(child));
+
+            var addMethod = ListAddMethodInfo(parent.ConnectionType());
+            var connections = NodeConnectionsFieldInfo(parentType).GetValue(parent);
+            addMethod.Invoke(connections, new []{child as object});
+        }
+
+        public static void RemoveChild(this INode parent, IConnection child)
+        {
+            Type parentType = parent.GetType();
+            Type childType = child.GetType();
+            ReflectionUtility.AssertGenericInheritance(GenericNodeType, parentType, nameof(CreateNode), nameof(parent));
+            ReflectionUtility.AssertGenericInheritance(GenericConnectionType, childType, nameof(CreateNode), nameof(child));
+
+            var removeMethod = ListRemoveMethodInfo(parent.ConnectionType());
+            var connections = NodeConnectionsFieldInfo(parentType).GetValue(parent);
+            removeMethod.Invoke(connections, new[] {child as object});
         }
     }
 }
