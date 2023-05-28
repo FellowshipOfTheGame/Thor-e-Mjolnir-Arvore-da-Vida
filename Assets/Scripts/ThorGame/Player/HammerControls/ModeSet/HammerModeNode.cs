@@ -9,16 +9,16 @@ namespace ThorGame.Player.HammerControls.ModeSet
 {
     public class HammerModeNode : TypedNode<HammerModeNode, HammerModeNodeTransition>
     {
-        [SerializeField] private List<HammerMode> modes = new();
+        [SerializeField] private List<HammerMode> modeVariants = new();
 
         public override HammerModeNode Clone()
         {
             var clone = base.Clone();
-            clone.modes = new List<HammerMode>(modes);
+            clone.modeVariants = new List<HammerMode>(modeVariants);
             return clone;
         }
 
-        public HammerMode ApplicableMode(Hammer data) => modes.FirstOrDefault(data.IsUnlocked);
+        public HammerMode ApplicableMode(Hammer data) => modeVariants.FirstOrDefault(data.IsUnlocked);
 
         private HammerMode _currentMode;
         public void Begin(Hammer data)
@@ -51,7 +51,7 @@ namespace ThorGame.Player.HammerControls.ModeSet
         public static HammerModeNode DEBUG_GETINSTANCE(HammerMode mode)
         {
             var instance = CreateInstance<HammerModeNode>();
-            instance.modes.Add(mode);
+            instance.modeVariants.Add(mode);
             return instance;
         }
         public void DEBUG_ADDTRANS(HammerModeNodeTransition trans)
