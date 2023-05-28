@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using ThorGame.Trees;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -9,7 +8,9 @@ namespace ThorEditor.TreeEditor
 {
     public class NodeView : UnityEditor.Experimental.GraphView.Node
     {
-        public Action<INode> OnNodeSelected;
+        private static Color RootColor = new Color(1, 1, 0, .25f); 
+        
+        public event Action<INode> OnNodeSelected;
         
         public Port input, output;
         public INode node;
@@ -20,18 +21,27 @@ namespace ThorEditor.TreeEditor
             style.left = node.TreePos.x;
             style.top = node.TreePos.y;
 
-            if (node.IsRoot)
-            {
-                capabilities &= ~Capabilities.Deletable;
-                style.backgroundColor = new StyleColor(Color.yellow);
-            }
+            RefreshNodeParameters();
 
             CreateInputPorts();
             CreateOutputPorts();
         }
 
-        public override string title => node.TreeTitle;
-        
+        public void RefreshNodeParameters()
+        {
+            title = node.Title;
+            if (node.IsRoot)
+            {
+                capabilities &= ~Capabilities.Deletable;
+                style.backgroundColor = new StyleColor(RootColor);
+            }
+        }
+
+        public override Port InstantiatePort(Orientation orientation, Direction direction, Port.Capacity capacity, Type type)
+        {
+            return Port.Create<EdgeView>(orientation, direction, capacity, type);
+        }
+
         private void CreateInputPorts()
         {
             if (node.InputConnection == ConnectionCount.None || node.IsRoot) return;
@@ -55,12 +65,17 @@ namespace ThorEditor.TreeEditor
         public override void SetPosition(Rect newPos)
         {
             base.SetPosition(newPos);
-            node.TreePos = new Vector2(newPos.x, newPos.y);
+            node.TreePos = newPos.position;
         }
 
         public override void OnSelected()
         {
             OnNodeSelected?.Invoke(node);
+        }
+
+        public override void OnUnselected()
+        {
+            OnNodeSelected?.Invoke(null);
         }
     }
 }

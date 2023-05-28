@@ -42,13 +42,16 @@ namespace ThorEditor.TreeEditor
             root.styleSheets.Add(styleSheet);
 
             _treeView = root.Q<TreeViewElement>();
+            _treeView.OnNodeSelected += OnNodeSelectionChange;
+            _treeView.OnConnectionsSelected += OnConnectionSelectionChange;
+            _treeView.OnNodeDeleted += OnNodeDeleted;
+            
             _inspectorView = root.Q<ObjectInspectorView>();
+            _inspectorView.OnObjectEdited += _treeView.OnObjectEdited;
 
             _treeSelector = root.Q<ObjectField>();
             _treeSelector.objectType = typeof(ITree);
             _treeSelector.RegisterValueChangedCallback(e => SelectTree(e.newValue as ITree));
-
-            _treeView.OnNodeSelected += OnNodeSelectionChange;
         }
 
         private void SelectTree(ITree tree)
@@ -73,6 +76,11 @@ namespace ThorEditor.TreeEditor
             return true;
         }
 
+        private void OnNodeDeleted(INode node)
+        {
+            if (_inspectorView.IsSelected((Object)node)) _inspectorView.ClearSelection();
+        }
+        
         private void OnNodeSelectionChange(INode node)
         {
             _inspectorView.SetSelection(node as Object);

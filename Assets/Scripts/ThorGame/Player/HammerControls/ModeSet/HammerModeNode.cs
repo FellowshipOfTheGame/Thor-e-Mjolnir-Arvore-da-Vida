@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ThorGame.Player.HammerControls.Modes;
 using ThorGame.Player.HammerControls.ModeSet.Transitions;
@@ -9,15 +10,11 @@ namespace ThorGame.Player.HammerControls.ModeSet
 {
     public class HammerModeNode : TypedNode<HammerModeNode, HammerModeNodeTransition>
     {
+        [SerializeField] private string title;
         [SerializeField] private List<HammerMode> modeVariants = new();
 
-        public override HammerModeNode Clone()
-        {
-            var clone = base.Clone();
-            clone.modeVariants = new List<HammerMode>(modeVariants);
-            return clone;
-        }
-
+        public override string Title => string.IsNullOrEmpty(title) ? name : title;
+        
         public HammerMode ApplicableMode(Hammer data) => modeVariants.FirstOrDefault(data.IsUnlocked);
 
         private HammerMode _currentMode;
@@ -57,6 +54,13 @@ namespace ThorGame.Player.HammerControls.ModeSet
         public void DEBUG_ADDTRANS(HammerModeNodeTransition trans)
         {
             connections.Add(trans);
+        }
+        
+        public override HammerModeNode Clone()
+        {
+            var clone = base.Clone();
+            clone.modeVariants = new List<HammerMode>(modeVariants);
+            return clone;
         }
 
         public override ConnectionCount InputConnection => ConnectionCount.Multi;

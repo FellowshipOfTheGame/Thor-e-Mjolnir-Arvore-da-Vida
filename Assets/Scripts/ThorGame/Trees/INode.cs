@@ -9,8 +9,9 @@ namespace ThorGame.Trees
         ConnectionCount InputConnection { get; }
         ConnectionCount OutputConnection { get; }
         
+        string Title { get; }
+        
 #if UNITY_EDITOR
-        string TreeTitle { get; }
         Vector2 TreePos { get; set; }
         string TreeGuid { get; set; }
 #endif

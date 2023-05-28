@@ -21,16 +21,17 @@ namespace ThorGame.Trees
         {
             var clone = (TNode)Instantiate(this);
             clone.isRoot = isRoot;
+            //TODO isso aqui nao vai dar
             clone.connections = connections.ConvertAll(c => c.Clone());
             return clone;
         }
+        
+        public virtual string Title => name;
         
 #if UNITY_EDITOR
         [HideInInspector] [SerializeField] public Vector2 treePos;
         [HideInInspector] [SerializeField] public string treeGuid;
 
-        string INode.TreeTitle => name;
-        
         Vector2 INode.TreePos
         {
             get => treePos;

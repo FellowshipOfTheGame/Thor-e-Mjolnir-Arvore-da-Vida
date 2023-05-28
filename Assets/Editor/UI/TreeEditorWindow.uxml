@@ -1,6 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <ui:Label text="Hello World! From UXML" />
-    <ThorEditor.UIElements.SplitView>
+    <ThorEditor.UIElements.SplitView fixed-pane-initial-dimension="240">
         <ui:VisualElement name="LeftPanel" style="width: 192px;">
             <uie:ObjectField allow-scene-objects="false" type="UnityEngine.Object, UnityEngine.CoreModule" />
             <ThorEditor.UIElements.ObjectInspectorView style="flex-grow: 1;" />

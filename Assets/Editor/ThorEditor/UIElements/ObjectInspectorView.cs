@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 
 namespace ThorEditor.UIElements
 {
@@ -11,7 +13,11 @@ namespace ThorEditor.UIElements
     {
         public new class UxmlFactory : UxmlFactory<ObjectInspectorView, UxmlTraits>{}
 
-        private readonly Dictionary<Object, UnityEditor.Editor> _editors = new();
+        private readonly Dictionary<Object, Editor> _editors = new();
+
+        public bool IsSelected(Object obj) => _editors.ContainsKey(obj);
+
+        public event Action<Object> OnObjectEdited;
 
         /// <summary> Limpa todos os Inspectors exibidos. </summary>
         public void ClearSelection()
@@ -25,11 +31,25 @@ namespace ThorEditor.UIElements
         }
 
         /// <summary> Adiciona 'obj' aos Inspectors exibidos. </summary>
-        public void AddSelection(Object obj)
+        private void AddSelection(Object obj)
         {
-            var editor = UnityEditor.Editor.CreateEditor(obj);
+            if (obj == null) return;
+            
+            var editor = Editor.CreateEditor(obj);
+            
             _editors.Add(obj, editor);
-            var container = new IMGUIContainer(() => editor.OnInspectorGUI());
+            //var container = new IMGUIContainer(editor.OnInspectorGUI);
+            var container = new IMGUIContainer(() =>
+            {
+                editor.DrawHeader();
+                
+                EditorGUI.BeginChangeCheck();
+                editor.OnInspectorGUI();
+                if (EditorGUI.EndChangeCheck())
+                {
+                    OnObjectEdited?.Invoke(obj);
+                }
+            });
             Add(container);
         }
 

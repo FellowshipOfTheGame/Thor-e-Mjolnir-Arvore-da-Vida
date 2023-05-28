@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 
 namespace ThorEditor.TreeEditor
 {
@@ -14,7 +15,10 @@ namespace ThorEditor.TreeEditor
     {
         public new class UxmlFactory : UxmlFactory<TreeViewElement, UxmlTraits>{}
 
-        public Action<INode> OnNodeSelected;
+        public event Action<INode> OnNodeDeleted;
+        
+        public event Action<INode> OnNodeSelected;
+        public event Action<IEnumerable<IConnection>> OnConnectionsSelected;
 
         public ITree tree;
         public TreeViewElement()
@@ -67,7 +71,8 @@ namespace ThorEditor.TreeEditor
         {
             return ports.Where(endPort =>
                 endPort.direction != startPort.direction &&
-                endPort.node != startPort.node).ToList();
+                endPort.node != startPort.node &&
+                !edges.Any(e => e.output == startPort && e.input == endPort)).ToList();
         }
 
         private GraphViewChange OnGraphViewChanged(GraphViewChange graphViewChange)
@@ -76,26 +81,27 @@ namespace ThorEditor.TreeEditor
             {
                 foreach (var element in graphViewChange.elementsToRemove)
                 {
-                    if (element is NodeView nodeView)
+                    switch (element)
                     {
-                        tree.DeleteNode(nodeView.node);
-                        continue;
-                    }
-
-                    if (element is Edge edge)
-                    {
-                        if (edge.output.node is NodeView parentView && edge.input.node is NodeView childView)
-                        {
-                            //parentView.node.RemoveChild(childView.node);
-                        }
+                        case NodeView nodeView:
+                            OnNodeDeleted?.Invoke(nodeView.node);
+                            tree.DeleteNode(nodeView.node);
+                            break;
+                        case EdgeView edge:
+                            foreach (var connection in edge.Connections)
+                            {
+                                edge.From.node.RemoveChild(connection); 
+                            }
+                            break;
                     }
                 }
             }
 
             if (graphViewChange.edgesToCreate != null)
             {
-                foreach (var edge in graphViewChange.edgesToCreate)
+                foreach (var edge in graphViewChange.edgesToCreate.OfType<EdgeView>())
                 {
+                    edge.OnEdgeSelected += OnConnectionsSelected;
                     if (edge.output.node is NodeView parentView && edge.input.node is NodeView childView)
                     {
                         //parentView.node.AddChild(childView.node);    
@@ -178,6 +184,7 @@ namespace ThorEditor.TreeEditor
         private NodeView CreateNode(System.Type type)
         {
             INode node = tree.CreateNode(type);
+            if (tree.GetRoot() == null) tree.MakeRoot(node);
             return CreateNodeView(node);
         }
 
@@ -185,8 +192,16 @@ namespace ThorEditor.TreeEditor
         {
             NodeView nodeView = new NodeView(node);
             AddElement(nodeView);
-            nodeView.OnNodeSelected = OnNodeSelected; 
+            nodeView.OnNodeSelected += OnNodeSelected; 
             return nodeView;
+        }
+
+        public void OnObjectEdited(Object obj)
+        {
+            if (obj is INode node)
+            {
+                FindNodeView(node).RefreshNodeParameters();
+            }
         }
     }
 }
