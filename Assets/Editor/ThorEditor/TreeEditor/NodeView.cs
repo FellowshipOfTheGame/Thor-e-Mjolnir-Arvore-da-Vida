@@ -85,7 +85,7 @@ namespace ThorEditor.TreeEditor
         public override void SetPosition(Rect newPos)
         {
             base.SetPosition(newPos);
-            node.TreePos = newPos.position;
+            node.TreePos = newPos.min;
         }
 
         public override void OnSelected()

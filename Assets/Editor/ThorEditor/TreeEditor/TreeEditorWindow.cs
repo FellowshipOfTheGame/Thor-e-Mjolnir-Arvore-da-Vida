@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using ThorEditor.UIElements;
+﻿using ThorEditor.UIElements;
 using ThorGame.Trees;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -45,6 +43,7 @@ namespace ThorEditor.TreeEditor
             _treeView.OnNodeSelected += OnNodeSelectionChange;
             _treeView.OnConnectionsSelected += OnConnectionSelectionChange;
             _treeView.OnNodeDeleted += OnNodeDeleted;
+            _treeView.OnConnectionsDeleted += OnConnectionsDeleted;
             
             _inspectorView = root.Q<ObjectInspectorView>();
             _inspectorView.OnObjectEdited += _treeView.OnObjectEdited;
@@ -80,16 +79,20 @@ namespace ThorEditor.TreeEditor
         {
             if (_inspectorView.IsSelected((Object)node)) _inspectorView.ClearSelection();
         }
+
+        private void OnConnectionsDeleted(ConnectionCollection connections)
+        {
+            if (_inspectorView.IsSelected(connections)) _inspectorView.ClearSelection();
+        }
         
         private void OnNodeSelectionChange(INode node)
         {
             _inspectorView.SetSelection(node as Object);
         }
 
-        private void OnConnectionSelectionChange(IEnumerable<IConnection> connections)
+        private void OnConnectionSelectionChange(ConnectionCollection connections)
         {
-            if (connections == null) _inspectorView.ClearSelection();
-            else _inspectorView.SetSelection(connections.OfType<Object>());
+            _inspectorView.SetSelection(connections);
         }
     }
 }

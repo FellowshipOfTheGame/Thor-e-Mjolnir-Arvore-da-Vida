@@ -16,9 +16,10 @@ namespace ThorEditor.TreeEditor
         public new class UxmlFactory : UxmlFactory<TreeViewElement, UxmlTraits>{}
 
         public event Action<INode> OnNodeDeleted;
+        public event Action<ConnectionCollection> OnConnectionsDeleted;
         
         public event Action<INode> OnNodeSelected;
-        public event Action<IEnumerable<IConnection>> OnConnectionsSelected;
+        public event Action<ConnectionCollection> OnConnectionsSelected;
 
         public ITree tree;
         public TreeViewElement()
@@ -57,12 +58,9 @@ namespace ThorEditor.TreeEditor
             //Cria as conexões apenas depois de criar todos os nós
             foreach (var node in tree.AllNodes)
             {
-                NodeView parentView = FindNodeView(node);
                 foreach (var child in node.GetChildren())
                 {
-                    NodeView childView = FindNodeView(child);
-                    Edge edge = parentView.output.ConnectTo(childView.input);
-                    AddElement(edge);
+                    CreateEdgeView(node, child);
                 }
             }
         }
@@ -88,10 +86,9 @@ namespace ThorEditor.TreeEditor
                             tree.DeleteNode(nodeView.node);
                             break;
                         case EdgeView edge:
-                            foreach (var connection in edge.Connections)
-                            {
-                                edge.From.node.RemoveChild(connection); 
-                            }
+                            OnConnectionsDeleted?.Invoke(edge.Connections);
+                            edge.Connections.Clear();
+                            Object.DestroyImmediate(edge.Connections);
                             break;
                     }
                 }
@@ -101,11 +98,8 @@ namespace ThorEditor.TreeEditor
             {
                 foreach (var edge in graphViewChange.edgesToCreate.OfType<EdgeView>())
                 {
+                    Debug.Log(edge);
                     edge.OnEdgeSelected += OnConnectionsSelected;
-                    if (edge.output.node is NodeView parentView && edge.input.node is NodeView childView)
-                    {
-                        //parentView.node.AddChild(childView.node);    
-                    }
                 }
             }
 
@@ -113,9 +107,10 @@ namespace ThorEditor.TreeEditor
         }
 
 
-        
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
+            if (tree == null) return;
+
             var baseType = tree.NodeType();
             var types = TypeCache.GetTypesDerivedFrom(baseType);
             void RecursiveTypeIteration(Type type, Action<Type> preProcess, Action<Type> postProcess)
@@ -161,6 +156,7 @@ namespace ThorEditor.TreeEditor
                 }
             );
 
+            base.BuildContextualMenu(evt);
             /*string subPath = "";
             StringBuilder sb = new();
             foreach (var type in types)
@@ -186,6 +182,16 @@ namespace ThorEditor.TreeEditor
             INode node = tree.CreateNode(type);
             if (tree.GetRoot() == null) tree.MakeRoot(node);
             return CreateNodeView(node);
+        }
+
+        private EdgeView CreateEdgeView(INode from, INode to)
+        {
+            NodeView parentView = FindNodeView(from); 
+            NodeView childView = FindNodeView(to);
+            var edge = parentView.output.ConnectTo<EdgeView>(childView.input);
+            AddElement(edge);
+            edge.OnEdgeSelected += OnConnectionsSelected;
+            return edge;
         }
 
         private NodeView CreateNodeView(INode node)
