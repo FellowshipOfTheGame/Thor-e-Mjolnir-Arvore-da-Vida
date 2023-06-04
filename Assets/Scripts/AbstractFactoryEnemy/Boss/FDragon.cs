@@ -13,6 +13,6 @@ public class FDragon : ABoss
     // Update is called once per frame
     void Update()
     {
-        mv.move(tr);
+       
     }
 }
