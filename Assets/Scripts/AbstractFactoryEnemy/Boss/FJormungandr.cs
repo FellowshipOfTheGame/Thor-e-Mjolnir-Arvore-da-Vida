@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class FJormungandr : ABoss
 {
+    public override void fly(GameObject go)
+    {
+        
+    }
+
+    public override void move(GameObject go)
+    {
+       
+    }
+
     // Start is called before the first frame update   
     void Start()
     {
@@ -14,5 +24,7 @@ public class FJormungandr : ABoss
     void Update()
     {
         
+
+       
     }
 }
