@@ -2,18 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FFossegrim : ABoss
+public class BewitchedValkyrieLevelTwo : AFollower
 {
-    public override void fly(GameObject go)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void move(GameObject go)
-    {
-        throw new System.NotImplementedException();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
