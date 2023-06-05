@@ -1,5 +1,4 @@
-﻿using ThorGame.Player.HammerControls.Modes;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ThorGame.Player.HammerControls.ModeSet
 {
@@ -16,6 +15,14 @@ namespace ThorGame.Player.HammerControls.ModeSet
         private void Update()
         {
             tree.Tick(hammer);
+        }
+        
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            if (col.TryGetComponent(out IHittable hittable))
+            {
+                tree.OnCollide(hammer, hittable);
+            }
         }
     }
 }

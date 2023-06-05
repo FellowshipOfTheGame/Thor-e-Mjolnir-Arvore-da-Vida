@@ -121,14 +121,5 @@ namespace ThorGame.Player.HammerControls
                 }
             }
         }
-
-        private void OnTriggerEnter2D(Collider2D col)
-        {
-            if (col.TryGetComponent(out IHittable hittable))
-            {
-                //ModeSetTree.
-                //_currentMode.OnCollide(this, hittable);
-            }
-        }
     }
 }
