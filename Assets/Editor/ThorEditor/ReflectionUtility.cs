@@ -8,7 +8,7 @@ namespace ThorEditor
         /// <summary>
         /// Extracts a parent type of 'childType' which is created from a generic definition 'baseTypeGenericDefinition'.
         /// </summary>
-        public static Type GetBaseTypeWithGenericDef(Type baseTypeGenericDefinition, Type childType)
+        public static Type GetBaseTypeWithGenericDef(Type childType, Type baseTypeGenericDefinition)
         {
             while (childType != null)
             {
@@ -31,7 +31,7 @@ namespace ThorEditor
         /// <summary>Asserts childType inherits from a baseType which is a generic type without defined parameters.</summary>
         public static void AssertGenericInheritance(Type baseTypeGenericDefinition, Type childType, string methodName, string variableName)
         {
-            if (GetBaseTypeWithGenericDef(baseTypeGenericDefinition, childType) == null)
+            if (GetBaseTypeWithGenericDef(childType, baseTypeGenericDefinition) == null)
             {
                 Assert.IsTrue(true,
                 $"{methodName} expects {variableName} which inherits from {baseTypeGenericDefinition}, but it is {childType}.");  

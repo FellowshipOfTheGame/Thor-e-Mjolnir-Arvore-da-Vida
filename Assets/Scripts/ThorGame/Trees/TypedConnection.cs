@@ -6,7 +6,7 @@ namespace ThorGame.Trees
         where TNode : TypedNode<TNode, TConnection>
         where TConnection : TypedConnection<TNode, TConnection>
     {
-        [HideInInspector] [SerializeField] protected TNode from, to;
+        [HideInInspector] [SerializeField] private TNode from, to;
 
         public TNode From => from;
         public TNode To => to;

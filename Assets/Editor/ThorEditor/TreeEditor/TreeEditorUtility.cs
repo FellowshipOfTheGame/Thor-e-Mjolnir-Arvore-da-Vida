@@ -15,23 +15,36 @@ namespace ThorEditor.TreeEditor
         private static readonly Type GenericTreeType = typeof(TypedTree<,,>);
         private static readonly Type GenericNodeType = typeof(TypedNode<,>);
         private static readonly Type GenericConnectionType = typeof(TypedConnection<,>);
-        
-        private static FieldInfo RootFieldInfo(Type treeType) => treeType.GetField("root", BindingFlags.NonPublic | BindingFlags.Instance);
-        private static FieldInfo AllNodesFieldInfo(Type treeType) => treeType.GetField("allNodes", BindingFlags.NonPublic | BindingFlags.Instance);
 
-        private static FieldInfo NodeIsRootFieldInfo(Type nodeType) => nodeType.GetField("isRoot", BindingFlags.NonPublic | BindingFlags.Instance);
-        private static FieldInfo NodeConnectionsFieldInfo(Type nodeType) => nodeType.GetField("connections", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        private static FieldInfo RootFieldInfo(Type treeType) => ReflectionUtility
+            .GetBaseTypeWithGenericDef(treeType, GenericTreeType)
+            .GetField("root", BindingFlags.NonPublic | BindingFlags.Instance);
+        private static FieldInfo AllNodesFieldInfo(Type treeType) => ReflectionUtility
+            .GetBaseTypeWithGenericDef(treeType, GenericTreeType)
+            .GetField("allNodes", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        private static FieldInfo NodeIsRootFieldInfo(Type nodeType) => ReflectionUtility
+            .GetBaseTypeWithGenericDef(nodeType, GenericNodeType)
+            .GetField("isRoot", BindingFlags.NonPublic | BindingFlags.Instance);
+        private static FieldInfo NodeConnectionsFieldInfo(Type nodeType) => ReflectionUtility
+            .GetBaseTypeWithGenericDef(nodeType, GenericNodeType)
+            .GetField("connections", BindingFlags.NonPublic | BindingFlags.Instance);
         
-        private static FieldInfo ConnectionFromFieldInfo(Type connectionType) => connectionType.GetField("from", BindingFlags.NonPublic | BindingFlags.Instance);
-        private static FieldInfo ConnectionToFieldInfo(Type connectionType) => connectionType.GetField("to", BindingFlags.NonPublic | BindingFlags.Instance);
+        private static FieldInfo ConnectionFromFieldInfo(Type connectionType) => ReflectionUtility
+            .GetBaseTypeWithGenericDef(connectionType, GenericConnectionType)
+            .GetField("from", BindingFlags.NonPublic | BindingFlags.Instance);
+        private static FieldInfo ConnectionToFieldInfo(Type connectionType) => ReflectionUtility
+            .GetBaseTypeWithGenericDef(connectionType, GenericConnectionType)
+            .GetField("to",  BindingFlags.NonPublic | BindingFlags.Instance);
         
         private static MethodInfo ListAddMethodInfo(Type itemType) => typeof(List<>).MakeGenericType(itemType).GetMethod("Add", new []{itemType});
         private static MethodInfo ListRemoveMethodInfo(Type itemType) => typeof(List<>).MakeGenericType(itemType).GetMethod("Remove", new []{itemType});
 
 
-        public static Type ConnectionType(this ITree tree) => ReflectionUtility.GetBaseTypeWithGenericDef(GenericTreeType, tree.GetType()).GetGenericArguments()[2];
-        public static Type ConnectionType(this INode node) => ReflectionUtility.GetBaseTypeWithGenericDef(GenericNodeType, node.GetType()).GetGenericArguments()[1];
-        public static Type NodeType(this ITree tree) => ReflectionUtility.GetBaseTypeWithGenericDef(GenericTreeType, tree.GetType()).GetGenericArguments()[1];
+        public static Type ConnectionType(this ITree tree) => ReflectionUtility.GetBaseTypeWithGenericDef(tree.GetType(), GenericTreeType).GetGenericArguments()[2];
+        public static Type ConnectionType(this INode node) => ReflectionUtility.GetBaseTypeWithGenericDef(node.GetType(), GenericNodeType).GetGenericArguments()[1];
+        public static Type NodeType(this ITree tree) => ReflectionUtility.GetBaseTypeWithGenericDef(tree.GetType(), GenericTreeType).GetGenericArguments()[1];
         
         
         public static INode CreateNode(this ITree tree, Type nodeType)
