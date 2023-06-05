@@ -8,16 +8,8 @@ namespace ThorGame.Player.HammerControls.ModeSet
         [SerializeField] private HammerModeSetTree tree;
         [SerializeField] private Hammer hammer;
         
-        //TODO DEBUG
-        [SerializeField] private SlamHammerMode slam;
-        [SerializeField] private PrepareThrowHammerMode prepare;
-        [SerializeField] private ThrownHammerMode thrown;
-        
         private void Awake()
         {
-            //TODO DEBUG
-            tree = HammerModeSetTree.DEBUG_INSTANCE(slam, prepare, thrown);
-
             tree = tree.Clone();
         }
 

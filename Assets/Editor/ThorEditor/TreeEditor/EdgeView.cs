@@ -29,8 +29,6 @@ namespace ThorEditor.TreeEditor
 
         public override void OnSelected()
         {
-            Debug.Log(this.viewDataKey);
-            Debug.Log(Connections.GetInstanceID());
             OnEdgeSelected?.Invoke(Connections);
         }
 

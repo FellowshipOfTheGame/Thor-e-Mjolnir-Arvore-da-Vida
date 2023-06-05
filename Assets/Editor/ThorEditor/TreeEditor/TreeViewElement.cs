@@ -98,7 +98,6 @@ namespace ThorEditor.TreeEditor
             {
                 foreach (var edge in graphViewChange.edgesToCreate.OfType<EdgeView>())
                 {
-                    Debug.Log(edge);
                     edge.OnEdgeSelected += OnConnectionsSelected;
                 }
             }
@@ -137,7 +136,7 @@ namespace ThorEditor.TreeEditor
                     else
                     {
                         evt.menu.AppendAction($"{type.Name}",
-                            a =>
+                            _ =>
                             {
                                 var nodeView = CreateNode(type);
                                 nodeView.style.left = position.x;
@@ -177,7 +176,7 @@ namespace ThorEditor.TreeEditor
             }*/
         }
 
-        private NodeView CreateNode(System.Type type)
+        private NodeView CreateNode(Type type)
         {
             INode node = tree.CreateNode(type);
             if (tree.GetRoot() == null) tree.MakeRoot(node);

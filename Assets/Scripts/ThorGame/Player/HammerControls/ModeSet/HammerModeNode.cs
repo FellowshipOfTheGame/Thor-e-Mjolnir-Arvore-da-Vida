@@ -44,18 +44,6 @@ namespace ThorGame.Player.HammerControls.ModeSet
             _currentMode = null;
         }
 
-        //TODO DEBUG ERA ARRAY PASSEI PRA LISTA
-        public static HammerModeNode DEBUG_GETINSTANCE(HammerMode mode)
-        {
-            var instance = CreateInstance<HammerModeNode>();
-            instance.modeVariants.Add(mode);
-            return instance;
-        }
-        public void DEBUG_ADDTRANS(HammerModeNodeTransition trans)
-        {
-            connections.Add(trans);
-        }
-        
         public override HammerModeNode Clone()
         {
             var clone = base.Clone();
