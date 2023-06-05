@@ -173,7 +173,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 8
@@ -250,6 +250,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6868797fd8f325499ac2531f41b82c7, type: 2}
   - {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
   - {fileID: 11400000, guid: 300c9483b376b6a44bfe613175103416, type: 2}
+  headOffset: {x: 0, y: 1.74}
+  maxVelocity: 50
+  recallDistance: 1
   strap: {fileID: 1325027033}
   hammerStrapJoint: {fileID: 20078610}
   hammerFixedJoint: {fileID: 20078609}
@@ -301,11 +304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c78ab42b841b6aac5dece8eec3d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tree: {fileID: 0}
+  tree: {fileID: 11400000, guid: c25657828f9a72c4aade18aed056e357, type: 2}
   hammer: {fileID: 20078608}
-  slam: {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
-  prepare: {fileID: 11400000, guid: b6868797fd8f325499ac2531f41b82c7, type: 2}
-  thrown: {fileID: 11400000, guid: 300c9483b376b6a44bfe613175103416, type: 2}
 --- !u!1 &434426607
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,8 +568,6 @@ GameObject:
   m_Component:
   - component: {fileID: 692026385}
   - component: {fileID: 692026389}
-  - component: {fileID: 692026388}
-  - component: {fileID: 692026386}
   m_Layer: 0
   m_Name: HammerHead
   m_TagString: Untagged
@@ -592,45 +590,6 @@ Transform:
   m_Father: {fileID: 20078604}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!255 &692026386
-FixedJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692026384}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 20078606}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0.99999994}
-  m_DampingRatio: 0
-  m_Frequency: 0
---- !u!50 &692026388
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692026384}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 5
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 4
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!212 &692026389
 SpriteRenderer:
   m_ObjectHideFlags: 0
