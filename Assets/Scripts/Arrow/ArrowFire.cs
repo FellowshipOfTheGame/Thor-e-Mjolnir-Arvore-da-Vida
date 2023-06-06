@@ -16,8 +16,6 @@ public class ArrowFire : MonoBehaviour
     int speed = 0;
     float smooth;
     float angle;
-    int speedGo = 10;
-    bool foco = false;
     void Start()
     {
         
@@ -76,8 +74,7 @@ public class ArrowFire : MonoBehaviour
     }
 
     IEnumerator Example()
-    {
-       
+    {       
         yield return new WaitForSeconds(2);
         Destroy(arrow.transform.gameObject);
     }
