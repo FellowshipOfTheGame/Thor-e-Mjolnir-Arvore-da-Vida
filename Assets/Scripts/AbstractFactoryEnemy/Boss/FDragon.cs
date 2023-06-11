@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class FDragon : ABoss
 {
+    
     public override void fly(GameObject go)
     {
         throw new System.NotImplementedException();
     }
-
-    public override void move(GameObject go)
-    {
-        throw new System.NotImplementedException();
-    }
+       
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +20,6 @@ public class FDragon : ABoss
     // Update is called once per frame
     void Update()
     {
-       
+        move(enemy, thor);
     }
 }

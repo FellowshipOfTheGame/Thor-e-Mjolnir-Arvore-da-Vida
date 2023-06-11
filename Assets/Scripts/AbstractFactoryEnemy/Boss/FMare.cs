@@ -9,11 +9,7 @@ public class FMare : ABoss
         throw new System.NotImplementedException();
     }
 
-    public override void move(GameObject go)
-    {
-        throw new System.NotImplementedException();
-    }
-
+   
     // Start is called before the first frame update
     void Start()
     {
