@@ -4,7 +4,7 @@ namespace ThorGame.Player.HammerControls
 {
     public class PhysicsHammerController : MonoBehaviour
     {
-        [SerializeField] private TargetJoint2D target;
+        [SerializeField] private Transform target;
 
         [Header("Range")] 
         [SerializeField] private Transform clampOrigin;
@@ -27,7 +27,7 @@ namespace ThorGame.Player.HammerControls
         
         private void Update()
         {
-            target.target = CalcTargetPos();
+            target.position = CalcTargetPos();
         }
     }
 }

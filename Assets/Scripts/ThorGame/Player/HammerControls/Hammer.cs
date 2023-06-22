@@ -87,11 +87,10 @@ namespace ThorGame.Player.HammerControls
                         strap.SetActive(false);
                         hammerStrapJoint.enabled = false;
                         hammerFixedJoint.enabled = true;
-                        
-                        Transform strapTransform = hammerStrapJoint.transform;
+
+                        Transform strapTransform = strap.transform;
                         Transform forearm = transform.parent;
-                        Vector2 strapPos = strapTransform.position;
-                        transform.position = strapPos;
+                        transform.position = strapTransform.position;
                         transform.up = forearm.up;
                         break;
                     }
@@ -101,7 +100,7 @@ namespace ThorGame.Player.HammerControls
                         hammerStrapJoint.enabled = true;
                         hammerFixedJoint.enabled = false;
                         
-                        Transform strapTransform = hammerStrapJoint.transform;
+                        Transform strapTransform = strap.transform;
                         Vector2 strapPos = strapTransform.position;
                         Vector2 strapDir = strapTransform.up;
                         Vector2 strapEnd = strapPos + strapDir * strapTransform.localScale.y;

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ThorGame.Player.HammerControls.ModeSet
 {
     [CreateAssetMenu(fileName = "HammerModeSetTree", menuName = "HammerModes/Set", order = 0)]
-    public class HammerModeSetTree : TypedTree<HammerModeSetTree, HammerModeNode, HammerModeNodeTransition>
+    public class  HammerModeSetTree : TypedTree<HammerModeSetTree, HammerModeNode, HammerModeNodeTransition>
     {
         [SerializeField]
         private HammerModeNode _currentNode;
