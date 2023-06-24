@@ -19,8 +19,9 @@ namespace ThorGame.Player.HammerControls
         public bool IsUnlocked(HammerMode mode) => unlockedModes.Contains(mode);
 
         [SerializeField] private Vector2 headOffset;
-        
-        [Header("Movement")]
+
+        [Header("Movement")] 
+        [SerializeField] private float flyVelocity;
         [SerializeField] private float maxVelocity;
         [SerializeField] private float recallDistance;
         
@@ -30,10 +31,12 @@ namespace ThorGame.Player.HammerControls
         [SerializeField] private AnchoredJoint2D hammerFixedJoint;
         
         public Rigidbody2D Rigidbody { get; private set; }
+        private Transform _ogParent;
         private void Awake()
         {
             Rigidbody = GetComponent<Rigidbody2D>();
             Rigidbody.centerOfMass = headOffset;
+            _ogParent = transform.parent;
             AttachmentMode = Attachment.Held;
         }
 
@@ -44,7 +47,7 @@ namespace ThorGame.Player.HammerControls
                 Vector2 vel = Rigidbody.velocity;
                 if (vel != Vector2.zero)
                 {
-                    Rigidbody.SetRotation(Quaternion.LookRotation(vel.normalized, Vector3.back));
+                    //Rigidbody.SetRotation(Quaternion.LookRotation(vel.normalized, Vector3.back));
                 }
 
                 float velocityMagnitude = Rigidbody.velocity.magnitude;
@@ -58,7 +61,7 @@ namespace ThorGame.Player.HammerControls
         public void Recall()
         {
             FlyTowards(OriginPosition);
-            //Talvez valha a pena pegar de volta sempre que chegar perto da mão, e não apenas enquanto está recallando
+            //TODO Talvez valha a pena pegar de volta sempre que chegar perto da mão, e não apenas enquanto está recallando
             if ((Rigidbody.position - OriginPosition).sqrMagnitude <= recallDistance * recallDistance)
             {
                 AttachmentMode = Attachment.Held;
@@ -68,7 +71,7 @@ namespace ThorGame.Player.HammerControls
         public void FlyTowards(Vector2 target)
         {
             Vector2 dir = (target - Rigidbody.position).normalized;
-            Rigidbody.velocity = dir * maxVelocity;
+            Rigidbody.velocity = dir * flyVelocity;
         }
 
         public Vector2 OriginPosition => strap.transform.position;
@@ -88,6 +91,7 @@ namespace ThorGame.Player.HammerControls
                         hammerStrapJoint.enabled = false;
                         hammerFixedJoint.enabled = true;
 
+                        transform.parent = _ogParent;
                         Transform strapTransform = strap.transform;
                         Transform forearm = transform.parent;
                         transform.position = strapTransform.position;
@@ -100,6 +104,7 @@ namespace ThorGame.Player.HammerControls
                         hammerStrapJoint.enabled = true;
                         hammerFixedJoint.enabled = false;
                         
+                        transform.parent = _ogParent;
                         Transform strapTransform = strap.transform;
                         Vector2 strapPos = strapTransform.position;
                         Vector2 strapDir = strapTransform.up;
@@ -113,6 +118,7 @@ namespace ThorGame.Player.HammerControls
                         strap.SetActive(false);
                         hammerStrapJoint.enabled = false;
                         hammerFixedJoint.enabled = false;
+                        transform.parent = null;
                         break;
                     }
                     default:
@@ -120,5 +126,20 @@ namespace ThorGame.Player.HammerControls
                 }
             }
         }
+        
+        #if UNITY_EDITOR
+        [UnityEditor.CustomEditor(typeof(Hammer))]
+        private class HammerEditor : UnityEditor.Editor
+        {
+            private void OnSceneGUI()
+            {
+                if (target is not Hammer hammer) return;
+                UnityEditor.Handles.color = Color.blue;
+                Vector3 com = hammer.transform.position +
+                              hammer.transform.TransformDirection(hammer.headOffset); 
+                UnityEditor.Handles.DrawSolidDisc(com, Vector3.forward, .1f);
+            }
+        }
+        #endif
     }
 }

@@ -320,6 +320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6998380481619364514}
+  - component: {fileID: 1971432582901839115}
   m_Layer: 0
   m_Name: bone_7
   m_TagString: Untagged
@@ -343,6 +344,27 @@ Transform:
   m_Father: {fileID: 5159724643587755511}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -75.916}
+--- !u!50 &1971432582901839115
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564858254900360239}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1591543111373826794
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +409,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -426,7 +448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780976682553084258}
   m_LocalRotation: {x: -0, y: -0, z: -0.83468854, w: -0.5507223}
-  m_LocalPosition: {x: 3.4897935, y: 7.959883, z: 0}
+  m_LocalPosition: {x: 3.85, y: 7.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -536,8 +558,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6868797fd8f325499ac2531f41b82c7, type: 2}
   - {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
   - {fileID: 11400000, guid: 300c9483b376b6a44bfe613175103416, type: 2}
-  headOffset: {x: 1.36, y: 0}
-  maxVelocity: 100
+  headOffset: {x: 2.12, y: 0.24}
+  flyVelocity: 50
+  maxVelocity: -1
   recallDistance: 1
   strap: {fileID: 2619454847483345107}
   hammerStrapJoint: {fileID: 5086429410237090166}
@@ -557,7 +580,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.38999987, y: 1.0999999}
+  m_ConnectedAnchor: {x: 0.4987846, y: 0.05}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!255 &5086429410237090166
@@ -575,7 +598,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.23421009, y: 1.9442133}
+  m_ConnectedAnchor: {x: 0.052065652, y: 1.0251071}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &2047756371714302858
@@ -740,7 +763,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -762,7 +785,7 @@ HingeJoint2D:
   m_ConnectedRigidBody: {fileID: 7837056140941520323}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
+  m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0.4789996, y: 0.0009992118}
   m_UseMotor: 0
@@ -954,6 +977,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5881110686140494329}
+  - component: {fileID: 4296542923453694540}
   m_Layer: 0
   m_Name: bone_8
   m_TagString: Untagged
@@ -977,6 +1001,27 @@ Transform:
   m_Father: {fileID: 6998380481619364514}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &4296542923453694540
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4910550498807066453}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &4951088819741615644
 GameObject:
   m_ObjectHideFlags: 0
