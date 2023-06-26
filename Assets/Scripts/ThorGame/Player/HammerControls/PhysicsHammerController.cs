@@ -1,14 +1,24 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ThorGame.Player.HammerControls
 {
     public class PhysicsHammerController : MonoBehaviour
     {
         [SerializeField] private Transform target;
+        [SerializeField] private Rigidbody2D hammerParent;
+        [SerializeField] private Transform hammer;
 
         [Header("Range")] 
         [SerializeField] private Transform clampOrigin;
+        [SerializeField] private Vector2 originOffset;
         [SerializeField] private float maxRange;
+
+        private Quaternion _ogRotation;
+        private void Start()
+        {
+            _ogRotation = hammer.rotation; //clampOrigin.worldToLocalMatrix.inverse.rotation * hammer.rotation;
+        }
 
         private Vector2 CalcTargetPos()
         {
@@ -28,6 +38,12 @@ namespace ThorGame.Player.HammerControls
         private void Update()
         {
             target.position = CalcTargetPos();
+        }
+
+        private void FixedUpdate()
+        {
+            hammerParent.MovePosition(clampOrigin.position + clampOrigin.TransformDirection(originOffset));
+            hammerParent.SetRotation(clampOrigin.rotation * _ogRotation);
         }
     }
 }

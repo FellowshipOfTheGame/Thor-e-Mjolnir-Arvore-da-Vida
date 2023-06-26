@@ -24,6 +24,7 @@ namespace ThorGame.Player.HammerControls
         [SerializeField] private float flyVelocity;
         [SerializeField] private float maxVelocity;
         [SerializeField] private float recallDistance;
+        [SerializeField] private bool faceVelocity = true;
         
         [Header("Constraints")]
         [SerializeField] private GameObject strap;
@@ -45,9 +46,9 @@ namespace ThorGame.Player.HammerControls
             if (AttachmentMode == Attachment.Free)
             {
                 Vector2 vel = Rigidbody.velocity;
-                if (vel != Vector2.zero)
+                if (vel != Vector2.zero && faceVelocity)
                 {
-                    //Rigidbody.SetRotation(Quaternion.LookRotation(vel.normalized, Vector3.back));
+                    Rigidbody.SetRotation(Quaternion.FromToRotation(Vector3.right, vel.normalized));
                 }
 
                 float velocityMagnitude = Rigidbody.velocity.magnitude;
