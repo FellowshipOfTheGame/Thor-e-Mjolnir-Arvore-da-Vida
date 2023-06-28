@@ -7,8 +7,11 @@ public class GroundChecker
 {
     [SerializeField] private float castDistance = 0.1f;
     [SerializeField] private LayerMask mask;
+
     
     public bool IsGrounded => _groundHits.Any(h => h.collider);
+    public RaycastHit2D GroundHit => _groundHits.FirstOrDefault(h => h.collider);
+
     private RaycastHit2D[] _groundHits = new RaycastHit2D[3];
 
     private static Vector2[] CalcOrigins(Bounds bounds)

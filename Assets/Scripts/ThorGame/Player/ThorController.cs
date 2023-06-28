@@ -1,37 +1,51 @@
+using System;
 using UnityEngine;
 
 namespace ThorGame.Player
 {
-    [RequireComponent(typeof(Rigidbody2D), typeof(CapsuleCollider2D))]
+    [RequireComponent(typeof(PlayerMover))]
     public class ThorController : MonoBehaviour
     {
         [SerializeField] private string moveAxis = "Horizontal";
-        [SerializeField] private GroundChecker groundChecker;
-    
-        public Rigidbody2D Rigidbody { get; private set; }
-        public CapsuleCollider2D Collider { get; private set; }
-        
+        [SerializeField] private KeyCode jumpKey;
+        [SerializeField] private Timer jumpQueueTimer;
+        [SerializeField] private Timer jumpCooldownTimer;
+
+        public PlayerMover Mover { get; private set; }
         private void Awake()
         {
-            Rigidbody = GetComponent<Rigidbody2D>();
-            Collider = GetComponent<CapsuleCollider2D>();
+            Mover = GetComponent<PlayerMover>();
         }
-    
+
         private float _horizontalMovement;
         private bool _jumpQueued;
         private void Update()
         {
             _horizontalMovement = Input.GetAxis(moveAxis);
+
+            if (jumpCooldownTimer.Tick() && Input.GetKey(jumpKey))
+            {
+                _jumpQueued = true;
+                jumpQueueTimer.Reset();
+            }
+            else if (_jumpQueued && jumpQueueTimer.Tick())
+            {
+                _jumpQueued = false;
+            }
             
-            
-            
-            groundChecker.DEBUG_Draw(Collider.bounds);
-            Debug.DrawRay(transform.position, Vector3.right * _horizontalMovement, Color.yellow);
+            //DEBUG
+            //Debug.DrawRay(transform.position, Vector3.right * _horizontalMovement, Color.yellow);
         }
     
         private void FixedUpdate()
         {
-            groundChecker.UpdateGrounded(Collider.bounds);
+            if (_jumpQueued && Mover.CanJump)
+            {
+                Mover.Jump();
+                _jumpQueued = false;
+                jumpCooldownTimer.Reset();
+            }
+            if (_horizontalMovement != 0) Mover.MoveHorizontally(_horizontalMovement);
         }
     }
 }
