@@ -8,6 +8,7 @@ public class ArrowFire : MonoBehaviour
     // Start is called before the first frame update
     public Transform thor;
     public Transform arrow;
+    public Transform elfo;
     float dist;
     Vector3 viewPosArrow;
     Vector3 target;
@@ -25,9 +26,9 @@ public class ArrowFire : MonoBehaviour
     void Update()
     {
         
-        dist = Vector3.Distance(thor.position, arrow.position);        
+        dist = Vector3.Distance(thor.position, elfo.position);        
         
-        if (dist < 5 && !fire) 
+        if (dist < 8 && !fire) 
         {           
             
             if(arrow.position.y > thor.position.y && arrow.position.x < thor.position.x)
@@ -55,6 +56,7 @@ public class ArrowFire : MonoBehaviour
                     }
                 }                
             }
+            arrow.transform.position = elfo.position;
             arrow.Rotate(0, 0, angle);
             speed = 10;
             target = thor.position;
@@ -68,7 +70,8 @@ public class ArrowFire : MonoBehaviour
 
         if (!(viewPosArrow.x >= 0 && viewPosArrow.x <= 1 && viewPosArrow.y >= 0 && viewPosArrow.y <= 1))
         {
-            Destroy(arrow.transform.gameObject);
+            // Destroy(arrow.transform.gameObject);
+            arrow.transform.position = elfo.position;
         }
 
     }
@@ -76,14 +79,16 @@ public class ArrowFire : MonoBehaviour
     IEnumerator Example()
     {       
         yield return new WaitForSeconds(2);
-        Destroy(arrow.transform.gameObject);
+        //Destroy(arrow.transform.gameObject);
+        arrow.transform.position = elfo.position;
     }
 
     void OnCollisionEnter2D(Collision2D collision2D)
     {       
         if (collision2D.transform.tag.Equals("Thor"))
         {
-            Destroy(arrow.transform.gameObject);
+            //Destroy(arrow.transform.gameObject);
+            arrow.transform.position = elfo.position;
         }
     }
 }

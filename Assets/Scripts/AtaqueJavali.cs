@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movie : MonoBehaviour
+public class AtaqueJavali : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Transform thor;
+    public Transform java;
     void Start()
     {
         
@@ -13,6 +15,8 @@ public class Movie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + new Vector3(4*Time.deltaTime, 0, 0);
+        
+        java.transform.position = java.transform.position + new Vector3(-4 * Time.deltaTime, 0, 0);
+
     }
 }
