@@ -11,6 +11,12 @@ namespace ThorGame.Player
         [SerializeField] private Timer jumpQueueTimer;
         [SerializeField] private Timer jumpCooldownTimer;
 
+        [Header("Better Jump")] 
+        [SerializeField] private float risingMultiplier = 1;
+        [SerializeField] private float risingPressedMultiplier = 0.6f;
+        [SerializeField] private float fallingMultiplier = 1.5f;
+        [SerializeField] private float fallingPressedMultiplier = 0.8f;
+
         public PlayerMover Mover { get; private set; }
         private void Awake()
         {
@@ -23,7 +29,8 @@ namespace ThorGame.Player
         {
             _horizontalMovement = Input.GetAxis(moveAxis);
 
-            if (jumpCooldownTimer.Tick() && Input.GetKey(jumpKey))
+            bool jumpPressed = Input.GetKey(jumpKey);
+            if (jumpCooldownTimer.Tick() && jumpPressed)
             {
                 _jumpQueued = true;
                 jumpQueueTimer.Reset();
@@ -32,9 +39,15 @@ namespace ThorGame.Player
             {
                 _jumpQueued = false;
             }
-            
-            //DEBUG
-            //Debug.DrawRay(transform.position, Vector3.right * _horizontalMovement, Color.yellow);
+
+            if (jumpPressed)
+            {
+                Mover.GravityMultiplier = Mover.Velocity.y > 0 ? risingPressedMultiplier : fallingPressedMultiplier;
+            }
+            else
+            {
+                Mover.GravityMultiplier = Mover.Velocity.y > 0 ? risingMultiplier : fallingMultiplier;
+            }
         }
     
         private void FixedUpdate()
