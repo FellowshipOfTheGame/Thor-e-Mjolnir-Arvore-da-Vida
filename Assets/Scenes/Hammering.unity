@@ -650,15 +650,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5441343693046447925, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: jumpForce
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5441343693046447925, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
-      propertyPath: walkVelocity
+      propertyPath: deceleration
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5441343693046447925, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: walkVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441343693046447925, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: collisionPadding
-      value: 0.001
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 5441343693046447925, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: collisionMask.m_Bits
@@ -838,7 +842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7781979221507383653, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: jumpQueueTimer.<MaxSeconds>k__BackingField
-      value: 0.2
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7781979221507383653, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: jumpCooldownTimer.<MaxSeconds>k__BackingField

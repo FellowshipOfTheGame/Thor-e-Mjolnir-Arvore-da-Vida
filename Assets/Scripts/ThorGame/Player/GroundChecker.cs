@@ -9,10 +9,21 @@ public class GroundChecker
     [SerializeField] private LayerMask mask;
 
     
-    public bool IsGrounded => _groundHits.Any(h => h.collider);
-    public RaycastHit2D GroundHit => _groundHits.FirstOrDefault(h => h.collider);
-
     private RaycastHit2D[] _groundHits = new RaycastHit2D[3];
+    public bool IsGrounded => _groundHits.Any(h => h.collider);
+    public RaycastHit2D DirectionalHit(bool right) =>
+        right 
+            ? _groundHits.LastOrDefault(h => h) 
+            : _groundHits.FirstOrDefault(h => h);
+
+    public RaycastHit2D DirectionalHit(float movement) => movement switch
+    {
+        > 0 => _groundHits.LastOrDefault(h => h),
+        < 0 => _groundHits.FirstOrDefault(h => h),
+        _   => _groundHits.Where(h=>h).ElementAtOrDefault(1)
+    };
+    
+    
 
     private static Vector2[] CalcOrigins(Bounds bounds)
     {

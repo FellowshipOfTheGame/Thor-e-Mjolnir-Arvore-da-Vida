@@ -45,7 +45,7 @@ namespace ThorGame.Player
                 _jumpQueued = false;
                 jumpCooldownTimer.Reset();
             }
-            if (_horizontalMovement != 0) Mover.MoveHorizontally(_horizontalMovement);
+            if (_horizontalMovement != 0) Mover.SetHorizontalMovement(_horizontalMovement);
         }
     }
 }
