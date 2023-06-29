@@ -662,7 +662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5441343693046447925, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: collisionPadding
-      value: 0.025
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5441343693046447925, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: collisionMask.m_Bits
@@ -671,6 +671,10 @@ PrefabInstance:
     - target: {fileID: 5441343693046447925, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: groundChecker.mask.m_Bits
       value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441343693046447925, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: groundChecker.castDistance
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5463067576825481621, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: m_Layer

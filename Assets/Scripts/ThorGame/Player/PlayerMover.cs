@@ -26,35 +26,27 @@ namespace ThorGame.Player
         private Vector2 _velocity;
         public Vector2 Velocity => _velocity;
         
-        private void Awake()
-        {
-            Rigidbody = GetComponent<Rigidbody2D>();
-            Collider = GetComponent<CapsuleCollider2D>();
-        }
-
-        public void Jump()
-        {
-            if (!CanJump) return;
-            Debug.Log("jump!");
-            _velocity.y = jumpForce;
-        }
-
-        private Vector2 CalculateHorizontalMovement(Vector2 movement)
-        {
-            if (!groundChecker.IsGrounded) return movement;
-            Vector2 groundNormal = groundChecker.DirectionalHit(movement.x).normal;
-            Debug.DrawRay(Rigidbody.position, Vector3.ProjectOnPlane(movement, groundNormal), Color.blue);
-            return Vector3.ProjectOnPlane(movement, groundNormal);
-        }
-        
         public void SetHorizontalMovement(float movement)
         {
             _velocity.x = movement * walkVelocity;
         }
         
+        public void Jump()
+        {
+            if (!CanJump) return;
+            _velocity.y = jumpForce;
+        }
+        
+        private void Awake()
+        {
+            Rigidbody = GetComponent<Rigidbody2D>();
+            Collider = GetComponent<CapsuleCollider2D>();
+        }
+        
         private void FixedUpdate()
         {
-            groundChecker.UpdateGrounded(Collider.bounds);
+            groundChecker.UpdateGrounded(Collider);
+            
             if (!groundChecker.IsGrounded)
             {
                 _velocity.y -= gravity * GravityMultiplier;
@@ -65,7 +57,22 @@ namespace ThorGame.Player
             }
             ApplyMovement();
             _velocity.x = Mathf.MoveTowards(_velocity.x, 0, deceleration);
+            
+            groundChecker.UpdateGrounded(Collider);
         }
+
+        
+
+        private Vector2 CalculateHorizontalMovement(Vector2 movement)
+        {
+            if (!groundChecker.IsGrounded) return movement;
+            Vector2 groundNormal = groundChecker.GroundHit.normal;
+            return Vector3.ProjectOnPlane(movement, groundNormal);
+        }
+        
+        
+        
+        
 
         private void ApplyMovement()
         {
@@ -85,8 +92,5 @@ namespace ThorGame.Player
             }
             Rigidbody.MovePosition(finalPos);
         }
-
-        //DEBUG
-        private void Update() => groundChecker.DEBUG_Draw(Collider.bounds);
     }
 }

@@ -40,14 +40,19 @@ namespace ThorGame.Player
                 _jumpQueued = false;
             }
 
-            if (jumpPressed)
+            //Better jump
+            if (!Mover.GroundChecker.IsGrounded)
             {
-                Mover.GravityMultiplier = Mover.Velocity.y > 0 ? risingPressedMultiplier : fallingPressedMultiplier;
+                if (jumpPressed)
+                {
+                    Mover.GravityMultiplier = Mover.Velocity.y > 0 ? risingPressedMultiplier : fallingPressedMultiplier;
+                }
+                else
+                {
+                    Mover.GravityMultiplier = Mover.Velocity.y > 0 ? risingMultiplier : fallingMultiplier;
+                }
             }
-            else
-            {
-                Mover.GravityMultiplier = Mover.Velocity.y > 0 ? risingMultiplier : fallingMultiplier;
-            }
+            else Mover.GravityMultiplier = 1;
         }
     
         private void FixedUpdate()
