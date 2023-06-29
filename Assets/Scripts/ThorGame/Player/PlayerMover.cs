@@ -13,7 +13,7 @@ namespace ThorGame.Player
         [SerializeField] private float deceleration;
         [SerializeField] private LayerMask collisionMask;
         [SerializeField] private GroundChecker groundChecker;
-
+        
         public float GravityMultiplier { get; set; } = 1;
 
         public GroundChecker GroundChecker => groundChecker;
@@ -29,12 +29,21 @@ namespace ThorGame.Player
         public void SetHorizontalMovement(float movement)
         {
             _velocity.x = movement * walkVelocity;
+            SetDirection(movement);
         }
         
         public void Jump()
         {
             if (!CanJump) return;
             _velocity.y = jumpForce;
+        }
+
+        public void SetDirection(float direction)
+        {
+            if (direction == 0) return;
+            Vector3 scale = transform.localScale;
+            scale.x = direction > 0 ? 1 : -1;
+            transform.localScale = scale;
         }
         
         private void Awake()
@@ -60,9 +69,7 @@ namespace ThorGame.Player
             
             groundChecker.UpdateGrounded(Collider);
         }
-
         
-
         private Vector2 CalculateHorizontalMovement(Vector2 movement)
         {
             if (!groundChecker.IsGrounded) return movement;
@@ -70,10 +77,6 @@ namespace ThorGame.Player
             return Vector3.ProjectOnPlane(movement, groundNormal);
         }
         
-        
-        
-        
-
         private void ApplyMovement()
         {
             Vector2 movement = CalculateHorizontalMovement(Vector2.right * _velocity.x) +
