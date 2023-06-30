@@ -8,6 +8,7 @@ namespace ThorGame.Player
         [Header("Animations")] 
         [SerializeField] private NamedHash idleAnimation = "Idle";
         [SerializeField] private NamedHash runAnimation = "Run";
+        [SerializeField] private NamedHash groundedBlendTree = "GroundedBlendTree";
         [Header("Parameters")]
         [SerializeField] private NamedHash speedParam = "Speed";
         
@@ -24,11 +25,12 @@ namespace ThorGame.Player
         private NamedHash _currentAnimation;
         private NamedHash GetTargetAnimation()
         {
-            if (_mover.GroundChecker.IsGrounded)
+            return groundedBlendTree;
+            /*if (_mover.GroundChecker.IsGrounded)
             {
                 return _mover.Velocity.x != 0 ? runAnimation : idleAnimation;
             }
-            return idleAnimation;
+            return idleAnimation;*/
         }
 
         private void SetAnimation(NamedHash target)
