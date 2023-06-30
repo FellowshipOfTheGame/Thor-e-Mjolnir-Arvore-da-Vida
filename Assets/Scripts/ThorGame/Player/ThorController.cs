@@ -23,11 +23,12 @@ namespace ThorGame.Player
             Mover = GetComponent<PlayerMover>();
         }
 
-        private float _horizontalMovement;
+        public float HorizontalMovement { get; private set; }
+
         private bool _jumpQueued;
         private void Update()
         {
-            _horizontalMovement = Input.GetAxis(moveAxis);
+            HorizontalMovement = Input.GetAxis(moveAxis);
 
             bool jumpPressed = Input.GetKey(jumpKey);
             if (jumpCooldownTimer.Tick() && jumpPressed)
@@ -63,7 +64,7 @@ namespace ThorGame.Player
                 _jumpQueued = false;
                 jumpCooldownTimer.Reset();
             }
-            if (_horizontalMovement != 0) Mover.SetHorizontalMovement(_horizontalMovement);
+            if (HorizontalMovement != 0) Mover.SetHorizontalMovement(HorizontalMovement);
         }
     }
 }
