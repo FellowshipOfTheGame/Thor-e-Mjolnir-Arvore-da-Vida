@@ -40,7 +40,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293356744}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -856,7 +856,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.4789996, y: 0.0009992118}
+  m_ConnectedAnchor: {x: 0, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -11883,7 +11883,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.36}
+  m_Offset: {x: 0, y: 0.7}
   m_Size: {x: 2.21, y: 7.03}
   m_Direction: 0
 --- !u!114 &5841768375060731159
@@ -11902,7 +11902,7 @@ MonoBehaviour:
   hammerParent: {fileID: 1293356746}
   hammer: {fileID: 42764963571632370}
   clampOrigin: {fileID: 4244451818472221914}
-  originOffset: {x: 0.04, y: 0}
+  originOffset: {x: 0.57, y: 0}
   maxRange: 2
 --- !u!114 &7781979221507383653
 MonoBehaviour:
@@ -11922,9 +11922,9 @@ MonoBehaviour:
     <MaxSeconds>k__BackingField: 0.03
   jumpCooldownTimer:
     <MaxSeconds>k__BackingField: 0.2
-  risingMultiplier: 1
+  risingMultiplier: 0.8
   risingPressedMultiplier: 0.6
-  fallingMultiplier: 1.5
+  fallingMultiplier: 1
   fallingPressedMultiplier: 0.8
 --- !u!114 &5441343693046447925
 MonoBehaviour:
@@ -11938,8 +11938,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d33c9767b3246d5ad91fcba570b4c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkVelocity: 1
-  gravity: 0.25
+  walkVelocity: 0.8
+  gravity: 0.15
   jumpForce: 1.5
   collisionPadding: 0.05
   deceleration: 0.5
