@@ -9,9 +9,10 @@ public class WildBoar : AFollower
     public Transform thor;
     public Transform boar;
     int speed = -4;
+    int life;
     void Start()
     {
-        
+        life = lifeWildBoarBite;
     }
 
     // Update is called once per frame
@@ -26,6 +27,16 @@ public class WildBoar : AFollower
         {
             speed = -speed;
             StartCoroutine(Back());
+        }
+
+        if (collision2D.transform.tag.Equals("hammer"))
+        {
+            life -= 10;//deve ser passada pelo thor
+
+            if(life <= 0)
+            {
+                Destroy(boar.gameObject);
+            }
         }
     }
 
