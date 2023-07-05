@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Thor
   - FxTemporaire
+  - target
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - arrow
   - Water
   - UI
   - 
