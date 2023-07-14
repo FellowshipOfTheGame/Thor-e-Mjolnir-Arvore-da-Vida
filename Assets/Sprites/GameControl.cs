@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class GameControl : MonoBehaviour
 {
     // Start is called before the first frame update
-  
+    public AudioSource audioSource;
+
     void Start()
     {
 
-       
+        audioSource.Play();
 
     }
 
