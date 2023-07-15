@@ -1,47 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class WildBoar : AFollower
 {
     // Start is called before the first frame update
     public Transform thor;
-    public int speed = 1;
-    float smooth;
-    float distance;
-    Vector3 target;
+    public Transform boar;
+    int speed = -4;
+    int life;
     void Start()
     {
-        if (transform.position.x < thor.position.x)
-        {
-            transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
-        }
-        else
-        {
-            transform.Rotate(0.0f, 0.0f, 0.0f, Space.Self);
-        }
+        life = lifeWildBoarBite;
     }
 
     // Update is called once per frame
     void Update()
-    {  
+    {
+        boar.transform.position = boar.transform.position + new Vector3(speed * Time.deltaTime, 0, 0);
+    }
 
-        distance = Vector3.Distance(transform.position, target);
-
-        if(distance > 5.0f)
-        {           
-            smooth = 1.0f - Mathf.Pow(0.5f, Time.deltaTime * speed);
-            target = thor.position;
-            transform.position = Vector3.Lerp(transform.position, target, smooth);
-        } 
-        else
+    void OnCollisionEnter2D(Collision2D collision2D)
+    {
+        if (collision2D.transform.tag.Equals("Thor"))
         {
-            speed *= 2;
-            smooth = 1.0f - Mathf.Pow(0.5f, Time.deltaTime * speed);
-            target = thor.position;
-            transform.position = Vector3.Lerp(transform.position, target, smooth);
+            speed = -speed;
+            StartCoroutine(Back());
         }
 
+        if (collision2D.transform.tag.Equals("hammer"))
+        {
+            life -= 10;//deve ser passada pelo thor
+
+            if(life <= 0)
+            {
+                Destroy(boar.gameObject);
+            }
+        }
     }
+
+    IEnumerator Back()
+    {
+        yield return new WaitForSeconds(2);
+        speed = -1 * speed;
+    }
+    
 }

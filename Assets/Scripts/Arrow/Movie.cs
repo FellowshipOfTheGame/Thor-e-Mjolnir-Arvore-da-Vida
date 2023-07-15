@@ -13,6 +13,6 @@ public class Movie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + new Vector3(4*Time.deltaTime, 0, 0);
+        transform.position = transform.position + new Vector3(2*Time.deltaTime, 0, 0);
     }
 }

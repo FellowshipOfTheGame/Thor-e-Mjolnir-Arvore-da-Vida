@@ -8,14 +8,13 @@ public class ArrowFire : MonoBehaviour
     // Start is called before the first frame update
     public Transform thor;
     public Transform arrow;
-    float dist;
-    Vector3 viewPosArrow;
-    Vector3 target;
+    public Transform elfo;
     public Camera mainCam;
+    int ajusteY = 2;
+    float dist;
+    Vector3 viewPosArrow;    
     bool fire = false;
-    int speed = 0;
-    float smooth;
-    float angle;
+    int speed = 3;
     void Start()
     {
         
@@ -25,65 +24,37 @@ public class ArrowFire : MonoBehaviour
     void Update()
     {
         
-        dist = Vector3.Distance(thor.position, arrow.position);        
+        dist = Vector3.Distance(thor.position, elfo.position);        
         
-        if (dist < 5 && !fire) 
-        {           
-            
-            if(arrow.position.y > thor.position.y && arrow.position.x < thor.position.x)
+       if (dist < 20) 
+       {
+            if (!fire)
             {
-                angle = 180 - Vector3.Angle(arrow.transform.position, thor.position);
+                arrow.transform.position = new Vector3(elfo.position.x, elfo.position.y + ajusteY, 0);
+                fire = true;
             }
-            else
-            {
-                if(arrow.position.y < thor.position.y && arrow.position.x < thor.position.x)
-                {
-                    angle = Vector3.Angle(arrow.transform.position, thor.position);
-                }
-                else
-                {
-                    if (arrow.position.y < thor.position.y && arrow.position.x > thor.position.x)
-                    {
-                        angle =  -Vector3.Angle(arrow.transform.position, thor.position) ;
-                    }
-                    else
-                    {
-                        if (arrow.position.y > thor.position.y && arrow.position.x > thor.position.x)
-                        {
-                            angle = 180 + Vector3.Angle(arrow.transform.position, thor.position);
-                        }
-                    }
-                }                
-            }
-            arrow.Rotate(0, 0, angle);
-            speed = 10;
-            target = thor.position;
-            fire = true;
-            smooth =  1.0f - Mathf.Pow(0.5f, Time.deltaTime * speed);
-            StartCoroutine(Example());
-        } 
+            arrow.transform.position = arrow.transform.position + new Vector3(-speed * Time.deltaTime, 0, 0);
+       }       
+        
+       if(dist < 2)
+        {
 
-        arrow.position = Vector3.Lerp(arrow.position, target, smooth);
-        
+            arrow.transform.position = new Vector3(100, 100, 0);
+            speed = 0;
+        }
 
         if (!(viewPosArrow.x >= 0 && viewPosArrow.x <= 1 && viewPosArrow.y >= 0 && viewPosArrow.y <= 1))
         {
-            Destroy(arrow.transform.gameObject);
+            arrow.transform.position = new Vector3(elfo.position.x, elfo.position.y + ajusteY, 0);
         }
 
-    }
-
-    IEnumerator Example()
-    {       
-        yield return new WaitForSeconds(2);
-        Destroy(arrow.transform.gameObject);
     }
 
     void OnCollisionEnter2D(Collision2D collision2D)
     {       
         if (collision2D.transform.tag.Equals("Thor"))
         {
-            Destroy(arrow.transform.gameObject);
+            arrow.transform.position = new Vector3(elfo.position.x, elfo.position.y + ajusteY, 0);
         }
     }
 }
