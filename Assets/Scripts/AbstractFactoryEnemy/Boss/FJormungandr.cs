@@ -9,10 +9,7 @@ public class FJormungandr : ABoss
         
     }
 
-    public override void move(GameObject go)
-    {
-       
-    }
+   
 
     // Start is called before the first frame update   
     void Start()

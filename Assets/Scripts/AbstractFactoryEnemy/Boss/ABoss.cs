@@ -3,7 +3,15 @@ using UnityEngine;
 
 public abstract class ABoss : MonoBehaviour
 {
-    public abstract void move(GameObject go);
+    public int speed;
+    public Transform thor;
+    public Transform enemy;
+    public void move(Transform enemy, Transform target)
+    {
+        
+        enemy.position = Vector3.Lerp(enemy.position, target.position, 1.0f - Mathf.Pow(0.5f, Time.deltaTime * speed));
+
+    }
 
     public abstract void fly(GameObject go);
 
