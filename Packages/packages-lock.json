@@ -236,7 +236,7 @@
       "dependencies": {
         "com.unity.sysroot": "2.0.6",
         "com.unity.sysroot.linux-x86_64": "2.0.5"
-     },
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ugui": {
