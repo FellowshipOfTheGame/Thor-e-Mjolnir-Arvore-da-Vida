@@ -3,12 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Thor
+  - FxTemporaire
+  - target
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - arrow
   - Water
   - UI
   - 
