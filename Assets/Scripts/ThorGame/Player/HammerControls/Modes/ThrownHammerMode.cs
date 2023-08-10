@@ -5,7 +5,7 @@ namespace ThorGame.Player.HammerControls.Modes
     [CreateAssetMenu(menuName = "HammerModes/Thrown", fileName = "ThrownHammerMode", order = 0)]
     public class ThrownHammerMode : HammerMode
     {
-        [SerializeField] private KeyCode recallKey;
+        [SerializeField] private InputCondition recallInput;
     
         public override Hammer.Attachment AttachmentMode => Hammer.Attachment.Free;
         
@@ -19,7 +19,7 @@ namespace ThorGame.Player.HammerControls.Modes
 
         public override void Tick(Hammer hammer)
         {
-            if (Input.GetKey(recallKey))
+            if (recallInput)
             {
                 hammer.Recall();
             }

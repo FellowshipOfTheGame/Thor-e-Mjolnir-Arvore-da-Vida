@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee11d6004714f4b83ef46694237e943, type: 3}
   m_Name: ThrownHammerMode
   m_EditorClassIdentifier: 
-  recallKey: 114
+  recallInput:
+    type: 1
+    mode: 2
+    key: 0
+    mouseButton: 1
+    virtualButton:
+      Name: 

@@ -21,13 +21,11 @@ ScriptedImporter:
     convertToNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
-    swizzle: 50462976
     isReadable: 0
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
     vTOnly: 0
-    ignoreMipmapLimit: 0
+    ignoreMasterTextureLimit: 0
     nPOTScale: 1
     sRGBTexture: 1
     spriteMode: 2
@@ -90,8 +88,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
+    parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
-    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: CABECA
@@ -809,8 +807,8 @@ ScriptedImporter:
     - {x: 0, y: 55}
     - {x: 62, y: 43}
     tessellationDetail: 0
-    uvTransform: {x: 397, y: 4}
-    spritePosition: {x: 51, y: 469}
+    parentGroupIndex: -1
+    uvTransform: {x: 346, y: -465}
   - name: PELE ESQ
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -1287,8 +1285,8 @@ ScriptedImporter:
     - {x: 37, y: 36}
     - {x: 37, y: 0}
     tessellationDetail: 0
-    uvTransform: {x: 370, y: 835}
-    spritePosition: {x: 271, y: 486}
+    parentGroupIndex: -1
+    uvTransform: {x: 99, y: 349}
   - name: PELE DIR
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -1832,8 +1830,8 @@ ScriptedImporter:
     - {x: 44, y: 43}
     - {x: 44, y: 0}
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 652}
-    spritePosition: {x: 0, y: 462}
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 190}
   - name: BRACO DIR
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2353,8 +2351,8 @@ ScriptedImporter:
     - {x: 6, y: 42}
     - {x: 7, y: 42}
     tessellationDetail: 0
-    uvTransform: {x: 549, y: 455}
-    spritePosition: {x: 35, y: 224}
+    parentGroupIndex: -1
+    uvTransform: {x: 514, y: 231}
   - name: CORPO
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2845,8 +2843,8 @@ ScriptedImporter:
     - {x: 6, y: 37}
     - {x: 7, y: 37}
     tessellationDetail: 0
-    uvTransform: {x: 738, y: 4}
-    spritePosition: {x: 105, y: 242}
+    parentGroupIndex: -1
+    uvTransform: {x: 633, y: -238}
   - name: Camada 21
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -3391,8 +3389,8 @@ ScriptedImporter:
     - {x: 26, y: 25}
     - {x: 0, y: 26}
     tessellationDetail: 0
-    uvTransform: {x: 252, y: 834}
-    spritePosition: {x: 182, y: 170}
+    parentGroupIndex: -1
+    uvTransform: {x: 70, y: 664}
   - name: Camada 18
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -3891,8 +3889,8 @@ ScriptedImporter:
     - {x: 31, y: 30}
     - {x: 0, y: 31}
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 834}
-    spritePosition: {x: 178, y: 0}
+    parentGroupIndex: -1
+    uvTransform: {x: -174, y: 834}
   - name: Camada 15
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -4426,8 +4424,8 @@ ScriptedImporter:
     - {x: 26, y: 25}
     - {x: 0, y: 26}
     tessellationDetail: 0
-    uvTransform: {x: 695, y: 455}
-    spritePosition: {x: 247, y: 173}
+    parentGroupIndex: -1
+    uvTransform: {x: 448, y: 282}
   - name: Camada 12
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -4926,8 +4924,8 @@ ScriptedImporter:
     - {x: 31, y: 30}
     - {x: 0, y: 31}
     tessellationDetail: 0
-    uvTransform: {x: 128, y: 834}
-    spritePosition: {x: 244, y: 3}
+    parentGroupIndex: -1
+    uvTransform: {x: -116, y: 831}
   - name: BRACO ESQ2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -5461,8 +5459,8 @@ ScriptedImporter:
     - {x: 8, y: 44}
     - {x: 39, y: 44}
     tessellationDetail: 0
-    uvTransform: {x: 370, y: 455}
-    spritePosition: {x: 270, y: 255}
+    parentGroupIndex: -1
+    uvTransform: {x: 100, y: 200}
   - name: MARTELO
     originalName: 
     pivot: {x: 0.17, y: 0.38}
@@ -5894,8 +5892,8 @@ ScriptedImporter:
     - {x: 31, y: 32}
     - {x: 0, y: 32}
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 455}
-    spritePosition: {x: 257, y: 204}
+    parentGroupIndex: -1
+    uvTransform: {x: -253, y: 251}
   - name: MAO ESQ
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -6292,8 +6290,8 @@ ScriptedImporter:
     - {x: 27, y: 26}
     - {x: 0, y: 27}
     tessellationDetail: 0
-    uvTransform: {x: 252, y: 940}
-    spritePosition: {x: 360, y: 236}
+    parentGroupIndex: -1
+    uvTransform: {x: -108, y: 704}
   - name: Camada 2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -6988,8 +6986,8 @@ ScriptedImporter:
     - {x: 15, y: 58}
     - {x: 16, y: 58}
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 5, y: 157}
+    parentGroupIndex: -1
+    uvTransform: {x: -1, y: -153}
   characterData:
     bones:
     - name: bone_1
@@ -7292,7 +7290,6 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
-    pivot: {x: 0, y: 0}
     boneReadOnly: 0
   sharedRigSpriteImportData: []
   sharedRigCharacterData:
@@ -7300,7 +7297,6 @@ ScriptedImporter:
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
-    pivot: {x: 0, y: 0}
     boneReadOnly: 0
   platformSettings: []
   mosaicLayers: 1
@@ -7313,8 +7309,6 @@ ScriptedImporter:
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   skeletonAssetReferenceID: 
-  padding: 4
-  spriteSizeExpand: 0
   spriteCategoryList:
     categories: []
   spritePackingTag: 
@@ -7523,9 +7517,6 @@ ScriptedImporter:
     isVisible: 1
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
-  importFileNodeState: 1
-  platformSettingsDirtyTick: 0
-  spriteSizeExpandChanged: 0
   generateGOHierarchy: 0
   textureAssetName: THOR Texture
   prefabAssetName: THOR Prefab
