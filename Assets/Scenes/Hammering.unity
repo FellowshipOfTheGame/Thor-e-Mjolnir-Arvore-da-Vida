@@ -509,6 +509,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4328330721772168966, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7101071596458972483, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -556,6 +560,14 @@ PrefabInstance:
     - target: {fileID: 7101071596458972484, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: m_Name
       value: Thor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195793515993119705, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: upAngle
+      value: 94
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195793515993119705, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: faceVelocity
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
