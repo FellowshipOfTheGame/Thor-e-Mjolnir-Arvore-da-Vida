@@ -95,7 +95,7 @@ namespace ThorGame.Player
             {
                 var hit = castHits[0];
                 finalPos = hit.centroid + hit.normal * collisionPadding;
-                _velocity = Vector3.ProjectOnPlane(movement,  hit.normal);
+                _velocity = Vector3.ProjectOnPlane(_velocity,  hit.normal);
             }
             Rigidbody.MovePosition(finalPos);
         }
