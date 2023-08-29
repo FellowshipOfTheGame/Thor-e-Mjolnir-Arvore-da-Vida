@@ -3,17 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Thor
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - Floor
   - Water
   - UI
-  - Hammer
-  - Terrain
+  - 
+  - 
   - 
   - 
   - 

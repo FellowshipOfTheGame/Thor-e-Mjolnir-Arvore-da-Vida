@@ -26,6 +26,7 @@ public abstract class AFollower : MonoBehaviour
     public const int hitPointWildBoar = 15;
     public const int damgeWildBoarChargeAttack = 12;
     public const int damgeWildBoarBite = 4;
+    public const int lifeWildBoarBite = 60;
 
     public const int hitPointRockyTroll = 40;
     public const int damgeRockyTrollPunch = 6; 
