@@ -4,17 +4,14 @@ namespace ThorGame.Player.HammerControls.ModeSet.Transitions
 {
     public class HammerModeKeyTransition : HammerModeNodeTransition
     {
-        [SerializeField] private KeyCode key;
-        
-        protected override bool TransitionCondition(Hammer hammer)
-        {
-            return Input.GetKeyDown(key);
-        }
+        [SerializeField] private InputCondition input;
+
+        protected override bool TransitionCondition(Hammer hammer) => input;
 
         public override HammerModeNodeTransition Clone()
         {
             var clone = (HammerModeKeyTransition)base.Clone();
-            clone.key = key;
+            clone.input = input;
             return clone;
         }
     }

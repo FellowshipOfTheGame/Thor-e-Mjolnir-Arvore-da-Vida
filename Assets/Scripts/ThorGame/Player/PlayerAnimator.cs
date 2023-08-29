@@ -1,16 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ThorGame.Player
 {
     [RequireComponent(typeof(Animator), typeof(PlayerMover), typeof(ThorController))]
     public class PlayerAnimator : MonoBehaviour
     {
-        [Header("Animations")] 
-        [SerializeField] private NamedHash idleAnimation = "Idle";
-        [SerializeField] private NamedHash runAnimation = "Run";
-        [SerializeField] private NamedHash groundedBlendTree = "GroundedBlendTree";
         [Header("Parameters")]
-        [SerializeField] private NamedHash speedParam = "Speed";
+        [SerializeField] private NamedHash speed = "Speed";
+        [SerializeField] private NamedHash grounded = "Grounded";
+        [SerializeField] private NamedHash jump = "Jump";
+        [SerializeField] private NamedHash dead = "Dead";
         
         private Animator _animator;
         private PlayerMover _mover;
@@ -22,36 +22,20 @@ namespace ThorGame.Player
             _controller = GetComponent<ThorController>();
         }
 
-        private NamedHash _currentAnimation;
-        private NamedHash GetTargetAnimation()
+        private void TriggerJump() => _animator.SetTrigger(jump.Hash);
+        private void OnEnable()
         {
-            return groundedBlendTree;
-            /*if (_mover.GroundChecker.IsGrounded)
-            {
-                return _mover.Velocity.x != 0 ? runAnimation : idleAnimation;
-            }
-            return idleAnimation;*/
+            _mover.onJump += TriggerJump;
         }
-
-        private void SetAnimation(NamedHash target)
+        private void OnDisable()
         {
-            _currentAnimation = target;
-            _animator.Play(target.Hash);
-        }
-
-        private void UpdateParameters()
-        {
-            _animator.SetFloat(speedParam.Hash, Mathf.Abs(_controller.HorizontalMovement));
+            _mover.onJump -= TriggerJump;
         }
 
         private void Update()
         {
-            UpdateParameters();
-            NamedHash target = GetTargetAnimation();
-            if (target != _currentAnimation)
-            {
-                SetAnimation(target);
-            }
+            _animator.SetFloat(speed.Hash, Mathf.Abs(_controller.HorizontalMovement));
+            _animator.SetBool(grounded.Hash, _mover.GroundChecker.IsGrounded);
         }
     }
 }

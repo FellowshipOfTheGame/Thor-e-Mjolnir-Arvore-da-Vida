@@ -25,12 +25,13 @@ namespace ThorGame.Player.HammerControls
         [SerializeField] private float maxVelocity;
         [SerializeField] private float recallDistance;
         [SerializeField] private bool faceVelocity = true;
-        
+        [SerializeField] [Range(0f, 360f)] private float upAngle;
+
         [Header("Constraints")]
         [SerializeField] private GameObject strap;
         [SerializeField] private AnchoredJoint2D hammerStrapJoint;
         [SerializeField] private AnchoredJoint2D hammerFixedJoint;
-        
+
         public Rigidbody2D Rigidbody { get; private set; }
         private Transform _ogParent;
         private void Awake()
@@ -48,7 +49,13 @@ namespace ThorGame.Player.HammerControls
                 Vector2 vel = Rigidbody.velocity;
                 if (vel != Vector2.zero && faceVelocity)
                 {
-                    Rigidbody.SetRotation(Quaternion.FromToRotation(Vector3.right, vel.normalized));
+                    Debug.DrawRay(Rigidbody.position, vel, Color.red);
+                    Debug.DrawRay(Rigidbody.position, Quaternion.AngleAxis(upAngle - 90, Vector3.forward) * vel.normalized, Color.green);
+                    Debug.DrawRay(Rigidbody.position, Quaternion.AngleAxis(90 - upAngle, Vector3.forward) * vel.normalized, Color.blue);
+                    
+                    float rad = upAngle * Mathf.Deg2Rad;
+                    Vector3 worldUp = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad), 0);
+                    transform.up = Quaternion.AngleAxis(90 - upAngle, Vector3.forward) * vel.normalized;
                 }
 
                 float velocityMagnitude = Rigidbody.velocity.magnitude;
@@ -139,6 +146,13 @@ namespace ThorGame.Player.HammerControls
                 Vector3 com = hammer.transform.position +
                               hammer.transform.TransformDirection(hammer.headOffset); 
                 UnityEditor.Handles.DrawSolidDisc(com, Vector3.forward, .1f);
+                
+                float rad = Mathf.Deg2Rad * hammer.upAngle;
+                Vector3 upDir = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad), 0);
+                UnityEditor.Handles.DrawLine(hammer.transform.position, hammer.transform.position + upDir);
+                UnityEditor.Handles.ArrowHandleCap(0, hammer.transform.position + upDir,
+                    Quaternion.LookRotation(upDir), 
+                    2f, EventType.Repaint);
             }
         }
         #endif

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ThorGame.Player
@@ -13,6 +14,8 @@ namespace ThorGame.Player
         [SerializeField] private float deceleration;
         [SerializeField] private LayerMask collisionMask;
         [SerializeField] private GroundChecker groundChecker;
+
+        public event Action onJump;
         
         public float GravityMultiplier { get; set; } = 1;
 
@@ -36,6 +39,7 @@ namespace ThorGame.Player
         {
             if (!CanJump) return;
             _velocity.y = jumpForce;
+            onJump?.Invoke();
         }
 
         public void SetDirection(float direction)
@@ -91,7 +95,7 @@ namespace ThorGame.Player
             {
                 var hit = castHits[0];
                 finalPos = hit.centroid + hit.normal * collisionPadding;
-                _velocity = Vector3.ProjectOnPlane(movement,  hit.normal);
+                _velocity = Vector3.ProjectOnPlane(_velocity,  hit.normal);
             }
             Rigidbody.MovePosition(finalPos);
         }

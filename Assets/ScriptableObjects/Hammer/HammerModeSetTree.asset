@@ -31,7 +31,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRoot: 0
   connections:
-  - {fileID: 6344358617884792647}
   - {fileID: -4495419550739263652}
   treePos: {x: 286.8, y: -189.36002}
   treeGuid: 435a9aa3503cca44ca95235834066e9e
@@ -54,7 +53,13 @@ MonoBehaviour:
   to: {fileID: -3002802900554307167}
   treeGuid: 
   negateCondition: 0
-  key: 116
+  input:
+    type: 1
+    mode: 1
+    key: 0
+    mouseButton: 0
+    virtualButton:
+      Name: 
 --- !u!114 &-3002802900554307167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +96,31 @@ MonoBehaviour:
   to: {fileID: -7292957717477632621}
   treeGuid: 
   negateCondition: 0
-  key: 114
+  input:
+    type: 1
+    mode: 0
+    key: 0
+    mouseButton: 0
+    virtualButton:
+      Name: 
+--- !u!114 &-792943762332149200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: HammerModeButtonTransition
+  m_EditorClassIdentifier: Assembly-CSharp:ThorGame.Player.HammerControls.ModeSet.Transitions:HammerModeButtonTransition
+  from: {fileID: 984492717642512493}
+  to: {fileID: -7292957717477632621}
+  treeGuid: 
+  negateCondition: 0
+  button: 0
+  up: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,13 +154,12 @@ MonoBehaviour:
   isRoot: 1
   connections:
   - {fileID: -2243104319872137716}
-  - {fileID: 8563498945458318045}
   treePos: {x: 0, y: 0}
   treeGuid: 40a1b7449d8244940bd06a65a6b6550b
   title: Slam
   modeVariants:
   - {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
---- !u!114 &6344358617884792647
+--- !u!114 &6734990397424625044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,28 +168,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 985eff75e62242c78b0f97daaab1777d, type: 3}
-  m_Name: HammerModeKeyTransition
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 0}
+  m_Name: HammerModeButtonTransition
+  m_EditorClassIdentifier: Assembly-CSharp:ThorGame.Player.HammerControls.ModeSet.Transitions:HammerModeButtonTransition
   from: {fileID: -7292957717477632621}
-  to: {fileID: 984492717642512493}
-  treeGuid: 
-  negateCondition: 0
-  key: 114
---- !u!114 &8563498945458318045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 985eff75e62242c78b0f97daaab1777d, type: 3}
-  m_Name: HammerModeKeyTransition
-  m_EditorClassIdentifier: 
-  from: {fileID: 984492717642512493}
   to: {fileID: -3002802900554307167}
   treeGuid: 
   negateCondition: 0
-  key: 116
+  button: 0
+  up: 1
