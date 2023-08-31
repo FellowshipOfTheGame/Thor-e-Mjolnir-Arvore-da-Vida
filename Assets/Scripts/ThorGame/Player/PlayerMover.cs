@@ -42,16 +42,18 @@ namespace ThorGame.Player
             onJump?.Invoke();
         }
 
+        private float _startXScale;
         public void SetDirection(float direction)
         {
             if (direction == 0) return;
             Vector3 scale = transform.localScale;
-            scale.x = direction > 0 ? 1 : -1;
+            scale.x = direction > 0 ? _startXScale : -_startXScale;
             transform.localScale = scale;
         }
         
         private void Awake()
         {
+            _startXScale = transform.localScale.x;
             Rigidbody = GetComponent<Rigidbody2D>();
             Collider = GetComponent<CapsuleCollider2D>();
         }
