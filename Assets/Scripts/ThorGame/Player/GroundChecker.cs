@@ -10,6 +10,7 @@ namespace ThorGame.Player
         [SerializeField] private float castDistance = 0.1f;
         [SerializeField] private LayerMask mask;
     
+        public float LastGroundedChangeTime { get; private set; }
         public bool IsGrounded => GroundHit;
         public RaycastHit2D GroundHit { get; private set; }
 
@@ -18,7 +19,9 @@ namespace ThorGame.Player
             ContactFilter2D filter = new ContactFilter2D { layerMask = mask };
             List<RaycastHit2D> hits = new();
             int hitCount = collider.Cast(Vector2.down, filter, hits, distance: castDistance);
-            GroundHit = hitCount > 0 ? hits[0] : default;
+            var hit = hitCount > 0 ? hits[0] : default;
+            if (hit != GroundHit) LastGroundedChangeTime = Time.time;
+            GroundHit = hit;
         }
     }
 }

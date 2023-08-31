@@ -10677,7 +10677,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   groundChecker:
-    castDistance: 0.15
+    castDistance: 0.2
     mask:
       serializedVersion: 2
       m_Bits: 0
@@ -10695,8 +10695,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed:
     Name: VelX
+  fallSpeed:
+    Name: VelY
   grounded:
     Name: Grounded
+  timeSinceGroundChange:
+    Name: SinceGroundChange
   jump:
     Name: Jump
   dead:
