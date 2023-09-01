@@ -16,7 +16,7 @@ namespace ThorGame.Player
 
         public void UpdateGrounded(Collider2D collider)
         {
-            ContactFilter2D filter = new ContactFilter2D { layerMask = mask };
+            ContactFilter2D filter = new ContactFilter2D { layerMask = mask, useLayerMask = true };
             List<RaycastHit2D> hits = new();
             int hitCount = collider.Cast(Vector2.down, filter, hits, distance: castDistance);
             var hit = hitCount > 0 ? hits[0] : default;

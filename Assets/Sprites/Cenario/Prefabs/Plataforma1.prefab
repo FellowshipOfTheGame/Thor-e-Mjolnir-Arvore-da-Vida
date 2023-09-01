@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6232411944397002941}
   - component: {fileID: 2026931333192089592}
   - component: {fileID: 5335790178736495529}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia15 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5852401848188450789}
   - component: {fileID: 4145011763451888998}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6753679530863903312}
   - component: {fileID: 6879205190582000653}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7522086115196473256}
   - component: {fileID: 6102912351030641970}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4164024066107783690}
   - component: {fileID: 4164024066107783691}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +393,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4164024067484554004}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4164024066107783691
 SpriteRenderer:
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 4164024066504680530}
   - component: {fileID: 4164024066504680525}
   - component: {fileID: 5797095550092545149}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +478,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4164024067484554004}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4164024066504680525
 SpriteRenderer:
@@ -569,8 +569,8 @@ GameObject:
   - component: {fileID: 4164024066518804368}
   - component: {fileID: 4164024066518804369}
   - component: {fileID: 3909847258300957134}
-  m_Layer: 0
-  m_Name: fatia24
+  m_Layer: 3
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -589,7 +589,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4164024067484554004}
-  m_RootOrder: 9
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4164024066518804369
 SpriteRenderer:
@@ -679,7 +679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4164024066604432588}
   - component: {fileID: 4164024066604432589}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +699,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4164024067484554004}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4164024066604432589
 SpriteRenderer:
@@ -764,7 +764,7 @@ GameObject:
   - component: {fileID: 4164024066665605749}
   - component: {fileID: 4164024066665605754}
   - component: {fileID: 7508743833149518756}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -784,7 +784,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4164024067484554004}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4164024066665605754
 SpriteRenderer:
@@ -874,7 +874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4164024066958133003}
   - component: {fileID: 4164024066958133000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,7 +894,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4164024067484554004}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4164024066958133000
 SpriteRenderer:
@@ -959,7 +959,7 @@ GameObject:
   - component: {fileID: 4164024066964099591}
   - component: {fileID: 4164024066964099588}
   - component: {fileID: 3160165568243028712}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1070,8 +1070,8 @@ GameObject:
   - component: {fileID: 4164024067019335388}
   - component: {fileID: 4164024067019335389}
   - component: {fileID: 5322313129367026570}
-  m_Layer: 0
-  m_Name: fatia25
+  m_Layer: 3
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1090,7 +1090,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4164024067484554004}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4164024067019335389
 SpriteRenderer:
@@ -1181,7 +1181,7 @@ GameObject:
   - component: {fileID: 4164024067300620703}
   - component: {fileID: 4164024067300620700}
   - component: {fileID: 1730748559938535364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1201,7 +1201,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4164024067484554004}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4164024067300620700
 SpriteRenderer:
@@ -1291,7 +1291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4164024067440194773}
   - component: {fileID: 4164024067440194778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia34
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1311,7 +1311,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4164024067484554004}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4164024067440194778
 SpriteRenderer:
@@ -1374,7 +1374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4164024067484554004}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plataforma1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1393,16 +1393,16 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4164024066504680530}
   - {fileID: 4164024067019335388}
+  - {fileID: 4164024067909267769}
+  - {fileID: 4164024066518804368}
+  - {fileID: 4164024066504680530}
   - {fileID: 4164024066604432588}
   - {fileID: 4164024066665605749}
   - {fileID: 4164024067300620703}
   - {fileID: 4164024066107783690}
   - {fileID: 4164024067440194773}
   - {fileID: 4164024066958133003}
-  - {fileID: 4164024067909267769}
-  - {fileID: 4164024066518804368}
   - {fileID: 4164024066964099591}
   - {fileID: 4164024067805806891}
   - {fileID: 4164024067861188733}
@@ -1424,7 +1424,7 @@ GameObject:
   - component: {fileID: 4164024067805806891}
   - component: {fileID: 4164024067805806888}
   - component: {fileID: 7845668702195308670}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1534,7 +1534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4164024067861188733}
   - component: {fileID: 4164024067861188674}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia28 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1619,8 +1619,8 @@ GameObject:
   - component: {fileID: 4164024067909267769}
   - component: {fileID: 4164024067909267774}
   - component: {fileID: 9047003884357002015}
-  m_Layer: 0
-  m_Name: fatia26
+  m_Layer: 3
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1639,7 +1639,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4164024067484554004}
-  m_RootOrder: 8
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4164024067909267774
 SpriteRenderer:

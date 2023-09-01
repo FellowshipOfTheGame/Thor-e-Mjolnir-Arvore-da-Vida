@@ -233,8 +233,8 @@ GameObject:
   - component: {fileID: 9120355274739630681}
   - component: {fileID: 7889615369198658276}
   - component: {fileID: 8747845059254232644}
-  m_Layer: 0
-  m_Name: fatia24 (1)
+  m_Layer: 3
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,7 +253,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 8
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7889615369198658276
 SpriteRenderer:
@@ -428,8 +428,8 @@ GameObject:
   - component: {fileID: 3199171725383523479}
   - component: {fileID: 8865785419088948625}
   - component: {fileID: 2173993679967646989}
-  m_Layer: 0
-  m_Name: fatia25 (1)
+  m_Layer: 3
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,12 +443,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7227351829496423688}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.07, y: 1.726, z: 0}
+  m_LocalPosition: {x: 16.069996, y: 1.726, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8865785419088948625
 SpriteRenderer:
@@ -558,7 +558,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7741417634244100504
 SpriteRenderer:
@@ -643,7 +643,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7741417634254918804
 SpriteRenderer:
@@ -734,8 +734,8 @@ GameObject:
   - component: {fileID: 7741417634309759052}
   - component: {fileID: 7741417634309759053}
   - component: {fileID: 1979956655528787226}
-  m_Layer: 0
-  m_Name: fatia25
+  m_Layer: 3
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -845,8 +845,8 @@ GameObject:
   - component: {fileID: 7741417634882707712}
   - component: {fileID: 7741417634882707713}
   - component: {fileID: 7269952039176062814}
-  m_Layer: 0
-  m_Name: fatia24
+  m_Layer: 3
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -865,7 +865,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7741417634882707713
 SpriteRenderer:
@@ -976,7 +976,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7741417635091908536
 SpriteRenderer:
@@ -1086,7 +1086,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7741417635151877842
 SpriteRenderer:
@@ -1169,14 +1169,14 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7741417634309759052}
-  - {fileID: 7741417634244100507}
   - {fileID: 7741417634882707712}
+  - {fileID: 3199171725383523479}
+  - {fileID: 9120355274739630681}
+  - {fileID: 7741417634244100507}
   - {fileID: 7741417634254918807}
   - {fileID: 7741417635091908539}
   - {fileID: 7741417635151877869}
-  - {fileID: 3199171725383523479}
   - {fileID: 3973323180952243605}
-  - {fileID: 9120355274739630681}
   - {fileID: 276907681398584105}
   - {fileID: 9060096801696600870}
   - {fileID: 8026766679223692821}
@@ -1213,7 +1213,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4980394101133681851
 SpriteRenderer:

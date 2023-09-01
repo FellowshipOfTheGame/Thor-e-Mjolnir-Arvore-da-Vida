@@ -122,8 +122,8 @@ GameObject:
   - component: {fileID: 5708951082355944002}
   - component: {fileID: 4812573177973121626}
   - component: {fileID: 3866472019113976157}
-  m_Layer: 0
-  m_Name: fatia26 (1)
+  m_Layer: 3
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -650,8 +650,8 @@ GameObject:
   - component: {fileID: 8733763763937510892}
   - component: {fileID: 3667670385734087664}
   - component: {fileID: 4859759539307363306}
-  m_Layer: 0
-  m_Name: fatia26 (2)
+  m_Layer: 3
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -811,7 +811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4164024067484554007, guid: c55c3e30770302943837b3903020cfba, type: 3}
       propertyPath: m_Name
-      value: Plataforma2
+      value: Plataforma2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4164024067805806891, guid: c55c3e30770302943837b3903020cfba, type: 3}
       propertyPath: m_LocalPosition.x

@@ -89,7 +89,7 @@ namespace ThorGame.Player
                                Vector2.up * _velocity.y;
             
             List<RaycastHit2D> castHits = new();
-            ContactFilter2D filter = new ContactFilter2D() {layerMask =  collisionMask};
+            ContactFilter2D filter = new ContactFilter2D() {layerMask =  collisionMask, useLayerMask = true};
             int hitCount = Rigidbody.Cast(movement.normalized, filter, castHits, movement.magnitude);
 
             Vector2 finalPos = Rigidbody.position + movement;
