@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6232411944397002941}
   - component: {fileID: 2026931333192089592}
   - component: {fileID: 5335790178736495529}
+  - component: {fileID: 7507400351514465472}
+  - component: {fileID: 2205147735789882033}
   m_Layer: 6
   m_Name: fatia15 (1)
   m_TagString: Untagged
@@ -111,6 +113,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.18, y: 0.19}
   m_EdgeRadius: 0
+--- !u!50 &7507400351514465472
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2388955371007630366}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2205147735789882033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2388955371007630366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2554910428292582614
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,8 +161,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5852401848188450789}
   - component: {fileID: 4145011763451888998}
-  m_Layer: 6
-  m_Name: fatia1
+  m_Layer: 9
+  m_Name: FlagPole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,8 +245,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6753679530863903312}
   - component: {fileID: 6879205190582000653}
-  m_Layer: 6
-  m_Name: fatia3
+  m_Layer: 9
+  m_Name: Flag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,8 +329,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7522086115196473256}
   - component: {fileID: 6102912351030641970}
-  m_Layer: 6
-  m_Name: fatia2
+  m_Layer: 9
+  m_Name: FlagCross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,6 +413,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4164024066107783690}
   - component: {fileID: 4164024066107783691}
+  - component: {fileID: 4182168630599619680}
+  - component: {fileID: 7425224711275815533}
   m_Layer: 6
   m_Name: fatia33
   m_TagString: Untagged
@@ -447,6 +489,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &4182168630599619680
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066107783685}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &7425224711275815533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066107783685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4164024066504680524
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +538,8 @@ GameObject:
   - component: {fileID: 4164024066504680530}
   - component: {fileID: 4164024066504680525}
   - component: {fileID: 5797095550092545149}
+  - component: {fileID: 4541226284357035331}
+  - component: {fileID: 128441017454486980}
   m_Layer: 6
   m_Name: fatia15
   m_TagString: Untagged
@@ -558,6 +640,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.18, y: 0.19}
   m_EdgeRadius: 0
+--- !u!50 &4541226284357035331
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066504680524}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &128441017454486980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066504680524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4164024066518804371
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +689,8 @@ GameObject:
   - component: {fileID: 4164024066518804368}
   - component: {fileID: 4164024066518804369}
   - component: {fileID: 3909847258300957134}
+  - component: {fileID: 782623855946259007}
+  - component: {fileID: 7986434049905428952}
   m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
@@ -669,6 +791,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.24, y: 0.51602}
   m_EdgeRadius: 0
+--- !u!50 &782623855946259007
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066518804371}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &7986434049905428952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066518804371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4164024066604432591
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +839,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4164024066604432588}
   - component: {fileID: 4164024066604432589}
+  - component: {fileID: 5839142152336086278}
+  - component: {fileID: 8361206188119227194}
   m_Layer: 6
   m_Name: fatia31
   m_TagString: Untagged
@@ -753,6 +915,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &5839142152336086278
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066604432591}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &8361206188119227194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066604432591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4164024066665605748
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +964,8 @@ GameObject:
   - component: {fileID: 4164024066665605749}
   - component: {fileID: 4164024066665605754}
   - component: {fileID: 7508743833149518756}
+  - component: {fileID: 1719673514019430059}
+  - component: {fileID: 1709256388865309511}
   m_Layer: 6
   m_Name: fatia6
   m_TagString: Untagged
@@ -864,6 +1066,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24, y: 4.78}
   m_EdgeRadius: 0
+--- !u!50 &1719673514019430059
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066665605748}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1709256388865309511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066665605748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4164024066958133002
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +1114,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4164024066958133003}
   - component: {fileID: 4164024066958133000}
+  - component: {fileID: 4067420387176497388}
+  - component: {fileID: 2975532649376255314}
   m_Layer: 6
   m_Name: fatia28
   m_TagString: Untagged
@@ -948,6 +1190,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &4067420387176497388
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066958133002}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2975532649376255314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066958133002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4164024066964099590
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,6 +1239,8 @@ GameObject:
   - component: {fileID: 4164024066964099591}
   - component: {fileID: 4164024066964099588}
   - component: {fileID: 3160165568243028712}
+  - component: {fileID: 6662331129801449631}
+  - component: {fileID: 6905434498937012770}
   m_Layer: 6
   m_Name: fatia4
   m_TagString: Untagged
@@ -1059,6 +1341,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27, y: 4.74}
   m_EdgeRadius: 0
+--- !u!50 &6662331129801449631
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066964099590}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &6905434498937012770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024066964099590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4164024067019335391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1390,8 @@ GameObject:
   - component: {fileID: 4164024067019335388}
   - component: {fileID: 4164024067019335389}
   - component: {fileID: 5322313129367026570}
+  - component: {fileID: 4057529455507844672}
+  - component: {fileID: 6677558420337584014}
   m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
@@ -1170,6 +1492,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.25, y: 0.49590576}
   m_EdgeRadius: 0
+--- !u!50 &4057529455507844672
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024067019335391}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &6677558420337584014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024067019335391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4164024067300620702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1541,8 @@ GameObject:
   - component: {fileID: 4164024067300620703}
   - component: {fileID: 4164024067300620700}
   - component: {fileID: 1730748559938535364}
+  - component: {fileID: 5461730146008959669}
+  - component: {fileID: 1151007384489986469}
   m_Layer: 6
   m_Name: fatia6 (1)
   m_TagString: Untagged
@@ -1281,6 +1643,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24, y: 4.78}
   m_EdgeRadius: 0
+--- !u!50 &5461730146008959669
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024067300620702}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1151007384489986469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024067300620702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4164024067440194772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1691,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4164024067440194773}
   - component: {fileID: 4164024067440194778}
+  - component: {fileID: 2814165131431502803}
+  - component: {fileID: 6658170048463883466}
   m_Layer: 6
   m_Name: fatia34
   m_TagString: Untagged
@@ -1365,6 +1767,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2814165131431502803
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024067440194772}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &6658170048463883466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024067440194772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4164024067484554007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,6 +1864,8 @@ GameObject:
   - component: {fileID: 4164024067805806891}
   - component: {fileID: 4164024067805806888}
   - component: {fileID: 7845668702195308670}
+  - component: {fileID: 7965548698325927488}
+  - component: {fileID: 804152563171422315}
   m_Layer: 6
   m_Name: fatia5
   m_TagString: Untagged
@@ -1524,6 +1966,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28, y: 4.72}
   m_EdgeRadius: 0
+--- !u!50 &7965548698325927488
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024067805806890}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &804152563171422315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024067805806890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4164024067861188732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +2014,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4164024067861188733}
   - component: {fileID: 4164024067861188674}
+  - component: {fileID: 6174582408640377292}
+  - component: {fileID: 3703622741369375085}
   m_Layer: 6
   m_Name: fatia28 (1)
   m_TagString: Untagged
@@ -1608,6 +2090,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &6174582408640377292
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024067861188732}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &3703622741369375085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024067861188732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4164024067909267768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,6 +2139,8 @@ GameObject:
   - component: {fileID: 4164024067909267769}
   - component: {fileID: 4164024067909267774}
   - component: {fileID: 9047003884357002015}
+  - component: {fileID: 5350601872251672491}
+  - component: {fileID: 6707473472036939822}
   m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
@@ -1719,3 +2241,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.82, y: 0.5556778}
   m_EdgeRadius: 0
+--- !u!50 &5350601872251672491
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024067909267768}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &6707473472036939822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164024067909267768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 10
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []

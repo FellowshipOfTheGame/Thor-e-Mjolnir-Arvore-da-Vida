@@ -1687,8 +1687,12 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5441343693046447925, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441343693046447925, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: groundChecker.mask.m_Bits
-      value: 8
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 5441343693046447925, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: groundChecker.castDistance
@@ -9096,6 +9100,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+--- !u!1 &1719181002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4164024067484554007, guid: c55c3e30770302943837b3903020cfba, type: 3}
+  m_PrefabInstance: {fileID: 4164024067969565154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1719181003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719181002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7894479f567ef74d9669f1a5987aa90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1798546898
 GameObject:
   m_ObjectHideFlags: 0

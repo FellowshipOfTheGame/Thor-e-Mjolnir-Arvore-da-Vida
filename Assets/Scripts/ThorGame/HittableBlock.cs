@@ -10,7 +10,7 @@ namespace ThorGame
         public int MaxHealth { get; private set; }
         
         [SerializeField] private float breakHitMinSpeed;
-        [SerializeField] private UnityEvent breakEvent;
+        public UnityEvent breakEvent;
         
         public int Health { get; private set; }
         public event IHealthProvider.HealthUpdateEvent OnHealthChanged;
