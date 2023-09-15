@@ -22,7 +22,7 @@ namespace ThorGame.Trees
             clone.to = to;
             return clone;
         }
-        
+
 #if UNITY_EDITOR
         [HideInInspector] [SerializeField] public string treeGuid;
         
