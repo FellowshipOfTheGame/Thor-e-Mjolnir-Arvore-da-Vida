@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 9060096801696600870}
   - component: {fileID: 1583244412679445212}
   - component: {fileID: 614779004541144683}
+  - component: {fileID: 2035899084875073336}
+  - component: {fileID: 5498761361922733775}
   m_Layer: 0
   m_Name: fatia4 (1)
   m_TagString: Untagged
@@ -31,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1583244412679445212
 SpriteRenderer:
@@ -111,6 +113,64 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27, y: 4.74}
   m_EdgeRadius: 0
+--- !u!114 &2035899084875073336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440942007856655930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 1
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5498761361922733775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440942007856655930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6a37c760404b66b7b1a6880c2e6bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zeroToFullHealthGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &442363513809443559
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +182,8 @@ GameObject:
   - component: {fileID: 8026766679223692821}
   - component: {fileID: 8688222880513886970}
   - component: {fileID: 3688556525002703784}
+  - component: {fileID: 3032529151230653362}
+  - component: {fileID: 3485247499468374806}
   m_Layer: 0
   m_Name: fatia5 (1)
   m_TagString: Untagged
@@ -142,7 +204,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8688222880513886970
 SpriteRenderer:
@@ -222,6 +284,64 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28, y: 4.72}
   m_EdgeRadius: 0
+--- !u!114 &3032529151230653362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442363513809443559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 1
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3485247499468374806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442363513809443559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6a37c760404b66b7b1a6880c2e6bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zeroToFullHealthGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &2312239101697707972
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +353,8 @@ GameObject:
   - component: {fileID: 9120355274739630681}
   - component: {fileID: 7889615369198658276}
   - component: {fileID: 8747845059254232644}
+  - component: {fileID: 9012039023339072371}
+  - component: {fileID: 6381374938028283160}
   m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
@@ -333,6 +455,76 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.24, y: 0.51602}
   m_EdgeRadius: 0
+--- !u!114 &9012039023339072371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2312239101697707972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 1
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8724267897390692155}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6381374938028283160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2312239101697707972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6a37c760404b66b7b1a6880c2e6bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zeroToFullHealthGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &4226237716675248701
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +536,7 @@ GameObject:
   - component: {fileID: 276907681398584105}
   - component: {fileID: 4546455464879334492}
   m_Layer: 0
-  m_Name: fatia28 (3)
+  m_Name: chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,6 +620,8 @@ GameObject:
   - component: {fileID: 3199171725383523479}
   - component: {fileID: 8865785419088948625}
   - component: {fileID: 2173993679967646989}
+  - component: {fileID: 5774092830262446423}
+  - component: {fileID: 3085071839687731561}
   m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
@@ -528,6 +722,76 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.25, y: 0.49590576}
   m_EdgeRadius: 0
+--- !u!114 &5774092830262446423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227351829496423688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 1
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4226237716675248701}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3085071839687731561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227351829496423688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6a37c760404b66b7b1a6880c2e6bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zeroToFullHealthGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &7741417634244100506
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +803,7 @@ GameObject:
   - component: {fileID: 7741417634244100507}
   - component: {fileID: 7741417634244100504}
   m_Layer: 0
-  m_Name: fatia28
+  m_Name: chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,7 +822,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 4
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7741417634244100504
 SpriteRenderer:
@@ -623,6 +887,8 @@ GameObject:
   - component: {fileID: 7741417634254918807}
   - component: {fileID: 7741417634254918804}
   - component: {fileID: 8754353733018375288}
+  - component: {fileID: 3314597259468112572}
+  - component: {fileID: 2178563603687087105}
   m_Layer: 0
   m_Name: fatia4
   m_TagString: Untagged
@@ -643,7 +909,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7741417634254918804
 SpriteRenderer:
@@ -723,6 +989,64 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27, y: 4.74}
   m_EdgeRadius: 0
+--- !u!114 &3314597259468112572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741417634254918806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 1
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2178563603687087105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741417634254918806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6a37c760404b66b7b1a6880c2e6bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zeroToFullHealthGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &7741417634309759055
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +1058,8 @@ GameObject:
   - component: {fileID: 7741417634309759052}
   - component: {fileID: 7741417634309759053}
   - component: {fileID: 1979956655528787226}
+  - component: {fileID: 8303799803879125958}
+  - component: {fileID: 8646467448538508457}
   m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
@@ -834,6 +1160,76 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.25, y: 0.49590576}
   m_EdgeRadius: 0
+--- !u!114 &8303799803879125958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741417634309759055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 1
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7741417635151877868}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8646467448538508457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741417634309759055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6a37c760404b66b7b1a6880c2e6bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zeroToFullHealthGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &7741417634882707715
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,6 +1241,8 @@ GameObject:
   - component: {fileID: 7741417634882707712}
   - component: {fileID: 7741417634882707713}
   - component: {fileID: 7269952039176062814}
+  - component: {fileID: 2141992439083746355}
+  - component: {fileID: 6540530908150644022}
   m_Layer: 3
   m_Name: Top
   m_TagString: Untagged
@@ -945,6 +1343,76 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.24, y: 0.51602}
   m_EdgeRadius: 0
+--- !u!114 &2141992439083746355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741417634882707715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 1
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7741417634244100506}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6540530908150644022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741417634882707715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6a37c760404b66b7b1a6880c2e6bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zeroToFullHealthGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &7741417635091908538
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +1424,8 @@ GameObject:
   - component: {fileID: 7741417635091908539}
   - component: {fileID: 7741417635091908536}
   - component: {fileID: 4487825608153718510}
+  - component: {fileID: 1476287605093530830}
+  - component: {fileID: 3992061575148379259}
   m_Layer: 0
   m_Name: fatia5
   m_TagString: Untagged
@@ -976,7 +1446,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7741417635091908536
 SpriteRenderer:
@@ -1056,6 +1526,64 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28, y: 4.72}
   m_EdgeRadius: 0
+--- !u!114 &1476287605093530830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741417635091908538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 2
+  breakHitMinSpeed: 1
+  breakEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3992061575148379259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741417635091908538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6a37c760404b66b7b1a6880c2e6bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zeroToFullHealthGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &7741417635151877868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,7 +1595,7 @@ GameObject:
   - component: {fileID: 7741417635151877869}
   - component: {fileID: 7741417635151877842}
   m_Layer: 0
-  m_Name: fatia28 (1)
+  m_Name: chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1086,7 +1614,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7741417635849377156}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7741417635151877842
 SpriteRenderer:
@@ -1149,6 +1677,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7741417635849377156}
+  - component: {fileID: 5625881201312663198}
+  - component: {fileID: -6247882625278596543}
   m_Layer: 0
   m_Name: Plataforma5
   m_TagString: Untagged
@@ -1172,17 +1702,50 @@ Transform:
   - {fileID: 7741417634882707712}
   - {fileID: 3199171725383523479}
   - {fileID: 9120355274739630681}
-  - {fileID: 7741417634244100507}
   - {fileID: 7741417634254918807}
   - {fileID: 7741417635091908539}
-  - {fileID: 7741417635151877869}
-  - {fileID: 3973323180952243605}
-  - {fileID: 276907681398584105}
   - {fileID: 9060096801696600870}
   - {fileID: 8026766679223692821}
+  - {fileID: 3973323180952243605}
+  - {fileID: 276907681398584105}
+  - {fileID: 7741417634244100507}
+  - {fileID: 7741417635151877869}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &5625881201312663198
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741417635849377159}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &-6247882625278596543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741417635849377159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99e3f0c147d4541b01bc8900eaa4086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8724267897390692155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,7 +1757,7 @@ GameObject:
   - component: {fileID: 3973323180952243605}
   - component: {fileID: 4980394101133681851}
   m_Layer: 0
-  m_Name: fatia28 (2)
+  m_Name: chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

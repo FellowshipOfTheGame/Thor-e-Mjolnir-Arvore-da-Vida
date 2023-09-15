@@ -3,7 +3,6 @@ using UnityEngine.Events;
 
 namespace ThorGame
 {
-    [RequireComponent(typeof(Rigidbody2D))]
     public class HittableBlock : MonoBehaviour, IHittable, IHealthProvider
     {
         [field: SerializeField]
@@ -27,7 +26,7 @@ namespace ThorGame
         {
             if (velocity.sqrMagnitude < breakHitMinSpeed * breakHitMinSpeed) return;
             
-            _rb.AddForceAtPosition(velocity, point);
+            if (_rb) _rb.AddForceAtPosition(velocity, point);
             Health--;
             OnHealthChanged?.Invoke(Health + 1, Health);
             if (Health <= 0) Break();
