@@ -1,16 +1,20 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace ThorGame.AI.Tree.Nodes.Composite
 {
     public class SequenceNode : CompositeNode
     {
-        protected override NodeResult Process(IEnumerable<AINode> children)
+        protected override NodeResult Process()
         {
-            //Todo running
-            foreach (var node in children)
+            for (int i = RunningNodeIndex; i < Children.Length; i++)
             {
-                var res = node.Tick();
-                if (res == NodeResult.Failure) return NodeResult.Failure;
+                switch (Children[i].Tick())
+                {
+                    case NodeResult.Failure:
+                        return NodeResult.Failure;
+                    case NodeResult.Running:
+                        RegisterRunning(i);
+                        return NodeResult.Running;
+                }
             }
             return NodeResult.Success;
         }

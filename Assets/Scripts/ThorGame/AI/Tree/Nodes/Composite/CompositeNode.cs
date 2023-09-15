@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using ThorGame.Trees;
 
 namespace ThorGame.AI.Tree.Nodes.Composite
@@ -8,11 +7,22 @@ namespace ThorGame.AI.Tree.Nodes.Composite
     {
         public override ConnectionCount OutputConnection => ConnectionCount.Multi;
 
+        private AINode[] _children;
+        protected AINode[] Children
+            => _children ??= connections.Select(c => c.To).ToArray();
+
+        protected abstract NodeResult Process();
         public override NodeResult Tick()
         {
-            return Process(connections.Select(c => c.To));
+            var result = Process();
+            if (result != NodeResult.Running) RunningNodeIndex = 0;
+            return result;
         }
 
-        protected abstract NodeResult Process(IEnumerable<AINode> children);
+        protected int RunningNodeIndex { get; private set; }
+        protected void RegisterRunning(int i)
+        {
+            RunningNodeIndex = i;
+        }
     }
 }
