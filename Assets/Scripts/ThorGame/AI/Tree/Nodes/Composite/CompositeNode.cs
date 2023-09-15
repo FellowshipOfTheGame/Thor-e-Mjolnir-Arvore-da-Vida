@@ -11,10 +11,10 @@ namespace ThorGame.AI.Tree.Nodes.Composite
         protected AINode[] Children
             => _children ??= connections.Select(c => c.To).ToArray();
 
-        protected abstract NodeResult Process();
-        public override NodeResult Tick()
+        protected abstract NodeResult Process(AIData data);
+        public override NodeResult Tick(AIData data)
         {
-            var result = Process();
+            var result = Process(data);
             if (result != NodeResult.Running) RunningNodeIndex = 0;
             return result;
         }

@@ -17,9 +17,9 @@ namespace ThorGame.AI.Tree.Nodes.Decorator
             }
         }
 
-        public override NodeResult Tick()
+        public override NodeResult Tick(AIData data)
         {
-            return Decorate(Child.Tick());
+            return Decorate(Child.Tick(data));
         }
 
         protected abstract NodeResult Decorate(NodeResult result);
