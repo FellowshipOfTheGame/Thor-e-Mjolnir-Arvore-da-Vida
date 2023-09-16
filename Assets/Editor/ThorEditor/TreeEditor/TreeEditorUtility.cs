@@ -164,7 +164,7 @@ namespace ThorEditor.TreeEditor
             ReflectionUtility.AssertGenericInheritance(GenericConnectionType, connectionType, nameof(CreateAndRegisterConnection), nameof(connectionType));
             
             var obj = ScriptableObject.CreateInstance(connectionType);
-            obj.name = connectionType.Name;
+            obj.name = from.Title + "->" + to.Title;
             
             var connection = (IConnection) obj;
             ConnectionFromFieldInfo(connectionType).SetValue(connection, from);

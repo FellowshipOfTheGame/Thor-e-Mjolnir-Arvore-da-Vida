@@ -2,7 +2,7 @@
 
 namespace ThorGame.AI.Tree.Nodes
 {
-    public abstract class AIConnection : TypedConnection<AINode, AIConnection>
+    public class AIConnection : TypedConnection<AINode, AIConnection>
     {
     }
 }

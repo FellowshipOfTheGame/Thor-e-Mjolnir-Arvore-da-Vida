@@ -8,7 +8,7 @@ namespace ThorGame.Trees
         where TConnection: TypedConnection<TNode, TConnection>
     {
         [HideInInspector] [SerializeField] protected bool isRoot;
-        [HideInInspector] [SerializeField] protected List<TConnection> connections = new();
+        [SerializeField] protected List<TConnection> connections = new();
 
         public bool IsRoot => isRoot;
         public IEnumerable<TConnection> Connections => connections;

@@ -31,7 +31,9 @@ namespace ThorEditor.TreeEditor
         private Type[] _types;
         private void RefreshTypes(Type baseType)
         {
-            _types = TypeCache.GetTypesDerivedFrom(baseType).Where(t => !t.IsAbstract).ToArray();
+            var derived = TypeCache.GetTypesDerivedFrom(baseType).Where(t => !t.IsAbstract);
+            if (!baseType.IsAbstract) derived = derived.Append(baseType);
+            _types = derived.ToArray();
             if (_types.Length == 0)
             {
                 Debug.LogError("No type derived from " + baseType + " for " + nameof(EdgeView));

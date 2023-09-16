@@ -64,7 +64,7 @@ namespace ThorEditor.TreeEditor
 
         private void CreateInputPorts()
         {
-            if (node.InputConnection == ConnectionCount.None) return;
+            if (node.InputConnection == ConnectionCount.None || node.IsRoot) return;
 
             var capacity = (node.InputConnection == ConnectionCount.Single) ? Port.Capacity.Single : Port.Capacity.Multi;
             input = InstantiatePort(Orientation.Horizontal, Direction.Input, capacity, typeof(bool));
