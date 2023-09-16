@@ -18,7 +18,6 @@ namespace ThorGame
         private void OnBlockBreak(HittableBlock block)
         {
             _blocks.Remove(block);
-            Debug.Log(_blocks.Count);
             if (_blocks.Count == 0)
             {
                 Destroy(gameObject);

@@ -15,7 +15,7 @@ namespace ThorGame.AI.Tree.Nodes.Composite
         public override NodeResult Tick(AIData data)
         {
             var result = Process(data);
-            if (result != NodeResult.Running) RunningNodeIndex = 0;
+            if (result != NodeResult.Running) RegisterRunning(0);
             return result;
         }
 
