@@ -1,5 +1,4 @@
-﻿using ThorGame.AI.Tree.Nodes;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ThorGame.AI.Tree
 {
