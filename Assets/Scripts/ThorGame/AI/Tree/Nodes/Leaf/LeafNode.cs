@@ -1,5 +1,4 @@
 ﻿using ThorGame.Trees;
-using UnityEngine;
 
 namespace ThorGame.AI.Tree.Nodes.Leaf
 {
@@ -14,11 +13,17 @@ namespace ThorGame.AI.Tree.Nodes.Leaf
         public override NodeResult Tick(AIData data)
         {
             if (!_running) Init(data);
-            
+
             var res = Process(data);
             _running = res == NodeResult.Running;
-            Debug.Log(this.GetType().Name + ": " + res);
             return res;
+        }
+
+        public override AINode Clone()
+        {
+            var clone = (LeafNode)base.Clone();
+            clone._running = false;
+            return clone;
         }
     }
 }
