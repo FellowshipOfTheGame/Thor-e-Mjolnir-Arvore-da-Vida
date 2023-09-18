@@ -11,7 +11,7 @@ namespace ThorGame.AI.Enemy
         [SerializeField] private Transform projectileOrigin;
         
         public EnemyAmmo Ammo { get; private set; }
-        private void Awake()
+        protected virtual void Awake()
         {
             Ammo = GetComponent<EnemyAmmo>();
         }
@@ -23,6 +23,16 @@ namespace ThorGame.AI.Enemy
             float sqrDist = (position - transform.position).sqrMagnitude;
             return sqrDist <= attackRange * attackRange;
         }
+
+        protected void LaunchProjectile(Vector3 target)
+        {
+            Ammo.ConsumeAmmo();
+            Vector3 origin = projectileOrigin ? projectileOrigin.transform.position : transform.position;
+            Vector3 direction = (target - origin).normalized;
+            Projectile.Shoot(projectilePrefab, origin, direction);
+        }
+
+        protected virtual void DoShoot(Vector3 target) => LaunchProjectile(target);
         
         public void Shoot(Vector3 target)
         {
@@ -32,14 +42,11 @@ namespace ThorGame.AI.Enemy
                 return;
             }
             
-            Ammo.ConsumeAmmo();
-            Vector3 origin = projectileOrigin ? projectileOrigin.transform.position : transform.position;
-            Vector3 direction = (target - origin).normalized;
-            Projectile.Shoot(projectilePrefab, transform.position, direction);
+            DoShoot(target);
         }
         
 #if UNITY_EDITOR
-        [CustomEditor(typeof(EnemyRangedWeapon))]
+        [CustomEditor(typeof(EnemyRangedWeapon), true)]
         private class Editor : UnityEditor.Editor
         {
             private void OnSceneGUI()

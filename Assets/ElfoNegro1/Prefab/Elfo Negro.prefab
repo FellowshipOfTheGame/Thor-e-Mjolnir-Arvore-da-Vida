@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 7547057770087256522}
   - component: {fileID: 7547057770087256525}
   - component: {fileID: 7547057770087256521}
-  - component: {fileID: 7547057770087256520}
+  - component: {fileID: 326879025734604765}
   - component: {fileID: 7547057770087256523}
   - component: {fileID: 1587069704}
   m_Layer: 7
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadTimer:
     <MaxSeconds>k__BackingField: 5
---- !u!114 &7547057770087256520
+--- !u!114 &326879025734604765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,12 +189,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6012540521363064025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7925fa09fcb4211af82a508e563011c, type: 3}
+  m_Script: {fileID: 11500000, guid: 12ca7e9e6be4460b9d03cff22cfa0b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4672461450528665491, guid: 61af9c33b19db844792fb751c515c2b1, type: 3}
   attackRange: 6
   projectileOrigin: {fileID: 7458454024334051762}
+  shotAnimationName: ATTACKELFON
 --- !u!114 &7547057770087256523
 MonoBehaviour:
   m_ObjectHideFlags: 0

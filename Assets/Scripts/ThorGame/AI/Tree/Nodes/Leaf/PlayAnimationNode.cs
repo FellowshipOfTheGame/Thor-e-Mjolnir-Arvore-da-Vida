@@ -12,7 +12,6 @@ namespace ThorGame.AI.Tree.Nodes.Leaf
         protected override void Init(AIData data)
         {
             _animator = data.Runner.GetComponent<Animator>();
-            Debug.Log("start "+ animationName);
             _animator.Play(animationName);
         }
 

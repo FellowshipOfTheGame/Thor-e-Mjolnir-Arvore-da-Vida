@@ -204,7 +204,7 @@ MonoBehaviour:
   treePos: {x: 213.6, y: 24}
   treeGuid: a4fd94e077d96ef49b61aa1faa4926d7
   targetIndex: 0
-  movePastDistance: 0.25
+  movePastDistance: 1.5
 --- !u!114 &2389204995003513484
 MonoBehaviour:
   m_ObjectHideFlags: 0
