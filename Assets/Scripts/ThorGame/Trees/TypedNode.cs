@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ThorGame.Trees
 {
-    public abstract class TypedNode<TNode, TConnection> : ScriptableObject, ICloneable<TNode>, INode
+    public abstract class TypedNode<TNode, TConnection> : ScriptableObject, INode
         where TNode : TypedNode<TNode, TConnection>
         where TConnection: TypedConnection<TNode, TConnection>
     {
@@ -17,17 +17,29 @@ namespace ThorGame.Trees
         public abstract ConnectionCount InputConnection { get; }
         public abstract ConnectionCount OutputConnection { get; }
 
-        public virtual TNode Clone()
+        public virtual TNode Clone(Dictionary<TNode, TNode> clones)
         {
             var clone = (TNode)Instantiate(this);
+            clones.Add((TNode)this, clone);
+            
+            clone.connections.Clear();
+            foreach (var connection in connections)
+            {
+                if (!clones.TryGetValue(connection.To, out var neighborClone))
+                {
+                    neighborClone = connection.To.Clone(clones);
+                }
+                clone.connections.Add(connection.Clone(clone, neighborClone));
+            }
+            
             clone.isRoot = isRoot;
-            //TODO isso aqui nao vai dar
-            clone.connections = connections.ConvertAll(c => c.Clone());
+            
             return clone;
         }
         
         public virtual string Title => name;
-        
+
+
 #if UNITY_EDITOR
         [HideInInspector] [SerializeField] public Vector2 treePos;
         [HideInInspector] [SerializeField] public string treeGuid;

@@ -8,9 +8,9 @@ namespace ThorGame.Player.HammerControls.ModeSet.Transitions
 
         protected override bool TransitionCondition(Hammer hammer) => input;
 
-        public override HammerModeNodeTransition Clone()
+        public override HammerModeNodeTransition Clone(HammerModeNode fromClone, HammerModeNode toClone)
         {
-            var clone = (HammerModeKeyTransition)base.Clone();
+            var clone = (HammerModeKeyTransition)base.Clone(fromClone, toClone);
             clone.input = input;
             return clone;
         }

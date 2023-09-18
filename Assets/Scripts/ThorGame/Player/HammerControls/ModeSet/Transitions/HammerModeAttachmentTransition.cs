@@ -10,10 +10,10 @@ namespace ThorGame.Player.HammerControls.ModeSet.Transitions
         {
             return hammer.AttachmentMode == attachment;
         }
-        
-        public override HammerModeNodeTransition Clone()
+
+        public override HammerModeNodeTransition Clone(HammerModeNode fromClone, HammerModeNode toClone)
         {
-            var clone = (HammerModeAttachmentTransition)base.Clone();
+            var clone = (HammerModeAttachmentTransition)base.Clone(fromClone, toClone);
             clone.attachment = attachment;
             return clone;
         }

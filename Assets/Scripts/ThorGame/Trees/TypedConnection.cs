@@ -2,7 +2,7 @@
 
 namespace ThorGame.Trees
 {
-    public abstract class TypedConnection<TNode, TConnection> : ScriptableObject, IConnection, ICloneable<TConnection>
+    public abstract class TypedConnection<TNode, TConnection> : ScriptableObject, IConnection
         where TNode : TypedNode<TNode, TConnection>
         where TConnection : TypedConnection<TNode, TConnection>
     {
@@ -15,11 +15,11 @@ namespace ThorGame.Trees
         INode IConnection.To => To;
 
 
-        public virtual TConnection Clone()
+        public virtual TConnection Clone(TNode fromClone, TNode toClone)
         {
             var clone = (TConnection)Instantiate(this);
-            clone.from = from;
-            clone.to = to;
+            clone.from = fromClone;
+            clone.to = toClone;
             return clone;
         }
 

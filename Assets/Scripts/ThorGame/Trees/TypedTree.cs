@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ThorGame.Trees
 {
-    public abstract class TypedTree<TTree, TNode, TConnection> : ScriptableObject, ICloneable<TTree>, ITree
+    public abstract class TypedTree<TTree, TNode, TConnection> : ScriptableObject, ITree
         where TTree : TypedTree<TTree, TNode, TConnection>
         where TNode : TypedNode<TNode, TConnection>
         where TConnection : TypedConnection<TNode, TConnection>
@@ -17,8 +17,10 @@ namespace ThorGame.Trees
         public virtual TTree Clone()
         {
             var clone = (TTree)Instantiate(this);
-            clone.allNodes = allNodes.ConvertAll(n => n.Clone());
-            clone.root = root ? clone.allNodes[allNodes.IndexOf(root)] : null;
+
+            Dictionary<TNode, TNode> clones = new();
+            clone.root = root.Clone(clones);
+            clone.allNodes = new List<TNode>(clones.Values);
             return clone;
         }
 

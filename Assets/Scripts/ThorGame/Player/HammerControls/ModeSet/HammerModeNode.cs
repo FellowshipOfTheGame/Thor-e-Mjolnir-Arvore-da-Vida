@@ -44,9 +44,9 @@ namespace ThorGame.Player.HammerControls.ModeSet
             _currentMode = null;
         }
 
-        public override HammerModeNode Clone()
+        public override HammerModeNode Clone(Dictionary<HammerModeNode, HammerModeNode> clones)
         {
-            var clone = base.Clone();
+            var clone = base.Clone(clones);
             clone.modeVariants = new List<HammerMode>(modeVariants);
             return clone;
         }
