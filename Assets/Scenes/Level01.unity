@@ -2069,6 +2069,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &993371539 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6012540521363064025, guid: 95d386bbb0ae1c4488d66f2d7d67f8e2, type: 3}
+  m_PrefabInstance: {fileID: 7547057769719419990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &993371548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993371539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3169564dff41aea45e05ee03bc6144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torsoBone: {fileID: 2012529445}
+  rotateSpeed: 10
+--- !u!114 &993371549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993371539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d33c9767b3246d5ad91fcba570b4c16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkVelocity: 0.1
+  gravity: 0.05
+  jumpForce: 0.4
+  collisionPadding: 0.05
+  deceleration: 0.1
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 72
+  groundChecker:
+    castDistance: 0.1
+    mask:
+      serializedVersion: 2
+      m_Bits: 72
+  startsLookingAtLeft: 0
+--- !u!70 &993371550
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993371539}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!4 &1078260068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4436687837621128084, guid: 95d386bbb0ae1c4488d66f2d7d67f8e2, type: 3}
@@ -9225,6 +9286,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &2012529445 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3671349516508791495, guid: 95d386bbb0ae1c4488d66f2d7d67f8e2, type: 3}
+  m_PrefabInstance: {fileID: 7547057769719419990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2015007515
 GameObject:
   m_ObjectHideFlags: 0
@@ -9855,6 +9921,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1244568855, guid: d349db8f4a7c69c4fae5e599d1387c5d, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 892183443914745773, guid: d349db8f4a7c69c4fae5e599d1387c5d, type: 3}
       propertyPath: m_Name
       value: Javali
@@ -10384,6 +10454,14 @@ PrefabInstance:
       propertyPath: reloadTimer.<MaxSeconds>k__BackingField
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7547057770087256522, guid: 95d386bbb0ae1c4488d66f2d7d67f8e2, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547057770087256522, guid: 95d386bbb0ae1c4488d66f2d7d67f8e2, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8992451608303467947, guid: 95d386bbb0ae1c4488d66f2d7d67f8e2, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.07464816
@@ -10392,7 +10470,8 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.9972099
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7547057770087256525, guid: 95d386bbb0ae1c4488d66f2d7d67f8e2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 95d386bbb0ae1c4488d66f2d7d67f8e2, type: 3}
 --- !u!4 &7867430149932820912 stripped
 Transform:

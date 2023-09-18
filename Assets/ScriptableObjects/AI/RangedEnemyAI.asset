@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5173646524867437252
+--- !u!114 &-7565439591992637647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,13 +9,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c855198b722f461486763833346bf6b4, type: 3}
-  m_Name: ShootNode
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->InRangedRangeNode
+  m_EditorClassIdentifier: 
+  from: {fileID: 2979150459125079098}
+  to: {fileID: -897946890294540026}
+  treeGuid: 
+--- !u!114 &-5830495670690699184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->LookAtTargetNode
+  m_EditorClassIdentifier: 
+  from: {fileID: 2979150459125079098}
+  to: {fileID: 4224347563520859393}
+  treeGuid: 
+--- !u!114 &-897946890294540026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b26a4d459544bdb71090e87ed6a362, type: 3}
+  m_Name: InRangedRangeNode
   m_EditorClassIdentifier: 
   isRoot: 0
   connections: []
-  treePos: {x: 242.4, y: 48}
-  treeGuid: 56d45f0b2f09ac44bb2ae06fad75612e
+  treePos: {x: 238.4, y: 166.39998}
+  treeGuid: 66a864dd97bc83d48b3bc91869d5abda
   targetIndex: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -32,10 +62,11 @@ MonoBehaviour:
   root: {fileID: 2979150459125079098}
   allNodes:
   - {fileID: 2979150459125079098}
-  - {fileID: 6322413916859123925}
-  - {fileID: 1486806600980775780}
-  - {fileID: -5173646524867437252}
---- !u!114 &1486806600980775780
+  - {fileID: 2507360679632176497}
+  - {fileID: -897946890294540026}
+  - {fileID: 4224347563520859393}
+  - {fileID: 4112726014682150493}
+--- !u!114 &125785724068420159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,14 +75,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48b26a4d459544bdb71090e87ed6a362, type: 3}
-  m_Name: InRangedRangeNode
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->ShootNode
+  m_EditorClassIdentifier: 
+  from: {fileID: 2979150459125079098}
+  to: {fileID: 4112726014682150493}
+  treeGuid: 
+--- !u!114 &2507360679632176497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7baebaf59fbb45939d4e5ca0ca5b88a8, type: 3}
+  m_Name: ReloadNode
   m_EditorClassIdentifier: 
   isRoot: 0
   connections: []
-  treePos: {x: 242.4, y: 124.8}
-  treeGuid: 73357a62e4f46834b80620061f64ef4e
-  targetIndex: 0
+  treePos: {x: 238.40002, y: 242.59999}
+  treeGuid: 05b3d5ab646678f4cb1321232e8519df
 --- !u!114 &2979150459125079098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,12 +111,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRoot: 1
   connections:
-  - {fileID: 5128869388215859882}
-  - {fileID: 6533530068402368871}
-  - {fileID: 7980004273458271168}
+  - {fileID: 6472082677981537468}
+  - {fileID: -7565439591992637647}
+  - {fileID: -5830495670690699184}
+  - {fileID: 125785724068420159}
   treePos: {x: 70.79999, y: 124.8}
   treeGuid: 5f61fb67b7bfcd641bf9af156e1b394a
---- !u!114 &5128869388215859882
+--- !u!114 &4112726014682150493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c855198b722f461486763833346bf6b4, type: 3}
+  m_Name: ShootNode
+  m_EditorClassIdentifier: 
+  isRoot: 0
+  connections: []
+  treePos: {x: 238.4, y: -64}
+  treeGuid: 3c61de04b65f7d34d8363a422c86fa10
+  targetIndex: 0
+--- !u!114 &4224347563520859393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ae1a62011c437e8bd7d67eb9b06043, type: 3}
+  m_Name: LookAtTargetNode
+  m_EditorClassIdentifier: 
+  isRoot: 0
+  connections: []
+  treePos: {x: 238.4, y: 89.59999}
+  treeGuid: 6e698f84363530a438dad6905cd0db42
+  targetIndex: 0
+--- !u!114 &6472082677981537468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,51 +164,5 @@ MonoBehaviour:
   m_Name: SequenceNode->ReloadNode
   m_EditorClassIdentifier: 
   from: {fileID: 2979150459125079098}
-  to: {fileID: 6322413916859123925}
-  treeGuid: 
---- !u!114 &6322413916859123925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7baebaf59fbb45939d4e5ca0ca5b88a8, type: 3}
-  m_Name: ReloadNode
-  m_EditorClassIdentifier: 
-  isRoot: 0
-  connections: []
-  treePos: {x: 242.4, y: 201.59999}
-  treeGuid: dfbdba9b09fbcc949bb21377d0c35281
---- !u!114 &6533530068402368871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
-  m_Name: SequenceNode->InRangedRangeNode
-  m_EditorClassIdentifier: 
-  from: {fileID: 2979150459125079098}
-  to: {fileID: 1486806600980775780}
-  treeGuid: 
---- !u!114 &7980004273458271168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
-  m_Name: SequenceNode->ShootNode
-  m_EditorClassIdentifier: 
-  from: {fileID: 2979150459125079098}
-  to: {fileID: -5173646524867437252}
+  to: {fileID: 2507360679632176497}
   treeGuid: 
