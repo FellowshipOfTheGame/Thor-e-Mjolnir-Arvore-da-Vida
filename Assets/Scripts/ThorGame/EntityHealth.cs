@@ -1,14 +1,17 @@
-﻿
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace ThorGame
 {
     public class EntityHealth: MonoBehaviour, IHealthProvider, IHittable
     {
         public event IHealthProvider.HealthUpdateEvent OnHealthChanged;
-
+        
         [SerializeField] private int _maxHealth;
         public int MaxHealth => _maxHealth;
+        
+        [SerializeField] private UnityEvent stunStart, stunEnd;
 
         private int _health;
 
@@ -24,6 +27,8 @@ namespace ThorGame
                 OnHealthChanged?.Invoke(oldHealth, _health);
             }
         }
+        
+        public bool IsStunned { get; private set; }
 
         private void Awake()
         {
@@ -44,6 +49,21 @@ namespace ThorGame
         public void Hit(Vector2 point, Vector2 velocity)
         {
             Damage(1);
+        }
+
+
+        private IEnumerator StunCoroutine(float seconds)
+        {
+            Timer timer = new(seconds);
+            IsStunned = true;
+            stunStart?.Invoke();
+            yield return new WaitUntil(() => timer.Tick());
+            IsStunned = false;
+            stunEnd?.Invoke();
+        }
+        public void Stun(float seconds)
+        {
+            StartCoroutine(StunCoroutine(seconds));
         }
     }
 }

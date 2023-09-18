@@ -1,12 +1,11 @@
 ﻿using System;
-using UnityEngine;
 
 namespace ThorGame
 {
     [Serializable]
     public class Timer
     {
-        [field: SerializeField]
+        [field: UnityEngine.SerializeField]
         public float MaxSeconds { get; private set; }
         public float CurrentSeconds { get; private set; }
         public float Progress => MaxSeconds > 0 ? CurrentSeconds / MaxSeconds : 1;
@@ -27,6 +26,8 @@ namespace ThorGame
             CurrentSeconds += UnityEngine.Time.deltaTime;
             return Completed;
         }
+
+        public void Complete() => CurrentSeconds = MaxSeconds;
 
         public void Reset() => CurrentSeconds = 0;
     }

@@ -53,6 +53,12 @@ namespace ThorGame.Player
             if (startsLookingAtLeft) scale.x *= -1;
             transform.localScale = scale;
         }
+
+        public void KnockBack(float direction, float strength)
+        {
+            _velocity.x += direction * strength;
+            _velocity.y = jumpForce;
+        }
         
         private void Awake()
         {
