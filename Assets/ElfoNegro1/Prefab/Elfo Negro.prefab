@@ -194,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4672461450528665491, guid: 61af9c33b19db844792fb751c515c2b1, type: 3}
   attackRange: 6
-  projectileOrigin: {fileID: 0}
+  projectileOrigin: {fileID: 7458454024334051762}
 --- !u!114 &7547057770087256523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +224,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 5
+  stunStart:
+    m_PersistentCalls:
+      m_Calls: []
+  stunEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9049618338782235692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,6 +1395,11 @@ Transform:
 --- !u!4 &5244688282345143185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2063762043519630310, guid: c201f22f82070c943870adc84eedfce5, type: 3}
+  m_PrefabInstance: {fileID: 6082978332452716663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7458454024334051762 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5482335420320740923, guid: c201f22f82070c943870adc84eedfce5, type: 3}
   m_PrefabInstance: {fileID: 6082978332452716663}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8992451608303467947 stripped
