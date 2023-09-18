@@ -15,6 +15,8 @@ namespace ThorGame.Player
         [SerializeField] private LayerMask collisionMask;
         [SerializeField] private GroundChecker groundChecker;
 
+        [SerializeField] private bool startsLookingAtLeft;
+
         public event Action onJump;
         
         public float GravityMultiplier { get; set; } = 1;
@@ -48,6 +50,7 @@ namespace ThorGame.Player
             if (direction == 0) return;
             Vector3 scale = transform.localScale;
             scale.x = direction > 0 ? _startXScale : -_startXScale;
+            if (startsLookingAtLeft) scale.x *= -1;
             transform.localScale = scale;
         }
         

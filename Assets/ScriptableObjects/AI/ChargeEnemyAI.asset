@@ -1,0 +1,278 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7821510496624852916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a1f3f13196845f38a2e2bc52307341a, type: 3}
+  m_Name: PlayAnimationNode
+  m_EditorClassIdentifier: 
+  isRoot: 0
+  connections: []
+  treePos: {x: 213.59991, y: -62.80002}
+  treeGuid: e7778aee347be4f4ead67846ceba6be1
+  animationName: Idle
+  waitForEnd: 0
+--- !u!114 &-5838795220872985334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea1f991af3d46e2ac24cfbe50280bf0, type: 3}
+  m_Name: InRangeNode
+  m_EditorClassIdentifier: 
+  isRoot: 0
+  connections: []
+  treePos: {x: 213.6, y: 331.2}
+  treeGuid: f96451e55144fb94b8e1096ec70812fd
+  targetIndex: 0
+  mode: 0
+  range: 8
+--- !u!114 &-5180297576424845028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4eaa93ae22482a86bf9406e0c56907, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  isRoot: 1
+  connections:
+  - {fileID: 6558976099532740513}
+  - {fileID: 133762923794579145}
+  - {fileID: 3778104339928869118}
+  - {fileID: 3866776716736788694}
+  - {fileID: 5725464146100073228}
+  - {fileID: 5585889883924002787}
+  - {fileID: 7748625018124391496}
+  treePos: {x: 10.479996, y: 125.399994}
+  treeGuid: 67881ffb313731842b7447c763709a87
+--- !u!114 &-4499080316590069455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ae1a62011c437e8bd7d67eb9b06043, type: 3}
+  m_Name: LookAtTargetNode
+  m_EditorClassIdentifier: 
+  isRoot: 0
+  connections: []
+  treePos: {x: 213.6, y: 254.4}
+  treeGuid: 93628c0490b659740b9b05fc544de7c9
+  targetIndex: 0
+--- !u!114 &-863549703371453643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a1f3f13196845f38a2e2bc52307341a, type: 3}
+  m_Name: PlayAnimationNode
+  m_EditorClassIdentifier: 
+  isRoot: 0
+  connections: []
+  treePos: {x: 213.59999, y: 177.60004}
+  treeGuid: 6a271191312e9cc4081cc7d9bf89e04c
+  animationName: ChargeStart
+  waitForEnd: 1
+--- !u!114 &-728593274244423276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7374a9824c4b8a8d29b6cc93428485, type: 3}
+  m_Name: TimerNode
+  m_EditorClassIdentifier: 
+  isRoot: 0
+  connections: []
+  treePos: {x: 213.6, y: -148.2}
+  treeGuid: fd45364425b9f4b469adc20b4f4a2126
+  timer:
+    <MaxSeconds>k__BackingField: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022714f7cffd4b2895f94e212237ef47, type: 3}
+  m_Name: ChargeEnemyAI
+  m_EditorClassIdentifier: 
+  root: {fileID: -5180297576424845028}
+  allNodes:
+  - {fileID: -5180297576424845028}
+  - {fileID: -5838795220872985334}
+  - {fileID: -863549703371453643}
+  - {fileID: 2389204995003513484}
+  - {fileID: 670615631769050908}
+  - {fileID: -728593274244423276}
+  - {fileID: -7821510496624852916}
+  - {fileID: -4499080316590069455}
+--- !u!114 &133762923794579145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->PlayAnimationNode
+  m_EditorClassIdentifier: 
+  from: {fileID: -5180297576424845028}
+  to: {fileID: -863549703371453643}
+  treeGuid: 
+--- !u!114 &670615631769050908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f0e7e2e639b4be4bf1e06fcd746d6a2, type: 3}
+  m_Name: ChargeNode
+  m_EditorClassIdentifier: 
+  isRoot: 0
+  connections: []
+  treePos: {x: 213.6, y: 24}
+  treeGuid: a4fd94e077d96ef49b61aa1faa4926d7
+  targetIndex: 0
+  movePastDistance: 0.25
+--- !u!114 &2389204995003513484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a1f3f13196845f38a2e2bc52307341a, type: 3}
+  m_Name: PlayAnimationNode
+  m_EditorClassIdentifier: 
+  isRoot: 0
+  connections: []
+  treePos: {x: 213.60004, y: 100.8}
+  treeGuid: 0b7b422fb53ac7a419c5d8948254895a
+  animationName: Charge
+  waitForEnd: 0
+--- !u!114 &3778104339928869118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->PlayAnimationNode
+  m_EditorClassIdentifier: 
+  from: {fileID: -5180297576424845028}
+  to: {fileID: 2389204995003513484}
+  treeGuid: 
+--- !u!114 &3866776716736788694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->ChargeNode
+  m_EditorClassIdentifier: 
+  from: {fileID: -5180297576424845028}
+  to: {fileID: 670615631769050908}
+  treeGuid: 
+--- !u!114 &5585889883924002787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->TimerNode
+  m_EditorClassIdentifier: 
+  from: {fileID: -5180297576424845028}
+  to: {fileID: -728593274244423276}
+  treeGuid: 
+--- !u!114 &5725464146100073228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->PlayAnimationNode
+  m_EditorClassIdentifier: 
+  from: {fileID: -5180297576424845028}
+  to: {fileID: -7821510496624852916}
+  treeGuid: 
+--- !u!114 &6558976099532740513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->InRangeNode
+  m_EditorClassIdentifier: 
+  from: {fileID: -5180297576424845028}
+  to: {fileID: -5838795220872985334}
+  treeGuid: 
+--- !u!114 &7748625018124391496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->LookAtTargetNode
+  m_EditorClassIdentifier: 
+  from: {fileID: -5180297576424845028}
+  to: {fileID: -4499080316590069455}
+  treeGuid: 
