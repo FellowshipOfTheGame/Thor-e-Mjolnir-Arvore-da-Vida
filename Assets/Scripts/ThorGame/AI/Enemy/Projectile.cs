@@ -19,6 +19,7 @@ namespace ThorGame.AI.Enemy
             if (col.TryGetComponent<EntityHealth>(out var health))
             {
                 health.Damage(damage);
+                Destroy(gameObject);
             }
         }
 

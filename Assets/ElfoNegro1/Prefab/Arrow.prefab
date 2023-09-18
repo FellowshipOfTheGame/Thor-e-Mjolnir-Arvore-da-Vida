@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4672461449201094102}
   - component: {fileID: 4672461449201094101}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: ArrowSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4672461450528665492}
   - component: {fileID: 4672461450528665491}
   - component: {fileID: 4672461450528665490}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,9 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0d3787ce254f8697752a5cb5b8895c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 1
   speed: 10
-  upVector: {x: 0, y: -1}
 --- !u!61 &4672461450528665490
 BoxCollider2D:
   m_ObjectHideFlags: 0

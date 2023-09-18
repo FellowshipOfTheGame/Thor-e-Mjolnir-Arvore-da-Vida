@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6083763764917727225
+--- !u!114 &-5173646524867437252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,44 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRoot: 0
   connections: []
-  treePos: {x: 177.6, y: 116}
-  treeGuid: 88c953a96c867a4438791e203533481c
+  treePos: {x: 242.4, y: 48}
+  treeGuid: 56d45f0b2f09ac44bb2ae06fad75612e
   targetIndex: 0
---- !u!114 &-1496698762569714673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f4eaa93ae22482a86bf9406e0c56907, type: 3}
-  m_Name: SequenceNode
-  m_EditorClassIdentifier: 
-  isRoot: 1
-  connections:
-  - {fileID: 102337380802139258}
-  - {fileID: 7488725323694460065}
-  - {fileID: 2290651098702834225}
-  treePos: {x: 10.399994, y: 192.8}
-  treeGuid: a218706bee932624d857cbe9e34fbc24
---- !u!114 &-1307704270897187814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7baebaf59fbb45939d4e5ca0ca5b88a8, type: 3}
-  m_Name: ReloadNode
-  m_EditorClassIdentifier: 
-  isRoot: 0
-  connections: []
-  treePos: {x: 177.85596, y: 269.59998}
-  treeGuid: 2e55e9787681b924d8a23f35b5c8ef08
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,43 +29,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022714f7cffd4b2895f94e212237ef47, type: 3}
   m_Name: RangedEnemyAI
   m_EditorClassIdentifier: 
-  root: {fileID: -1496698762569714673}
+  root: {fileID: 2979150459125079098}
   allNodes:
-  - {fileID: -1496698762569714673}
-  - {fileID: -1307704270897187814}
-  - {fileID: 5180251882668994664}
-  - {fileID: -6083763764917727225}
---- !u!114 &102337380802139258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
-  m_Name: SequenceNode->ReloadNode
-  m_EditorClassIdentifier: 
-  from: {fileID: -1496698762569714673}
-  to: {fileID: -1307704270897187814}
-  treeGuid: 
---- !u!114 &2290651098702834225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
-  m_Name: SequenceNode->ShootNode
-  m_EditorClassIdentifier: 
-  from: {fileID: -1496698762569714673}
-  to: {fileID: -6083763764917727225}
-  treeGuid: 
---- !u!114 &5180251882668994664
+  - {fileID: 2979150459125079098}
+  - {fileID: 6322413916859123925}
+  - {fileID: 1486806600980775780}
+  - {fileID: -5173646524867437252}
+--- !u!114 &1486806600980775780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,10 +49,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRoot: 0
   connections: []
-  treePos: {x: 177.6, y: 192.80005}
-  treeGuid: a62035d111d0fc9488ff879e193eb524
+  treePos: {x: 242.4, y: 124.8}
+  treeGuid: 73357a62e4f46834b80620061f64ef4e
   targetIndex: 0
---- !u!114 &7488725323694460065
+--- !u!114 &2979150459125079098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4eaa93ae22482a86bf9406e0c56907, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  isRoot: 1
+  connections:
+  - {fileID: 5128869388215859882}
+  - {fileID: 6533530068402368871}
+  - {fileID: 7980004273458271168}
+  treePos: {x: 70.79999, y: 124.8}
+  treeGuid: 5f61fb67b7bfcd641bf9af156e1b394a
+--- !u!114 &5128869388215859882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->ReloadNode
+  m_EditorClassIdentifier: 
+  from: {fileID: 2979150459125079098}
+  to: {fileID: 6322413916859123925}
+  treeGuid: 
+--- !u!114 &6322413916859123925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7baebaf59fbb45939d4e5ca0ca5b88a8, type: 3}
+  m_Name: ReloadNode
+  m_EditorClassIdentifier: 
+  isRoot: 0
+  connections: []
+  treePos: {x: 242.4, y: 201.59999}
+  treeGuid: dfbdba9b09fbcc949bb21377d0c35281
+--- !u!114 &6533530068402368871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,6 +114,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
   m_Name: SequenceNode->InRangedRangeNode
   m_EditorClassIdentifier: 
-  from: {fileID: -1496698762569714673}
-  to: {fileID: 5180251882668994664}
+  from: {fileID: 2979150459125079098}
+  to: {fileID: 1486806600980775780}
+  treeGuid: 
+--- !u!114 &7980004273458271168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->ShootNode
+  m_EditorClassIdentifier: 
+  from: {fileID: 2979150459125079098}
+  to: {fileID: -5173646524867437252}
   treeGuid: 

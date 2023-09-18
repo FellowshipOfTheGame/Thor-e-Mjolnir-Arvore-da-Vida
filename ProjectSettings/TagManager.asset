@@ -16,8 +16,8 @@ TagManager:
   - Character
   - Hammer
   - BGItems
-  - 
-  - 
+  - Projectile
+  - Player
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: Characters
     uniqueID: 271939577
+    locked: 0
+  - name: Overlays
+    uniqueID: 4147866621
     locked: 0
