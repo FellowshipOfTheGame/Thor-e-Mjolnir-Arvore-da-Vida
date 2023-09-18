@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 
 namespace ThorGame
 {
-    public class EntityHealth: MonoBehaviour, IHealthProvider
+    public class EntityHealth: MonoBehaviour, IHealthProvider, IHittable
     {
         public event IHealthProvider.HealthUpdateEvent OnHealthChanged;
 
@@ -24,6 +25,11 @@ namespace ThorGame
             }
         }
 
+        private void Awake()
+        {
+            _health = _maxHealth;
+        }
+
         public void Damage(int dmg)
         {
             Health -= dmg;
@@ -33,6 +39,11 @@ namespace ThorGame
         {
             if (_health > 0) _health = 0;
             Destroy(gameObject);
+        }
+
+        public void Hit(Vector2 point, Vector2 velocity)
+        {
+            Damage(1);
         }
     }
 }
