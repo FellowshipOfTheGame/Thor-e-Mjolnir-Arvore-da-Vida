@@ -3,13 +3,14 @@ using UnityEngine;
 
 namespace ThorGame.AI.Tree.Nodes.Leaf
 {
-    public class InRangedRangeNode : LeafNode
+    public class InRangedRangeNode : TargetedNode
     {
         [SerializeField] private int targetIndex;
         
         private EnemyRangedWeapon _ranged;
         protected override void Init(AIData data)
         {
+            base.Init(data);
             _ranged = data.Runner.GetComponent<EnemyRangedWeapon>();
         }
 
