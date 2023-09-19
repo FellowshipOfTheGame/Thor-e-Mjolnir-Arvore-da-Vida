@@ -10,8 +10,10 @@ namespace ThorGame
         
         [SerializeField] private int _maxHealth;
         public int MaxHealth => _maxHealth;
+
+        [SerializeField] private bool destroyOnDeath;
         
-        [SerializeField] private UnityEvent stunStart, stunEnd;
+        [SerializeField] private UnityEvent stunStart, stunEnd, deathEvent;
 
         private int _health;
 
@@ -35,15 +37,19 @@ namespace ThorGame
             _health = _maxHealth;
         }
 
-        public void Damage(int dmg)
+        public void Damage(int dmg, float stunSeconds = 0)
         {
             Health -= dmg;
+            if (stunSeconds > 0 && Health > 0) StartCoroutine(StunCoroutine(stunSeconds));
         }
 
         public void Die()
         {
             if (_health > 0) _health = 0;
-            Destroy(gameObject);
+            deathEvent?.Invoke();
+            if (destroyOnDeath) Destroy(gameObject);
+            
+            StopAllCoroutines();
         }
 
         public void Hit(Vector2 point, Vector2 velocity)
@@ -59,11 +65,9 @@ namespace ThorGame
             stunStart?.Invoke();
             yield return new WaitUntil(() => timer.Tick());
             IsStunned = false;
+
+            if (Health == 0) yield break;
             stunEnd?.Invoke();
-        }
-        public void Stun(float seconds)
-        {
-            StartCoroutine(StunCoroutine(seconds));
         }
     }
 }

@@ -158,12 +158,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 10
+  destroyOnDeath: 0
   stunStart:
     m_PersistentCalls:
       m_Calls: []
   stunEnd:
     m_PersistentCalls:
       m_Calls: []
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 965075275200383852}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Death
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1244568852}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8535050378320146042}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9072546661226594955}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1674691643713994402
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,6 +719,11 @@ PrefabInstance:
 --- !u!224 &9072546661226594954 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8639795551886551848, guid: e02048731a3d3aa4a83f2d965be26ec6, type: 3}
+  m_PrefabInstance: {fileID: 724676405058857378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9072546661226594955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8639795551886551849, guid: e02048731a3d3aa4a83f2d965be26ec6, type: 3}
   m_PrefabInstance: {fileID: 724676405058857378}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1909610514263403628

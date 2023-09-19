@@ -27,8 +27,7 @@ namespace ThorGame
             
             if (col.TryGetComponent<EntityHealth>(out var health))
             {
-                health.Damage(damage);
-                if (stun > 0) health.Stun(stun);
+                health.Damage(damage, stun);
                 
                 cooldown.Reset();
             }
