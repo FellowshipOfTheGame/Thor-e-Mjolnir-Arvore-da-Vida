@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadTimer:
-    <MaxSeconds>k__BackingField: 4
+    <MaxSeconds>k__BackingField: 2.5
 --- !u!114 &326879025734604765
 MonoBehaviour:
   m_ObjectHideFlags: 0

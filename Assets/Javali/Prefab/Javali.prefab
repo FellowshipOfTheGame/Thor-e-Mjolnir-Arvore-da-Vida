@@ -546,7 +546,7 @@ MonoBehaviour:
   knockBack: 0.5
   stun: 0.5
   cooldown:
-    <MaxSeconds>k__BackingField: 0.15
+    <MaxSeconds>k__BackingField: 1
 --- !u!1 &9076357636804328506
 GameObject:
   m_ObjectHideFlags: 0
