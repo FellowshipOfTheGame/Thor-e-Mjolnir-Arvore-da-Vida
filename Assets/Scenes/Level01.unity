@@ -1699,6 +1699,10 @@ PrefabInstance:
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
       objectReference: {fileID: 135510332}
+    - target: {fileID: 1647316937, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7101071596458972483, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: m_RootOrder
       value: 14
