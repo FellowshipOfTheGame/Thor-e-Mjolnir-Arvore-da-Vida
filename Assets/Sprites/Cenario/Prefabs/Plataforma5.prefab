@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 614779004541144683}
   - component: {fileID: 2035899084875073336}
   - component: {fileID: 5498761361922733775}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 3688556525002703784}
   - component: {fileID: 3032529151230653362}
   - component: {fileID: 3485247499468374806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 276907681398584105}
   - component: {fileID: 4546455464879334492}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -802,7 +802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7741417634244100507}
   - component: {fileID: 7741417634244100504}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -889,7 +889,7 @@ GameObject:
   - component: {fileID: 8754353733018375288}
   - component: {fileID: 3314597259468112572}
   - component: {fileID: 2178563603687087105}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1426,7 +1426,7 @@ GameObject:
   - component: {fileID: 4487825608153718510}
   - component: {fileID: 1476287605093530830}
   - component: {fileID: 3992061575148379259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1594,7 +1594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7741417635151877869}
   - component: {fileID: 7741417635151877842}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1679,7 +1679,7 @@ GameObject:
   - component: {fileID: 7741417635849377156}
   - component: {fileID: 5625881201312663198}
   - component: {fileID: -6247882625278596543}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plataforma5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1756,7 +1756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3973323180952243605}
   - component: {fileID: 4980394101133681851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}

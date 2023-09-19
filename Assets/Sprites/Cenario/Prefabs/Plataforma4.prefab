@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 541364828809412154}
   - component: {fileID: 1593044217427569642}
   - component: {fileID: 8391079117174845218}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia6 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2968389137480955790}
   - component: {fileID: 1735439564042110485}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: crossR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6280318466788118052}
   - component: {fileID: 4764763483539756746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ThinMT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4487000136394992511}
   - component: {fileID: 3309338641808471044}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thinRB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4660469330670044763}
   - component: {fileID: 3339706937381824838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ThinMB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1066,7 +1066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4325127503403870926}
   - component: {fileID: 3726744787496217007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thinRT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1150,7 +1150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5030827152584029821}
   - component: {fileID: 5030827152584029820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: boardT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1234,7 +1234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5030827152690606267}
   - component: {fileID: 5030827152690606266}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: crossL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1318,7 +1318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5030827152725076005}
   - component: {fileID: 5030827152725076026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ThinLB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1588,7 +1588,7 @@ GameObject:
   - component: {fileID: 1453793843071238099}
   - component: {fileID: 909120980782734995}
   - component: {fileID: 1309961048427937839}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2002,7 +2002,7 @@ GameObject:
   - component: {fileID: 6324085909187387039}
   - component: {fileID: 211200944500219051}
   - component: {fileID: 4294232970417874246}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2170,7 +2170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5030827153446833020}
   - component: {fileID: 5030827153446833023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ChainL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2254,7 +2254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5030827153509464226}
   - component: {fileID: 5030827153509464237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: boardB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2341,7 +2341,7 @@ GameObject:
   - component: {fileID: 7213739464739697587}
   - component: {fileID: 2133632715093992190}
   - component: {fileID: 8127488218806199481}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2570,7 +2570,7 @@ GameObject:
   - component: {fileID: 5030827153960804195}
   - component: {fileID: -5541215655593170798}
   - component: {fileID: -5685708098518696034}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plataforma4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2663,7 +2663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5030827154085649418}
   - component: {fileID: 5030827154085649461}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ChainR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2921,7 +2921,7 @@ GameObject:
   - component: {fileID: 1223265416883819529}
   - component: {fileID: 2680900959193050365}
   - component: {fileID: 2698658124195221311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3092,7 +3092,7 @@ GameObject:
   - component: {fileID: 964127781361251164}
   - component: {fileID: 5923159281000462743}
   - component: {fileID: 3233779955173752159}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia6 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3296,7 +3296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3054982969082926282}
   - component: {fileID: 6933740474035663759}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ThinLT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3380,7 +3380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 185501937990045594}
   - component: {fileID: 6434561762088162778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: crossM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3467,7 +3467,7 @@ GameObject:
   - component: {fileID: 1643171771412475646}
   - component: {fileID: 376480977333588074}
   - component: {fileID: 8383187261592084711}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia6 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3845,7 +3845,7 @@ GameObject:
   - component: {fileID: 7350015758753864674}
   - component: {fileID: 969285917728075735}
   - component: {fileID: 1195391661119128046}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fatia6 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
