@@ -13,7 +13,7 @@ namespace ThorGame
 
         [SerializeField] private bool destroyOnDeath;
         
-        [SerializeField] private UnityEvent stunStart, stunEnd, deathEvent;
+        public UnityEvent stunStart, stunEnd, deathEvent;
 
         private int _health;
 
