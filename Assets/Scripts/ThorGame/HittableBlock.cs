@@ -8,7 +8,6 @@ namespace ThorGame
         [field: SerializeField]
         public int MaxHealth { get; private set; }
         
-        [SerializeField] private float breakHitMinSpeed;
         public UnityEvent breakEvent;
         
         public int Health { get; private set; }
@@ -22,12 +21,11 @@ namespace ThorGame
             Health = MaxHealth;
         }
 
-        public void Hit(Vector2 point, Vector2 velocity)
+        public void Hit(Vector2 point, Vector2 velocity, int damage)
         {
-            if (velocity.sqrMagnitude < breakHitMinSpeed * breakHitMinSpeed) return;
-            
             if (_rb) _rb.AddForceAtPosition(velocity, point);
-            Health--;
+            Health -= damage;
+            Health = Mathf.Clamp(Health, 0, MaxHealth);
             OnHealthChanged?.Invoke(Health + 1, Health);
             if (Health <= 0) Break();
         }

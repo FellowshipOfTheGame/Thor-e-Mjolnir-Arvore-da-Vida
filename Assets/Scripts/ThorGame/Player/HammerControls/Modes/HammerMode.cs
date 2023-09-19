@@ -14,10 +14,5 @@ namespace ThorGame.Player.HammerControls.Modes
         protected abstract void OnBegin(Hammer hammer);
         public abstract void End(Hammer hammer);
         public abstract void Tick(Hammer hammer);
-        
-        public void OnCollide(Hammer hammer, IHittable target)
-        {
-            target.Hit(hammer.Rigidbody.position, hammer.Rigidbody.velocity);
-        }
     }
 }

@@ -26,7 +26,5 @@ namespace ThorGame.Player.HammerControls.ModeSet
             _currentNode = node;
             _currentNode.Begin(data);
         }
-        
-        public void OnCollide(Hammer hammer, IHittable hittable) => _currentNode.ApplicableMode(hammer).OnCollide(hammer, hittable);
     }
 }

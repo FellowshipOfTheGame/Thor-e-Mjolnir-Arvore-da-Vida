@@ -291,6 +291,9 @@ MonoBehaviour:
   recallDistance: 1
   faceVelocity: 0
   upAngle: 94
+  minimumSpeedToHit: 10
+  heldDamage: 1
+  freeDamage: 5
   strap: {fileID: 2619454847483345107}
   hammerStrapJoint: {fileID: 5086429410237090166}
   hammerFixedJoint: {fileID: 6595946888270732256}

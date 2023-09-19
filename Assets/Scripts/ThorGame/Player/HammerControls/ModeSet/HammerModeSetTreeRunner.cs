@@ -16,13 +16,5 @@ namespace ThorGame.Player.HammerControls.ModeSet
         {
             tree.Tick(hammer);
         }
-        
-        private void OnTriggerEnter2D(Collider2D col)
-        {
-            if (col.TryGetComponent(out IHittable hittable))
-            {
-                tree.OnCollide(hammer, hittable);
-            }
-        }
     }
 }

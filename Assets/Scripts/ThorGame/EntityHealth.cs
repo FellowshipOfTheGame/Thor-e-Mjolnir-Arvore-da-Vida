@@ -52,9 +52,9 @@ namespace ThorGame
             StopAllCoroutines();
         }
 
-        public void Hit(Vector2 point, Vector2 velocity)
+        public void Hit(Vector2 point, Vector2 velocity, int damage)
         {
-            Damage(1);
+            Damage(damage);
         }
 
 

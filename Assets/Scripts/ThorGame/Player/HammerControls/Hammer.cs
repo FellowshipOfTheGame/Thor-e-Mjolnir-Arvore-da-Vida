@@ -27,6 +27,11 @@ namespace ThorGame.Player.HammerControls
         [SerializeField] private bool faceVelocity = true;
         [SerializeField] [Range(0f, 360f)] private float upAngle;
 
+        [Header("Damage")] 
+        [SerializeField] private float minimumSpeedToHit;
+        [SerializeField] private int heldDamage;
+        [SerializeField] private int freeDamage;
+
         [Header("Constraints")]
         [SerializeField] private GameObject strap;
         [SerializeField] private AnchoredJoint2D hammerStrapJoint;
@@ -127,8 +132,16 @@ namespace ThorGame.Player.HammerControls
                 }
             }
         }
-        
-        #if UNITY_EDITOR
+
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            if (Rigidbody.velocity.sqrMagnitude < minimumSpeedToHit * minimumSpeedToHit) return;
+            if (!col.TryGetComponent<IHittable>(out var hittable)) return;
+            int damage = _attachment == Attachment.Free ? freeDamage : heldDamage;
+            hittable.Hit(Rigidbody.position, Rigidbody.velocity, damage);
+        }
+
+#if UNITY_EDITOR
         [UnityEditor.CustomEditor(typeof(Hammer))]
         private class HammerEditor : UnityEditor.Editor
         {
