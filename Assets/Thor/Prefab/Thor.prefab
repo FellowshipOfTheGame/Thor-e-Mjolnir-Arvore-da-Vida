@@ -77,14 +77,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718339154492894567}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.68052906, w: 0.73272115}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 42764963571632370}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 85.77}
 --- !u!212 &7651626047925701613
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ Rigidbody2D:
   m_Mass: 2.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -226,11 +226,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6868797fd8f325499ac2531f41b82c7, type: 2}
   - {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
   - {fileID: 11400000, guid: 300c9483b376b6a44bfe613175103416, type: 2}
-  headOffset: {x: -0.2, y: 2.12}
-  flyVelocity: 50
-  maxVelocity: -1
+  headOffset: {x: 0, y: 0.55}
+  flyVelocity: 10
+  maxVelocity: 15
   recallDistance: 1
-  faceVelocity: 0
+  faceVelocity: 1
   upAngle: 94
   strap: {fileID: 2619454847483345107}
   hammerStrapJoint: {fileID: 5086429410237090166}

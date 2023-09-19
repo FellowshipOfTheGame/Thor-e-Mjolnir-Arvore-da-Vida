@@ -12,7 +12,7 @@ namespace ThorGame.Player.HammerControls
         {
             Held,
             Strap,
-            Free            
+            Free
         }
         
         [SerializeField] private HammerMode[] unlockedModes;
@@ -49,13 +49,7 @@ namespace ThorGame.Player.HammerControls
                 Vector2 vel = Rigidbody.velocity;
                 if (vel != Vector2.zero && faceVelocity)
                 {
-                    Debug.DrawRay(Rigidbody.position, vel, Color.red);
-                    Debug.DrawRay(Rigidbody.position, Quaternion.AngleAxis(upAngle - 90, Vector3.forward) * vel.normalized, Color.green);
-                    Debug.DrawRay(Rigidbody.position, Quaternion.AngleAxis(90 - upAngle, Vector3.forward) * vel.normalized, Color.blue);
-                    
-                    float rad = upAngle * Mathf.Deg2Rad;
-                    Vector3 worldUp = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad), 0);
-                    transform.up = Quaternion.AngleAxis(90 - upAngle, Vector3.forward) * vel.normalized;
+                    transform.up = vel.normalized;
                 }
 
                 float velocityMagnitude = Rigidbody.velocity.magnitude;
@@ -69,7 +63,6 @@ namespace ThorGame.Player.HammerControls
         public void Recall()
         {
             FlyTowards(OriginPosition);
-            //TODO Talvez valha a pena pegar de volta sempre que chegar perto da mão, e não apenas enquanto está recallando
             if ((Rigidbody.position - OriginPosition).sqrMagnitude <= recallDistance * recallDistance)
             {
                 AttachmentMode = Attachment.Held;
