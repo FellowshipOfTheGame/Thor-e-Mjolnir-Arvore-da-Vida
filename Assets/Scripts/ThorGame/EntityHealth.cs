@@ -69,5 +69,10 @@ namespace ThorGame
             if (Health == 0) yield break;
             stunEnd?.Invoke();
         }
+
+        public void Heal(int healAmount)
+        {
+            Health += healAmount;
+        }
     }
 }
