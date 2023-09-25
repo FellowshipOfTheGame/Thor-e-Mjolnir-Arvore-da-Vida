@@ -135,8 +135,8 @@ namespace ThorGame.Player.HammerControls
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (Rigidbody.velocity.sqrMagnitude < minimumSpeedToHit * minimumSpeedToHit) return;
             if (!col.TryGetComponent<IHittable>(out var hittable)) return;
+            if (hittable.RequireMinSpeed && Rigidbody.velocity.sqrMagnitude < minimumSpeedToHit * minimumSpeedToHit) return;
             int damage = _attachment == Attachment.Free ? freeDamage : heldDamage;
             hittable.Hit(Rigidbody.position, Rigidbody.velocity, damage);
         }
