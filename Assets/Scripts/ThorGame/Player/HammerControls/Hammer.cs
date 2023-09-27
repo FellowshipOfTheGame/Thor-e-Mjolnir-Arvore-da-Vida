@@ -39,6 +39,7 @@ namespace ThorGame.Player.HammerControls
 
         public Rigidbody2D Rigidbody { get; private set; }
         private Transform _ogParent;
+        private bool _recalling;
         private void Awake()
         {
             Rigidbody = GetComponent<Rigidbody2D>();
@@ -67,12 +68,14 @@ namespace ThorGame.Player.HammerControls
 
         public void Recall()
         {
+            _recalling = true;
             FlyTowards(OriginPosition);
             if ((Rigidbody.position - OriginPosition).sqrMagnitude <= recallDistance * recallDistance)
             {
                 AttachmentMode = Attachment.Held;
             }
         }
+        private void Update() => _recalling = false;
         
         public void FlyTowards(Vector2 target)
         {
@@ -136,7 +139,9 @@ namespace ThorGame.Player.HammerControls
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (!col.TryGetComponent<IHittable>(out var hittable)) return;
-            if (hittable.RequireMinSpeed && Rigidbody.velocity.sqrMagnitude < minimumSpeedToHit * minimumSpeedToHit) return;
+            if (hittable.RequireMinSpeed && !_recalling &&
+                Rigidbody.velocity.sqrMagnitude < minimumSpeedToHit * minimumSpeedToHit)
+                return;
             int damage = _attachment == Attachment.Free ? freeDamage : heldDamage;
             hittable.Hit(Rigidbody.position, Rigidbody.velocity, damage);
         }
