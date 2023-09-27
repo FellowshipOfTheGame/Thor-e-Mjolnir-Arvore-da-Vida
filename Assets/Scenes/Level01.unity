@@ -658,6 +658,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7467438988245931008, guid: 64f9b2f2c89742849b677ac45dd73097, type: 3}
+      propertyPath: delaySeconds
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7467438988245931009, guid: 64f9b2f2c89742849b677ac45dd73097, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -3169,9 +3173,37 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
       objectReference: {fileID: 135510332}
+    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
+      value: ThorGame.GameLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7101071596458972483, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3711,7 +3743,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078903092}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2709653, y: -0.71000004, z: 0}
+  m_LocalPosition: {x: -1.7419977, y: -0.71000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11812,10 +11844,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.14158922
       objectReference: {fileID: 0}
-    - target: {fileID: 5244688282345143185, guid: 95d386bbb0ae1c4488d66f2d7d67f8e2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.9899255
-      objectReference: {fileID: 0}
     - target: {fileID: 6012540521363064025, guid: 95d386bbb0ae1c4488d66f2d7d67f8e2, type: 3}
       propertyPath: m_Name
       value: Elfo Negro (7)
@@ -12914,7 +12942,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2779755197813913785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2590349, y: -1.23, z: -10}
+  m_LocalPosition: {x: -2.7880025, y: -1.23, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13243,6 +13271,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 779dff1c46af4354ba1926fc3c0d2211, type: 3}
+--- !u!1 &6930494326043179580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6930494325865739453, guid: 779dff1c46af4354ba1926fc3c0d2211, type: 3}
+  m_PrefabInstance: {fileID: 6930494326043179579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6930494326043179581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6930494326043179580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb4c8f7d1874caf8e67568ae084d06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 2779755197813913787}
+  padding: 0.2
 --- !u!1001 &7547057769719419990
 PrefabInstance:
   m_ObjectHideFlags: 0

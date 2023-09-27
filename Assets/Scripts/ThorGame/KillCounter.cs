@@ -9,7 +9,7 @@ namespace ThorGame
         private HashSet<EntityHealth> _enemies = new();
         private void Start()
         {
-            foreach (var enemy in FindObjectsOfType<EntityHealth>())
+            foreach (var enemy in FindObjectsOfType<EntityHealth>(true))
             {
                 if (enemy.GetComponent<ThorController>()) continue;
                 _enemies.Add(enemy);

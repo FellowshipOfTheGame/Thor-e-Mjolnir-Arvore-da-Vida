@@ -622,10 +622,6 @@ PrefabInstance:
       propertyPath: health
       value: 
       objectReference: {fileID: 1244568858}
-    - target: {fileID: 8639795551630037520, guid: e02048731a3d3aa4a83f2d965be26ec6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8639795551886551848, guid: e02048731a3d3aa4a83f2d965be26ec6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -713,10 +709,6 @@ PrefabInstance:
     - target: {fileID: 8639795551886551849, guid: e02048731a3d3aa4a83f2d965be26ec6, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8639795551886551862, guid: e02048731a3d3aa4a83f2d965be26ec6, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e02048731a3d3aa4a83f2d965be26ec6, type: 3}
