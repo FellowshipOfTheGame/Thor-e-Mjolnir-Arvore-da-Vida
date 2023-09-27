@@ -50,6 +50,9 @@ namespace ThorEditor.TreeEditor
                 return;
             }
             
+            //Clears invalid connections
+            tree.CleanupInvalidConnections();
+            
             //TreeEditorUtility.EnsureTreeHasRoot(tree);
             foreach (var node in tree.AllNodes)
             {

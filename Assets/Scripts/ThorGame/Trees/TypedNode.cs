@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ThorGame.Trees
@@ -38,6 +39,11 @@ namespace ThorGame.Trees
         }
         
         public virtual string Title => name;
+
+        private void OnValidate()
+        {
+            connections.RemoveAll(c => !c);
+        }
 
 
 #if UNITY_EDITOR

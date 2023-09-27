@@ -40,7 +40,7 @@ namespace ThorEditor.TreeEditor
         
         private static MethodInfo ListAddMethodInfo(Type itemType) => typeof(List<>).MakeGenericType(itemType).GetMethod("Add", new []{itemType});
         private static MethodInfo ListRemoveMethodInfo(Type itemType) => typeof(List<>).MakeGenericType(itemType).GetMethod("Remove", new []{itemType});
-
+        private static MethodInfo ListContainsMethodInfo(Type itemType) => typeof(List<>).MakeGenericType(itemType).GetMethod("Contains", new []{itemType});
 
         public static Type ConnectionType(this ITree tree) => ReflectionUtility.GetBaseTypeWithGenericDef(tree.GetType(), GenericTreeType).GetGenericArguments()[2];
         public static Type ConnectionType(this INode node) => ReflectionUtility.GetBaseTypeWithGenericDef(node.GetType(), GenericNodeType).GetGenericArguments()[1];
@@ -78,6 +78,7 @@ namespace ThorEditor.TreeEditor
             removeMethod.Invoke(list, new [] {(object)node});
 
             AssetDatabase.RemoveObjectFromAsset(node as Object);
+            Object.DestroyImmediate(node as Object);
             AssetDatabase.SaveAssets();
         }
         
@@ -172,6 +173,38 @@ namespace ThorEditor.TreeEditor
 
             from.AddChild(connection);
             return connection;
+        }
+
+        public static void CleanupInvalidConnections(this ITree tree)
+        {
+            Type treeInstanceType = tree.GetType();
+            ReflectionUtility.AssertGenericInheritance(GenericTreeType, treeInstanceType, nameof(DeleteNode), nameof(tree));
+            
+            var children = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(tree as ScriptableObject));
+            foreach (var child in children)
+            {
+                switch (child)
+                {
+                    case ITree:
+                        break;
+                    case INode node:
+                        if (!tree.AllNodes.Contains(node))
+                        {
+                            Debug.Log($"invalid node: {node} -> {node}", tree as Object);
+                            AssetDatabase.RemoveObjectFromAsset(child);
+                            Object.DestroyImmediate(child);
+                        }
+                        break;
+                    case IConnection connection:
+                        if (!connection.From.GetConnections().Contains(connection))
+                        {
+                            Debug.Log($"invalid connection: {connection.From} -> {connection.To}", tree as Object);
+                            AssetDatabase.RemoveObjectFromAsset(child);
+                            Object.DestroyImmediate(child);
+                        }
+                        break;
+                }
+            }
         }
     }
 }

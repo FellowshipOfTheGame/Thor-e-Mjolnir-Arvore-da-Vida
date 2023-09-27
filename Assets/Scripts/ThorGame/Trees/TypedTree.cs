@@ -24,6 +24,11 @@ namespace ThorGame.Trees
             return clone;
         }
 
+        private void OnValidate()
+        {
+            allNodes.RemoveAll(n => !n);
+        }
+
         IEnumerable<INode> ITree.AllNodes => AllNodes;
     }
 }
