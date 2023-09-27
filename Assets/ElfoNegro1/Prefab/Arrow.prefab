@@ -94,9 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4672461450528665492}
   - component: {fileID: 4672461450528665491}
+  - component: {fileID: -5358801090687074148}
   - component: {fileID: 4672461450528665490}
   - component: {fileID: 3794687818213077506}
-  - component: {fileID: -5358801090687074148}
   m_Layer: 10
   m_Name: Arrow
   m_TagString: Untagged
@@ -134,6 +134,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   speed: 15
+--- !u!114 &-5358801090687074148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4672461450528665489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5fb956c72442d785a8a0d333a7290a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounce: 3
+  hammerVelBounceWeight: 0.75
 --- !u!61 &4672461450528665490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,15 +195,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-5358801090687074148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4672461450528665489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf5fb956c72442d785a8a0d333a7290a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
