@@ -9,14 +9,15 @@ namespace ThorGame.AI.Enemy
         [SerializeField] private Projectile projectilePrefab;
         [SerializeField] private float attackRange;
         [SerializeField] private Transform projectileOrigin;
-        
+
+        public virtual bool IsShooting => false; 
         public EnemyAmmo Ammo { get; private set; }
         protected virtual void Awake()
         {
             Ammo = GetComponent<EnemyAmmo>();
         }
 
-        public bool CanShoot(Vector3 position) => Ammo.HasAmmoReady && IsInRange(position);
+        public virtual bool CanShoot(Vector3 position) => Ammo.HasAmmoReady && IsInRange(position);
 
         public bool IsInRange(Vector3 position)
         {
@@ -41,7 +42,6 @@ namespace ThorGame.AI.Enemy
                 Debug.LogError("Tried to shoot when CanShoot is false!", gameObject);
                 return;
             }
-            
             DoShoot(target);
         }
         

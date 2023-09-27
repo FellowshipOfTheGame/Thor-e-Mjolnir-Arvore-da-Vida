@@ -1,5 +1,4 @@
 ﻿using ThorGame.AI.Enemy;
-using UnityEngine;
 
 namespace ThorGame.AI.Tree.Nodes.Leaf
 {

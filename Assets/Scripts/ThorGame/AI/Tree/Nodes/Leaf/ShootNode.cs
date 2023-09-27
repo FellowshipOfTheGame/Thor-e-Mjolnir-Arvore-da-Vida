@@ -12,14 +12,14 @@ namespace ThorGame.AI.Tree.Nodes.Leaf
             base.Init(data);
             _ranged = data.Runner.GetComponent<EnemyRangedWeapon>();
             _targetCol = Target.GetComponent<Collider2D>();
+            
+            var target = _targetCol.bounds.center;
+            _ranged.Shoot(target);
         }
 
         protected override NodeResult Process(AIData data)
         {
-            var target = _targetCol.bounds.center;
-            if (!_ranged.CanShoot(target)) return NodeResult.Failure;
-            _ranged.Shoot(target);
-            return NodeResult.Success;
+            return _ranged.IsShooting ? NodeResult.Running : NodeResult.Success;
         }
     }
 }

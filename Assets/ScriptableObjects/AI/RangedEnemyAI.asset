@@ -30,6 +30,21 @@ MonoBehaviour:
   from: {fileID: 2979150459125079098}
   to: {fileID: 4224347563520859393}
   treeGuid: 
+--- !u!114 &-1914809655168492802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcba231bed0844b3ab8040fb8bdf69a4, type: 3}
+  m_Name: SequenceNode->CanShootNode
+  m_EditorClassIdentifier: 
+  from: {fileID: 2979150459125079098}
+  to: {fileID: 9197106309731508054}
+  treeGuid: 
 --- !u!114 &-897946890294540026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +81,7 @@ MonoBehaviour:
   - {fileID: -897946890294540026}
   - {fileID: 4224347563520859393}
   - {fileID: 4112726014682150493}
+  - {fileID: 9197106309731508054}
 --- !u!114 &125785724068420159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +130,7 @@ MonoBehaviour:
   - {fileID: 6472082677981537468}
   - {fileID: -7565439591992637647}
   - {fileID: -5830495670690699184}
+  - {fileID: -1914809655168492802}
   - {fileID: 125785724068420159}
   treePos: {x: 70.79999, y: 124.8}
   treeGuid: 5f61fb67b7bfcd641bf9af156e1b394a
@@ -166,3 +183,20 @@ MonoBehaviour:
   from: {fileID: 2979150459125079098}
   to: {fileID: 2507360679632176497}
   treeGuid: 
+--- !u!114 &9197106309731508054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8682efacc29f4d5c9d21ddfce0e98376, type: 3}
+  m_Name: CanShootNode
+  m_EditorClassIdentifier: 
+  isRoot: 0
+  connections: []
+  treePos: {x: 238, y: 13}
+  treeGuid: 7537a8f3322a8f44d9b59bbc9f6325e3
+  targetIndex: 0
