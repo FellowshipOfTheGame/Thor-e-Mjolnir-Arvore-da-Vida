@@ -46,4 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameScene: Level01
   menuScene: Menu
+  victoryScene: VictoryScene
+  defeatScene: DefeatScene
   delaySeconds: 4

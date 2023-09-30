@@ -6,7 +6,7 @@ namespace ThorGame
 {
     public class GameLoader : MonoBehaviour
     {
-        [SerializeField] private string gameScene, menuScene;
+        [SerializeField] private string gameScene, menuScene, victoryScene, defeatScene;
         [SerializeField] private float delaySeconds;
     
         public static GameLoader Instance { get; private set; }
@@ -26,18 +26,23 @@ namespace ThorGame
             SceneManager.LoadScene(scene);
         }
 
-        public void LoadGame() => LoadGame(false);
-        public void LoadGame(bool delayed)
+        private void Load(string scene, bool delayed)
         {
-            if (delayed) StartCoroutine(DelayedLoadCoroutine(gameScene));
-            else SceneManager.LoadScene(gameScene);
+            if (delayed) StartCoroutine(DelayedLoadCoroutine(scene));
+            else SceneManager.LoadScene(scene);
         }
 
-        public void LoadMenu() => LoadMenu(false);
-        public void LoadMenu(bool delayed)
+        public void LoadGame(bool delayed) => Load(gameScene, delayed);
+        public void LoadMenu(bool delayed) => Load(menuScene, delayed);
+        public void LoadVictory(bool delayed) => Load(victoryScene, delayed);
+        public void LoadDefeat(bool delayed) => Load(defeatScene, delayed);
+
+        public void QuitGame()
         {
-            if (delayed) StartCoroutine(DelayedLoadCoroutine(menuScene));
-            else SceneManager.LoadScene(menuScene);
+            Application.Quit();
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
         }
     }
 }

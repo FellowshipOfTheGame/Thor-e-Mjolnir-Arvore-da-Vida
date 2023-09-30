@@ -36,6 +36,11 @@ namespace ThorGame
         {
             _health = _maxHealth;
         }
+        
+        public void Heal(int healAmount)
+        {
+            Health += healAmount;
+        }
 
         public void Damage(int dmg, float stunSeconds = 0)
         {
@@ -54,6 +59,7 @@ namespace ThorGame
 
         public void Hit(Vector2 point, Vector2 velocity, int damage)
         {
+            if (Health == 0) return;
             Damage(damage);
         }
 
@@ -68,11 +74,6 @@ namespace ThorGame
 
             if (Health == 0) yield break;
             stunEnd?.Invoke();
-        }
-
-        public void Heal(int healAmount)
-        {
-            Health += healAmount;
         }
     }
 }
