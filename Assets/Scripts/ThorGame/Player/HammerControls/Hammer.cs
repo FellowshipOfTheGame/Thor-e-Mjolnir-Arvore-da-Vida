@@ -33,6 +33,7 @@ namespace ThorGame.Player.HammerControls
         [SerializeField] private float minimumSpeedToHit;
         [SerializeField] private int heldDamage;
         [SerializeField] private int freeDamage;
+        [SerializeField] private GameObject puncher;
 
         [Header("Constraints")]
         [SerializeField] private GameObject strap;
@@ -108,6 +109,7 @@ namespace ThorGame.Player.HammerControls
                         Transform forearm = transform.parent;
                         transform.position = strapTransform.position;
                         transform.up = forearm.up;
+                        puncher.SetActive(false);
                         break;
                     }
                     case Attachment.Strap:
@@ -124,6 +126,7 @@ namespace ThorGame.Player.HammerControls
                         Vector2 strapEnd = strapPos + strapDir * strapTransform.localScale.y;
                         transform.position = strapEnd;
                         transform.up = strapDir;
+                        puncher.SetActive(false);
                         break;
                     }
                     case Attachment.Free:
@@ -133,6 +136,7 @@ namespace ThorGame.Player.HammerControls
                         hammerFixedJoint.enabled = false;
                         Rigidbody.gravityScale = freeGravityScale;
                         transform.parent = null;
+                        puncher.SetActive(true);
                         break;
                     }
                     default:

@@ -11,7 +11,7 @@ namespace ThorGame
         [SerializeField] private float stun;
         [SerializeField] private Timer cooldown;
         
-        private void Awake()
+        private void OnEnable()
         {
             cooldown.Complete();
         }
@@ -28,7 +28,6 @@ namespace ThorGame
             if (col.TryGetComponent<EntityHealth>(out var health))
             {
                 health.Damage(damage, stun);
-                
                 cooldown.Reset();
             }
 
