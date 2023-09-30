@@ -125,8 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 2
-  breakHitMinSpeed: 1
+  <MaxHealth>k__BackingField: 4
   breakEvent:
     m_PersistentCalls:
       m_Calls:
@@ -332,8 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 2
-  breakHitMinSpeed: 1
+  <MaxHealth>k__BackingField: 4
   breakEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -755,8 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 2
-  breakHitMinSpeed: 1
+  <MaxHealth>k__BackingField: 4
   breakEvent:
     m_PersistentCalls:
       m_Calls:
@@ -962,8 +959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 2
-  breakHitMinSpeed: 1
+  <MaxHealth>k__BackingField: 4
   breakEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1015,6 +1011,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 804152563171422315, guid: c55c3e30770302943837b3903020cfba, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151007384489986469, guid: c55c3e30770302943837b3903020cfba, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709256388865309511, guid: c55c3e30770302943837b3903020cfba, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2554910428292582614, guid: c55c3e30770302943837b3903020cfba, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1111,13 +1119,29 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 20.02
       objectReference: {fileID: 0}
+    - target: {fileID: 6677558420337584014, guid: c55c3e30770302943837b3903020cfba, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707473472036939822, guid: c55c3e30770302943837b3903020cfba, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6753679530863903312, guid: c55c3e30770302943837b3903020cfba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.946259
       objectReference: {fileID: 0}
+    - target: {fileID: 6905434498937012770, guid: c55c3e30770302943837b3903020cfba, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7522086115196473256, guid: c55c3e30770302943837b3903020cfba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.130001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986434049905428952, guid: c55c3e30770302943837b3903020cfba, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c55c3e30770302943837b3903020cfba, type: 3}

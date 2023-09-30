@@ -629,8 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 2
-  breakHitMinSpeed: 1
+  <MaxHealth>k__BackingField: 4
   breakEvent:
     m_PersistentCalls:
       m_Calls:
@@ -896,8 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 2
-  breakHitMinSpeed: 1
+  <MaxHealth>k__BackingField: 4
   breakEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1211,8 +1209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 2
-  breakHitMinSpeed: 1
+  <MaxHealth>k__BackingField: 4
   breakEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1382,8 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 2
-  breakHitMinSpeed: 1
+  <MaxHealth>k__BackingField: 4
   breakEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1565,8 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 2
-  breakHitMinSpeed: 1
+  <MaxHealth>k__BackingField: 4
   breakEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1963,8 +1958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 2
-  breakHitMinSpeed: 1
+  <MaxHealth>k__BackingField: 4
   breakEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2218,8 +2212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a33d04d1b8404abdc6274133b42b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 2
-  breakHitMinSpeed: 1
+  <MaxHealth>k__BackingField: 4
   breakEvent:
     m_PersistentCalls:
       m_Calls: []
