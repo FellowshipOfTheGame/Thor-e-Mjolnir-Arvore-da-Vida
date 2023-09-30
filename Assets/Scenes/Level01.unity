@@ -14377,7 +14377,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2779755197813913787}
-  padding: 0.2
+  xPadding: 0.2
+  yPadding: 10
 --- !u!1001 &7547057769719419990
 PrefabInstance:
   m_ObjectHideFlags: 0

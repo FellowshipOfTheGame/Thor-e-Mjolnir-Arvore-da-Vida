@@ -7,7 +7,7 @@ namespace ThorGame
     public class EnemyCuller : MonoBehaviour
     {
         [SerializeField] private Camera cam;
-        [SerializeField] private float padding;
+        [SerializeField] private float xPadding, yPadding;
         private readonly List<Collider2D> _enemies = new();
         private readonly Dictionary<Collider2D, Bounds> _boundsCache = new();
         private void Start()
@@ -30,9 +30,9 @@ namespace ThorGame
             var bounds = new Bounds
             {
                 center = camPos,
-                extents = new Vector3(ortSize * Screen.width / Screen.height + padding, ortSize + padding, 1)
+                extents = new Vector3(ortSize * Screen.width / Screen.height, ortSize, 1)
             };
-            Vector3 pad = Vector3.one * padding;
+            Vector3 pad = new Vector3(xPadding, yPadding, 0);
             bounds.min -= pad;
             bounds.max += pad;
             return bounds;
