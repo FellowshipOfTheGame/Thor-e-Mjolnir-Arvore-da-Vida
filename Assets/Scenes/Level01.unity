@@ -3173,37 +3173,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
-      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
-      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
       objectReference: {fileID: 135510332}
-    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
-      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
-      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
-      value: LoadMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
-      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
-      value: ThorGame.GameLoader, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
-      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 952814525, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
-      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7101071596458972483, guid: d0c15519c51eec04ba2b050b557b15c6, type: 3}
       propertyPath: m_RootOrder
       value: 5

@@ -20,12 +20,14 @@ namespace ThorGame.Player.HammerControls
 
         [SerializeField] private Vector2 headOffset;
 
-        [Header("Movement")] 
+        [Header("Movement")]
         [SerializeField] private float flyVelocity;
         [SerializeField] private float maxVelocity;
         [SerializeField] private float recallDistance;
         [SerializeField] private bool faceVelocity = true;
         [SerializeField] [Range(0f, 360f)] private float upAngle;
+        [SerializeField] private float heldGravityScale = 1;
+        [SerializeField] private float freeGravityScale = 1;
 
         [Header("Damage")] 
         [SerializeField] private float minimumSpeedToHit;
@@ -99,6 +101,7 @@ namespace ThorGame.Player.HammerControls
                         strap.SetActive(false);
                         hammerStrapJoint.enabled = false;
                         hammerFixedJoint.enabled = true;
+                        Rigidbody.gravityScale = heldGravityScale;
 
                         transform.parent = _ogParent;
                         Transform strapTransform = strap.transform;
@@ -112,6 +115,7 @@ namespace ThorGame.Player.HammerControls
                         strap.SetActive(true);
                         hammerStrapJoint.enabled = true;
                         hammerFixedJoint.enabled = false;
+                        Rigidbody.gravityScale = heldGravityScale;
                         
                         transform.parent = _ogParent;
                         Transform strapTransform = strap.transform;
@@ -127,6 +131,7 @@ namespace ThorGame.Player.HammerControls
                         strap.SetActive(false);
                         hammerStrapJoint.enabled = false;
                         hammerFixedJoint.enabled = false;
+                        Rigidbody.gravityScale = freeGravityScale;
                         transform.parent = null;
                         break;
                     }

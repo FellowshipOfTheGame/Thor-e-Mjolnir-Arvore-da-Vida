@@ -249,7 +249,7 @@ Rigidbody2D:
   m_Mass: 2.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -286,11 +286,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
   - {fileID: 11400000, guid: 300c9483b376b6a44bfe613175103416, type: 2}
   headOffset: {x: 0, y: 0.55}
-  flyVelocity: 10
+  flyVelocity: 15
   maxVelocity: 15
   recallDistance: 1
   faceVelocity: 0
   upAngle: 94
+  heldGravityScale: 3
+  freeGravityScale: 1.5
   minimumSpeedToHit: 10
   heldDamage: 1
   freeDamage: 5
@@ -10902,6 +10904,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ThorGame.GameLoader, Assembly-CSharp
+        m_MethodName: LoadMenu
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1001 &8855757177195006924
 PrefabInstance:
