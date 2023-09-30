@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 1587069704}
   - component: {fileID: 993371550}
   - component: {fileID: 993371549}
+  - component: {fileID: -3459774613360447353}
   m_Layer: 7
   m_Name: Elfo Negro
   m_TagString: Untagged
@@ -283,13 +284,32 @@ MonoBehaviour:
   deceleration: 0.1
   collisionMask:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 32840
   groundChecker:
     castDistance: 0.1
     mask:
       serializedVersion: 2
-      m_Bits: 72
+      m_Bits: 32840
   startsLookingAtLeft: 1
+--- !u!114 &-3459774613360447353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012540521363064025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61cc02179a884bcba4b0f11beaf3543c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundPadding: 0.1
+  bounceBackPadding: 0.5
+  startY: 0.8
+  maxDistance: 10
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!1 &9049618338782235692
 GameObject:
   m_ObjectHideFlags: 0

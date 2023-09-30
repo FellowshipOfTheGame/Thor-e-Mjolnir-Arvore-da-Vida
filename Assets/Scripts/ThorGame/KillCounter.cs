@@ -22,7 +22,7 @@ namespace ThorGame
             _enemies.Remove(enemy);
             if (_enemies.Count == 0)
             {
-                GameLoader.Instance.LoadMenu(true);
+                GameLoader.Instance.LoadVictory(true);
             }
         }
     }

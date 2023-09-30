@@ -22,6 +22,8 @@ namespace ThorGame
             get => _health;
             set
             {
+                if (value == _health) return;
+                
                 int oldHealth = _health;
                 _health = Mathf.Clamp(value, 0, _maxHealth);
 
@@ -51,10 +53,9 @@ namespace ThorGame
         public void Die()
         {
             if (_health > 0) _health = 0;
+            StopAllCoroutines();
             deathEvent?.Invoke();
             if (destroyOnDeath) Destroy(gameObject);
-            
-            StopAllCoroutines();
         }
 
         public void Hit(Vector2 point, Vector2 velocity, int damage)
