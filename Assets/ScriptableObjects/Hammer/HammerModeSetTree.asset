@@ -1,23 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7916541513508880392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e11f7319caf646c68133083f29e63696, type: 3}
-  m_Name: HammerModeAttachmentTransition
-  m_EditorClassIdentifier: 
-  from: {fileID: -3002802900554307167}
-  to: {fileID: 984492717642512493}
-  treeGuid: 
-  negateCondition: 0
-  attachment: 0
---- !u!114 &-7292957717477632621
+--- !u!114 &-4499342486722468718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,56 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRoot: 0
   connections:
-  - {fileID: -4495419550739263652}
-  treePos: {x: 286.8, y: -189.36002}
-  treeGuid: 435a9aa3503cca44ca95235834066e9e
-  title: PrepareThrow
-  modeVariants:
-  - {fileID: 11400000, guid: b6868797fd8f325499ac2531f41b82c7, type: 2}
---- !u!114 &-4495419550739263652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 985eff75e62242c78b0f97daaab1777d, type: 3}
-  m_Name: HammerModeKeyTransition
-  m_EditorClassIdentifier: 
-  from: {fileID: -7292957717477632621}
-  to: {fileID: -3002802900554307167}
-  treeGuid: 
-  negateCondition: 0
-  input:
-    type: 1
-    mode: 1
-    key: 0
-    mouseButton: 0
-    virtualButton:
-      Name: 
---- !u!114 &-3002802900554307167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 555a84dd2c5f4a4a8871a79249064ba1, type: 3}
-  m_Name: HammerModeNode
-  m_EditorClassIdentifier: 
-  isRoot: 0
-  connections:
-  - {fileID: -7916541513508880392}
-  treePos: {x: 393, y: 278}
-  treeGuid: 44cba39a64afaee489f623d4fba76e60
+  - {fileID: 436292660036708289}
+  treePos: {x: 104.40875, y: 154.5775}
+  treeGuid: dcd3b0350f50daf4d96f9f2709b8370f
   title: Thrown
   modeVariants:
   - {fileID: 11400000, guid: 300c9483b376b6a44bfe613175103416, type: 2}
---- !u!114 &-2243104319872137716
+--- !u!114 &-1726335413955344259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,10 +30,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 985eff75e62242c78b0f97daaab1777d, type: 3}
-  m_Name: HammerModeKeyTransition
+  m_Name: Slam->Strap
   m_EditorClassIdentifier: 
-  from: {fileID: 984492717642512493}
-  to: {fileID: -7292957717477632621}
+  from: {fileID: 4050535836601824754}
+  to: {fileID: 2215412595690488267}
   treeGuid: 
   negateCondition: 0
   input:
@@ -103,7 +43,7 @@ MonoBehaviour:
     mouseButton: 0
     virtualButton:
       Name: 
---- !u!114 &-792943762332149200
+--- !u!114 &-1355069678725210888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,15 +52,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: HammerModeButtonTransition
-  m_EditorClassIdentifier: Assembly-CSharp:ThorGame.Player.HammerControls.ModeSet.Transitions:HammerModeButtonTransition
-  from: {fileID: 984492717642512493}
-  to: {fileID: -7292957717477632621}
+  m_Script: {fileID: 11500000, guid: 985eff75e62242c78b0f97daaab1777d, type: 3}
+  m_Name: Strap->Thrown
+  m_EditorClassIdentifier: 
+  from: {fileID: 2215412595690488267}
+  to: {fileID: -4499342486722468718}
   treeGuid: 
   negateCondition: 0
-  button: 0
-  up: 0
+  input:
+    type: 1
+    mode: 1
+    key: 0
+    mouseButton: 0
+    virtualButton:
+      Name: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,13 +78,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db404388292245dfb61673ac2b0d3d4b, type: 3}
   m_Name: HammerModeSetTree
   m_EditorClassIdentifier: 
-  root: {fileID: 984492717642512493}
+  root: {fileID: 4050535836601824754}
   allNodes:
-  - {fileID: 984492717642512493}
-  - {fileID: -3002802900554307167}
-  - {fileID: -7292957717477632621}
+  - {fileID: 4050535836601824754}
+  - {fileID: 2215412595690488267}
+  - {fileID: -4499342486722468718}
   _currentNode: {fileID: 0}
---- !u!114 &984492717642512493
+--- !u!114 &436292660036708289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e11f7319caf646c68133083f29e63696, type: 3}
+  m_Name: Thrown->Slam
+  m_EditorClassIdentifier: 
+  from: {fileID: -4499342486722468718}
+  to: {fileID: 4050535836601824754}
+  treeGuid: 
+  negateCondition: 0
+  attachment: 0
+--- !u!114 &2215412595690488267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555a84dd2c5f4a4a8871a79249064ba1, type: 3}
+  m_Name: HammerModeNode
+  m_EditorClassIdentifier: 
+  isRoot: 0
+  connections:
+  - {fileID: -1355069678725210888}
+  treePos: {x: 0, y: 0}
+  treeGuid: 810586697db57224e8ab187f4cec6769
+  title: Strap
+  modeVariants:
+  - {fileID: 11400000, guid: b6868797fd8f325499ac2531f41b82c7, type: 2}
+--- !u!114 &4050535836601824754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,27 +135,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRoot: 1
   connections:
-  - {fileID: -2243104319872137716}
-  treePos: {x: 0, y: 0}
-  treeGuid: 40a1b7449d8244940bd06a65a6b6550b
+  - {fileID: -1726335413955344259}
+  treePos: {x: -117.60004, y: 103.600006}
+  treeGuid: e46563540d2b80f489f6dd53336677bb
   title: Slam
   modeVariants:
   - {fileID: 11400000, guid: f5b64e4e31612334781af85c00f6735f, type: 2}
---- !u!114 &6734990397424625044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: HammerModeButtonTransition
-  m_EditorClassIdentifier: Assembly-CSharp:ThorGame.Player.HammerControls.ModeSet.Transitions:HammerModeButtonTransition
-  from: {fileID: -7292957717477632621}
-  to: {fileID: -3002802900554307167}
-  treeGuid: 
-  negateCondition: 0
-  button: 0
-  up: 1

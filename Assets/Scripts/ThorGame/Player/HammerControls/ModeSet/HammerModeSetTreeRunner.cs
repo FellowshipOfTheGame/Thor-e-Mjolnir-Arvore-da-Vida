@@ -14,6 +14,7 @@ namespace ThorGame.Player.HammerControls.ModeSet
 
         private void Update()
         {
+            if (Time.timeScale == 0) return;
             tree.Tick(hammer);
         }
     }
