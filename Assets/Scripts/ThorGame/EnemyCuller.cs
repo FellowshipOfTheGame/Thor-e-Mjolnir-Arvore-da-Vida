@@ -8,8 +8,11 @@ namespace ThorGame
     {
         [SerializeField] private Camera cam;
         [SerializeField] private float xPadding, yPadding;
+        
         private readonly List<Collider2D> _enemies = new();
         private readonly Dictionary<Collider2D, Bounds> _boundsCache = new();
+        private readonly HashSet<Collider2D> _ignore = new();
+        
         private void Start()
         {
             foreach (var enemy in FindObjectsOfType<EntityHealth>())
@@ -52,7 +55,11 @@ namespace ThorGame
             var camBounds = CamBounds();
             foreach (var enemy in _enemies)
             {
-                enemy.gameObject.SetActive(ColBounds(enemy).Intersects(camBounds));
+                if (_ignore.Contains(enemy)) continue;
+                
+                bool active = ColBounds(enemy).Intersects(camBounds);
+                enemy.gameObject.SetActive(active);
+                if (active) _ignore.Add(enemy);
             }
         }
 
