@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: -3459774613360447353}
   m_Layer: 7
   m_Name: Elfo Negro
-  m_TagString: Untagged
+  m_TagString: ElfoNegro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

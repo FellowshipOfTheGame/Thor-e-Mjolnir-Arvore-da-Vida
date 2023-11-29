@@ -10695,6 +10695,7 @@ GameObject:
   - component: {fileID: 7101071596458972483}
   - component: {fileID: 2512070221525442960}
   - component: {fileID: 3151805659683941111}
+  - component: {fileID: 2528884910586575470}
   - component: {fileID: 2005922790202804600}
   - component: {fileID: 5841768375060731159}
   - component: {fileID: 7781979221507383653}
@@ -10702,6 +10703,7 @@ GameObject:
   - component: {fileID: 842974196}
   - component: {fileID: 952814525}
   - component: {fileID: 1469586306239532885}
+  - component: {fileID: 2112643494423446408}
   m_Layer: 11
   m_Name: Thor
   m_TagString: Untagged
@@ -10767,6 +10769,102 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.7}
   m_Size: {x: 2.21, y: 7.03}
   m_Direction: 0
+--- !u!82 &2528884910586575470
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7101071596458972484}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &2005922790202804600
 Animator:
   serializedVersion: 4
@@ -11015,6 +11113,37 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 32768
+--- !u!114 &2112643494423446408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7101071596458972484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33756a4373eccaa41a22f947d5f5c041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 8
+  mask:
+    serializedVersion: 2
+    m_Bits: 128
+  cooldown:
+    <MaxSeconds>k__BackingField: 5
+  chance: 0.45
+  entries:
+  - enemyTag: ElfoNegro
+    lines:
+    - {fileID: 8300000, guid: f851c1cc2d6c3c04595f37664bb5f110, type: 3}
+    - {fileID: 8300000, guid: 577440a378ec8304a93d1e6725d2f099, type: 3}
+    - {fileID: 8300000, guid: e7af608fd2380df43b2d28e37123ae07, type: 3}
+    - {fileID: 8300000, guid: 96452c32033899146a9ad0e5cf6efe91, type: 3}
+    - {fileID: 8300000, guid: 4021711f2d731d345ae2a3e66ccf5955, type: 3}
+  - enemyTag: Javali
+    lines:
+    - {fileID: 8300000, guid: b7e0c19b275aac042ae9538cea53fb7c, type: 3}
+    - {fileID: 8300000, guid: 19a4f487910f8954c9c135a6c360e6d8, type: 3}
 --- !u!1001 &8855757177195006924
 PrefabInstance:
   m_ObjectHideFlags: 0
